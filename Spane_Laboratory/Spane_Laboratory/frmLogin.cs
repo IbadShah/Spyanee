@@ -15,7 +15,7 @@ namespace Spane_Laboratory
 {
     public partial class frmLogin : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=LabDatabase;Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=LabDatabase;Integrated Security=True");
         SqlCommand querystatement = new SqlCommand();
         SqlDataReader dr;
 

@@ -9,3 +9,6 @@ C:\Users\Muhammad Jawad\documents\visual studio 2013\Projects\Spane_Laboratory\S
 C:\Users\Muhammad Jawad\documents\visual studio 2013\Projects\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.frmRegistration.resources
 C:\Users\Muhammad Jawad\documents\visual studio 2013\Projects\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.AdminView.resources
 C:\Users\Muhammad Jawad\documents\visual studio 2013\Projects\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.csprojResolveAssemblyReference.cache
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\Spane_Laboratory.exe.config
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.exe
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.pdb
