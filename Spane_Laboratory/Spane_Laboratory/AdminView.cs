@@ -15,7 +15,8 @@ namespace Spane_Laboratory
 {
     public partial class AdminView : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-57NRPCA\SQLEXPRESS;Initial Catalog=Lab_Database;Integrated Security=True");
+       
+        SqlConnection connection = new SqlConnection(@"Data Source=shah;Initial Catalog=Lab_Database;Integrated Security=True");
         SqlCommand querystatement = new SqlCommand();
        
         public AdminView()
@@ -71,7 +72,11 @@ namespace Spane_Laboratory
 
         private void Admin_View_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            CustomMessageBox customMessageBox = new CustomMessageBox();
+          
+            customMessageBox.Show();
+           
+           
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -111,10 +116,7 @@ namespace Spane_Laboratory
             cmbCategories.Enabled = true;
         }
 
-        private void cmbCategories_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
        
 

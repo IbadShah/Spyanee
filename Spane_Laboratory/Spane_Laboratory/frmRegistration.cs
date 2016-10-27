@@ -16,6 +16,7 @@ namespace Spane_Laboratory
     
     public partial class frmRegistration : Form
     {
+   
         SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=LabDatabase;Integrated Security=True");
         SqlCommand querystatement = new SqlCommand();
         frmLogin login = new frmLogin();
@@ -100,6 +101,12 @@ namespace Spane_Laboratory
       public void switchScreen()
         {
             this.Close();
+            login.Show();
+        }
+
+        private void frmRegistration_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
             login.Show();
         }
     }

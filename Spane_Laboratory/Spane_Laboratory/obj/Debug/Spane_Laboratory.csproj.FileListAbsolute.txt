@@ -12,3 +12,12 @@ C:\Users\Muhammad Jawad\documents\visual studio 2013\Projects\Spane_Laboratory\S
 F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\Spane_Laboratory.exe.config
 F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.exe
 F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.pdb
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\Spane_Laboratory.exe
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\Spane_Laboratory.pdb
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.csprojResolveAssemblyReference.cache
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.AdminView.resources
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.frmLogin.resources
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.Properties.Resources.resources
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.frmRegistration.resources
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.csproj.GenerateResource.Cache
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.CustomMessageBox.resources
