@@ -19,6 +19,8 @@ namespace Spane_Laboratory
 
         private void btnYes_Click(object sender, EventArgs e)
         {
+
+            this.Dispose();
             Application.Exit();
 
         }

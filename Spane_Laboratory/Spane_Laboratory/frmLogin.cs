@@ -80,6 +80,7 @@ namespace Spane_Laboratory
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             Application.Exit();
         }
     }

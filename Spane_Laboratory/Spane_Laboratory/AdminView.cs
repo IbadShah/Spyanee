@@ -10,15 +10,19 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data.Sql;
+using Lab.Models;
 
 namespace Spane_Laboratory
 {
     public partial class AdminView : Form
     {
-       
-        SqlConnection connection = new SqlConnection(@"Data Source=shah;Initial Catalog=Lab_Database;Integrated Security=True");
-        SqlCommand querystatement = new SqlCommand();
-       
+        #region Procedure Parameters
+        private const string CatId = "@CatId";
+        private const string CatName = "@CatName";
+        private const string RetVal = "@RetVal";
+        #endregion
+        private readonly DbHelper _oDbHelper = new DbHelper();
+
         public AdminView()
         {
             InitializeComponent();
@@ -40,6 +44,8 @@ namespace Spane_Laboratory
 
         private void Admin_View_Load(object sender, EventArgs e)
         {
+
+            DataLoader();
             panel1.Hide();
             panel2.Hide();
             panel3.Hide();
@@ -87,43 +93,128 @@ namespace Spane_Laboratory
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-
             try
             {
-                connection.Open();
-                if (tbCategories.Text != "")
-                {
-                    querystatement.CommandText = "insert into tblCategories (CatName) Values ('" + tbCategories.Text + "')";
-                    querystatement.ExecuteNonQuery();
-                    querystatement.Clone();
-                    MessageBox.Show("record inserted sucessfully");
-                    tbCategories.Clear();
-
-                }
-                else
-                {
-                    MessageBox.Show("please enter some  value");
-                }
-                connection.Close();
-            }
-            catch (Exception ex)
+                _oDbHelper.OpenConnection();
+                var catgories = Initializer();
+                SaveCategories(catgories);
+                _oDbHelper.CloseConnection();
+                cmbCategories.Enabled = true;
+                MessageBox.Show("Record is Inserted.");
+                PopulateCategories();
+            }   
+            
+                 catch (Exception ex)
             {
-                MessageBox.Show("Unable for Registration");
-                connection.Close();
+                cmbCategories.Enabled = true;
+                MessageBox.Show("Insertion Failed." + ex);
             }
-
-            cmbCategories.Enabled = true;
+          
         }
 
      
 
-       
+       public void PopulateCategories()
+        {
+            try
+            {
+                _oDbHelper.OpenConnection();
+                var dt=_oDbHelper.GetDataTable("uspGetAllCategories");
+                cmbCategories.DataSource = dt;
+                cmbCategories.DisplayMember = "CatName";
+                cmbCategories.ValueMember = "CatId";
+                cmbCategory.DataSource = dt;
+                cmbCategory.DisplayMember = "CatName";
+                cmbCategory.ValueMember = "CatId";
+                _oDbHelper.CloseConnection();
 
 
+            }
+            catch(Exception ex)
+            {
+
+                MessageBox.Show("Unable to Load Categories."+ex);
+                _oDbHelper.CloseConnection();
+            }
         }
 
-        
-       
+       public void PopulateSubCategoryGrid()
+        {
+            try
+            {
+                _oDbHelper.OpenConnection();
+                var dt = _oDbHelper.GetDataTable("uspGetAllSubCategories");
+                gvSubCategories.DataSource = dt;
+                _oDbHelper.CloseConnection();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Unable to Load SubCategories." + ex);
+                _oDbHelper.CloseConnection();
+            }
+        }
+
+        public void DataLoader()
+        {
+           
+            PopulateCategories();
+            PopulateSubCategoryGrid();
+        }
+        private Categories Initializer()
+        {
+            var catgories = new Categories
+            {
+                CatId = cmbCategories.Enabled ? (Int32)cmbCategories.SelectedValue : 0,
+                CatName = tbCategories.Text
+            };
+            return catgories;
+        }
+
+        public void SaveCategories(Categories model)
+        {         
+                SqlParameter[] param =
+                {
+                    _oDbHelper.InParam(CatId, SqlDbType.Int, 4, model.CatId),
+
+                    _oDbHelper.InParam(CatName, SqlDbType.NVarChar, 50, model.CatName),
+
+                    _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
+                };
+               var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspCategoriesSave", RetVal, param);    
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //var a = cmbCategories.SelectedValue;
+            //MessageBox.Show("" + a);
+        }
+
+        private void cmbCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Categories categories;
+                var id = (int)cmbCategories.SelectedValue;
+                categories = GetById(id);
+                tbCategories.Text = categories.CatName;
+            }
+            catch(Exception ex)
+            {
+                //MessageBox.Show("Category Loading Failed."+ex);
+            }
+        }
+        public Categories GetById(int id)
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.InParam(CatId,SqlDbType.Int,4,id)
+            };
+            var list = _oDbHelper.GenericSqlDataReader<Categories>("uspGetAllCategories", pram).FirstOrDefault();
+            return list;
+        }
     }
+
+
+
+}
 

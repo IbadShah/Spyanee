@@ -47,6 +47,7 @@
             this.tbCategories = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -70,7 +71,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gvSubCategories = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,7 +80,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSubCategories)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -104,8 +105,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Size = new System.Drawing.Size(999, 478);
-            this.splitContainer1.SplitterDistance = 175;
+            this.splitContainer1.Size = new System.Drawing.Size(938, 478);
+            this.splitContainer1.SplitterDistance = 164;
             this.splitContainer1.TabIndex = 0;
             // 
             // pictureBox1
@@ -113,7 +114,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 158);
+            this.pictureBox1.Size = new System.Drawing.Size(158, 158);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -191,9 +192,9 @@
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(83, 325);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 478);
+            this.panel1.Size = new System.Drawing.Size(770, 478);
             this.panel1.TabIndex = 0;
             // 
             // label4
@@ -211,7 +212,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.Window;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnDelete.Location = new System.Drawing.Point(721, 436);
+            this.btnDelete.Location = new System.Drawing.Point(669, 427);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 39);
             this.btnDelete.TabIndex = 11;
@@ -222,18 +223,19 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.SystemColors.Window;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnUpdate.Location = new System.Drawing.Point(624, 436);
+            this.btnUpdate.Location = new System.Drawing.Point(572, 427);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(89, 39);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.Window;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnSave.Location = new System.Drawing.Point(529, 436);
+            this.btnSave.Location = new System.Drawing.Point(477, 427);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(89, 39);
             this.btnSave.TabIndex = 9;
@@ -245,7 +247,7 @@
             // 
             this.btnNew.BackColor = System.Drawing.SystemColors.Window;
             this.btnNew.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnNew.Location = new System.Drawing.Point(434, 436);
+            this.btnNew.Location = new System.Drawing.Point(382, 427);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(89, 39);
             this.btnNew.TabIndex = 7;
@@ -259,8 +261,9 @@
             this.cmbCategories.FormattingEnabled = true;
             this.cmbCategories.Location = new System.Drawing.Point(209, 183);
             this.cmbCategories.Name = "cmbCategories";
-            this.cmbCategories.Size = new System.Drawing.Size(585, 29);
+            this.cmbCategories.Size = new System.Drawing.Size(549, 29);
             this.cmbCategories.TabIndex = 1;
+            this.cmbCategories.SelectedIndexChanged += new System.EventHandler(this.cmbCategories_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -277,7 +280,7 @@
             this.tbCategories.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.tbCategories.Location = new System.Drawing.Point(209, 232);
             this.tbCategories.Name = "tbCategories";
-            this.tbCategories.Size = new System.Drawing.Size(585, 27);
+            this.tbCategories.Size = new System.Drawing.Size(549, 27);
             this.tbCategories.TabIndex = 2;
             // 
             // label2
@@ -292,6 +295,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
@@ -311,16 +315,27 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.cmbCategory);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(29, 289);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(820, 478);
+            this.panel2.Size = new System.Drawing.Size(770, 478);
             this.panel2.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Algerian", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(179, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(427, 41);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Spayeene Laboratory";
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.Window;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button4.Location = new System.Drawing.Point(719, 436);
+            this.button4.Location = new System.Drawing.Point(669, 427);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(89, 39);
             this.button4.TabIndex = 11;
@@ -331,7 +346,7 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button3.Location = new System.Drawing.Point(624, 436);
+            this.button3.Location = new System.Drawing.Point(574, 427);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(89, 39);
             this.button3.TabIndex = 10;
@@ -342,7 +357,7 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Window;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button2.Location = new System.Drawing.Point(529, 436);
+            this.button2.Location = new System.Drawing.Point(479, 427);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 39);
             this.button2.TabIndex = 9;
@@ -365,14 +380,14 @@
             this.cmbItem.FormattingEnabled = true;
             this.cmbItem.Location = new System.Drawing.Point(179, 148);
             this.cmbItem.Name = "cmbItem";
-            this.cmbItem.Size = new System.Drawing.Size(629, 29);
+            this.cmbItem.Size = new System.Drawing.Size(523, 29);
             this.cmbItem.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button1.Location = new System.Drawing.Point(434, 436);
+            this.button1.Location = new System.Drawing.Point(384, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 39);
             this.button1.TabIndex = 8;
@@ -384,7 +399,7 @@
             this.tbAmount.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.tbAmount.Location = new System.Drawing.Point(179, 391);
             this.tbAmount.Name = "tbAmount";
-            this.tbAmount.Size = new System.Drawing.Size(629, 27);
+            this.tbAmount.Size = new System.Drawing.Size(523, 27);
             this.tbAmount.TabIndex = 7;
             // 
             // tbUnitRate
@@ -392,7 +407,7 @@
             this.tbUnitRate.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.tbUnitRate.Location = new System.Drawing.Point(179, 340);
             this.tbUnitRate.Name = "tbUnitRate";
-            this.tbUnitRate.Size = new System.Drawing.Size(629, 27);
+            this.tbUnitRate.Size = new System.Drawing.Size(523, 27);
             this.tbUnitRate.TabIndex = 6;
             // 
             // tbUnits
@@ -400,7 +415,7 @@
             this.tbUnits.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.tbUnits.Location = new System.Drawing.Point(179, 292);
             this.tbUnits.Name = "tbUnits";
-            this.tbUnits.Size = new System.Drawing.Size(629, 27);
+            this.tbUnits.Size = new System.Drawing.Size(523, 27);
             this.tbUnits.TabIndex = 5;
             // 
             // tbQuantity
@@ -408,7 +423,7 @@
             this.tbQuantity.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.tbQuantity.Location = new System.Drawing.Point(179, 245);
             this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(629, 27);
+            this.tbQuantity.Size = new System.Drawing.Size(523, 27);
             this.tbQuantity.TabIndex = 4;
             // 
             // tbItem
@@ -416,7 +431,7 @@
             this.tbItem.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.tbItem.Location = new System.Drawing.Point(179, 199);
             this.tbItem.Name = "tbItem";
-            this.tbItem.Size = new System.Drawing.Size(629, 27);
+            this.tbItem.Size = new System.Drawing.Size(523, 27);
             this.tbItem.TabIndex = 3;
             // 
             // label9
@@ -485,21 +500,20 @@
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(179, 98);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(629, 29);
+            this.cmbCategory.Size = new System.Drawing.Size(523, 29);
             this.cmbCategory.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label14);
-            
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.textBox9);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.gvSubCategories);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(820, 478);
+            this.panel3.Size = new System.Drawing.Size(770, 478);
             this.panel3.TabIndex = 6;
             // 
             // label14
@@ -517,7 +531,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label12.Location = new System.Drawing.Point(548, 445);
+            this.label12.Location = new System.Drawing.Point(445, 445);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(118, 21);
             this.label12.TabIndex = 4;
@@ -541,13 +555,13 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Search";
             // 
-            // dataGridView1
+            // gvSubCategories
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(791, 305);
-            this.dataGridView1.TabIndex = 1;
+            this.gvSubCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSubCategories.Location = new System.Drawing.Point(17, 100);
+            this.gvSubCategories.Name = "gvSubCategories";
+            this.gvSubCategories.Size = new System.Drawing.Size(685, 305);
+            this.gvSubCategories.TabIndex = 1;
             // 
             // AdminView
             // 
@@ -556,7 +570,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::Spane_Laboratory.Properties.Resources.lab;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(999, 478);
+            this.ClientSize = new System.Drawing.Size(938, 478);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminView";
@@ -575,7 +589,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSubCategories)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -589,7 +603,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gvSubCategories;
         private System.Windows.Forms.TextBox tbAmount;
         private System.Windows.Forms.TextBox tbUnitRate;
         private System.Windows.Forms.TextBox tbUnits;
@@ -624,5 +638,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label6;
     }
 }

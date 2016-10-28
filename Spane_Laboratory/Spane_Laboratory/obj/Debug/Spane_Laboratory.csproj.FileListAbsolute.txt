@@ -20,3 +20,10 @@ F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.Prop
 F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.frmRegistration.resources
 F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.csproj.GenerateResource.Cache
 F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.CustomMessageBox.resources
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\EntityFramework.dll
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\EntityFramework.SqlServer.dll
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\EntityFramework.xml
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\EntityFramework.SqlServer.xml
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\Lab.Models.dll
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\bin\Debug\Lab.Models.pdb
+F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\obj\Debug\Spane_Laboratory.csprojResolveAssemblyReference.cache
