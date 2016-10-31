@@ -20,16 +20,19 @@ namespace Spane_Laboratory
         private void btnYes_Click(object sender, EventArgs e)
         {
 
-            this.Dispose();
-            Application.Exit();
+         
+
 
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            this.Close();
-            AdminView ad = new AdminView();
-            ad.Show();
+       
+            AdminView adminView = new AdminView();
+            adminView.Show();
+
+            
         }
+       
     }
 }

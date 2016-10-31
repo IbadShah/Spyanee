@@ -55,9 +55,11 @@
             // tbUserName
             // 
             this.tbUserName.Location = new System.Drawing.Point(250, 55);
+            this.tbUserName.MaxLength = 50;
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(257, 27);
             this.tbUserName.TabIndex = 1;
+            this.tbUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbPassword
             // 
@@ -65,6 +67,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(257, 27);
             this.tbPassword.TabIndex = 2;
+            this.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -81,11 +84,11 @@
             this.label3.AutoSize = true;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Algerian", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 9);
+            this.label3.Location = new System.Drawing.Point(55, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(427, 41);
+            this.label3.Size = new System.Drawing.Size(434, 41);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Spayeene Laboratory";
+            this.label3.Text = "ANT INTERNATIONAL LAB";
             // 
             // groupBox1
             // 
@@ -148,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(539, 299);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

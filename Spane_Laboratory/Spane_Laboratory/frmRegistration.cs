@@ -41,9 +41,9 @@ namespace Spane_Laboratory
             try
             {
                 connection.Open();
-                if (tbUserName.Text != "" && tbPassword.Text != "" && tbPhone.Text != "" && tbAddress.Text != "")
+                if (tbUserName.Text != "" && tbPassword.Text != "")
                 {
-                    querystatement.CommandText = "insert into tblAdmin (UserName,Password,Phone,Address) Values ('" + tbUserName.Text + "','" + tbPassword.Text + "','" + tbPhone.Text + "','" + tbAddress.Text + "')";
+                    querystatement.CommandText = "insert into tblAdmin (UserName,Password) Values ('" + tbUserName.Text + "','" + tbPassword.Text+ "')";
                     querystatement.ExecuteNonQuery();
                     querystatement.Clone();
                     MessageBox.Show("record inserted sucessfully");
@@ -73,7 +73,7 @@ namespace Spane_Laboratory
             try
             {
                 connection.Open();
-                querystatement.CommandText = "update  tblAdmin set UserName='" + this.tbUserName.Text + "',Password='" + this.tbPassword.Text + "',Phone='" + this.tbPhone.Text + "',Address='" + this.tbAddress.Text + "'where UserName='" + this.tbUserName.Text + "'; ";
+                querystatement.CommandText = "update  tblAdmin set UserName='" + this.tbUserName.Text + "',Password='" + this.tbPassword.Text + "';";
                 querystatement.ExecuteNonQuery();
                 connection.Close();
 
@@ -95,8 +95,7 @@ namespace Spane_Laboratory
         {
             tbUserName.Clear();
             tbPassword.Clear();
-            tbPhone.Clear();
-            tbAddress.Clear();
+           
         }
       public void switchScreen()
         {
