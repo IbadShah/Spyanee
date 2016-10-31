@@ -220,7 +220,7 @@ namespace Spane_Laboratory
             var subCatgories = new SubCategories
             {
                 SubCatId = cmbItem.Enabled ? (int)cmbItem.SelectedValue : 0,
-                Item = Convert.ToString(tbItem.Text)
+                SubCateName = Convert.ToString(tbItem.Text)
 
             };
             return subCatgories;
@@ -287,18 +287,18 @@ namespace Spane_Laboratory
         }
         public void SaveSubCategories(SubCategories subCategories)
         {
-            SqlParameter[] param =
-             {
-                    _oDbHelper.InParam(SubCatId, SqlDbType.Int, 4, subCategories.SubCatId),
-                    _oDbHelper.InParam(Item, SqlDbType.NVarChar, 50, subCategories.Item),
-                    _oDbHelper.InParam(Quantity,SqlDbType.Decimal,18,subCategories.Quantity),
-                    _oDbHelper.InParam(Units,SqlDbType.NVarChar,50,subCategories.Units),
-                    _oDbHelper.InParam(UnitRate,SqlDbType.Decimal,18,subCategories.UnitRate),
-                    _oDbHelper.InParam(Amount,SqlDbType.Decimal,18,subCategories.Amount),
-                    _oDbHelper.InParam(CatId,SqlDbType.Int,4,subCategories.CatId),
-                    _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
-             };
-               var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspSubCategoriesSave", RetVal, param);
+            //SqlParameter[] param =
+            // {
+            //        _oDbHelper.InParam(SubCatId, SqlDbType.Int, 4, subCategories.SubCatId),
+            //        _oDbHelper.InParam(Item, SqlDbType.NVarChar, 50, subCategories.Item),
+            //        _oDbHelper.InParam(Quantity,SqlDbType.Decimal,18,subCategories.Quantity),
+            //        _oDbHelper.InParam(Units,SqlDbType.NVarChar,50,subCategories.Units),
+            //        _oDbHelper.InParam(UnitRate,SqlDbType.Decimal,18,subCategories.UnitRate),
+            //        _oDbHelper.InParam(Amount,SqlDbType.Decimal,18,subCategories.Amount),
+            //        _oDbHelper.InParam(CatId,SqlDbType.Int,4,subCategories.CatId),
+            //        _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
+            // };
+            //   var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspSubCategoriesSave", RetVal, param);
         }
 
         private void btnNewItem_Click(object sender, EventArgs e)

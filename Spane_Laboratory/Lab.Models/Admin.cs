@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lab.Models
 {
-    public class SubCategories
+    public class Admin
     {
-        public int SubCatId { get; set; }
-        public string SubCateName { get; set; }
+        public int AdminId { get; set; }
+        public string UserName { get; set; }
+        public long Password { get; set; }
         public bool? IsActive { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public int CreatedBy { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public int? UpdatedBy { get; set; }
+    
 
     }
 }

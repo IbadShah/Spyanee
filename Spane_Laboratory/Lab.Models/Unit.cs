@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab.Models
 {
-    public class SubCategories
+    public class Unit
     {
-        public int SubCatId { get; set; }
-        public string SubCateName { get; set; }
+        public int UnitId { get; set; }
+        public string UnitName { get; set; }
         public bool? IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }

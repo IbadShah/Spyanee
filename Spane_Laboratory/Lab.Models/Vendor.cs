@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab.Models
 {
-    public class SubCategories
+    public class Vendor
     {
-        public int SubCatId { get; set; }
-        public string SubCateName { get; set; }
-        public bool? IsActive { get; set; }
+        public int VendorId { get; set; }
+        public string VendorName { get; set; }
+        public long VendorContactNumber { get; set; }
+        public string VendorAddress { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
