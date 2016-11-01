@@ -43,7 +43,7 @@
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkCategoryIsActive = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCategoriesClear = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -54,6 +54,7 @@
             this.tbCategories = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbItem = new System.Windows.Forms.ComboBox();
             this.chkItemIsActive = new System.Windows.Forms.CheckBox();
             this.button24 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.btnUpdateItem = new System.Windows.Forms.Button();
             this.btnSaveItem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbItem = new System.Windows.Forms.ComboBox();
             this.btnNewItem = new System.Windows.Forms.Button();
             this.tbItem = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -146,13 +146,13 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbPurInvPacking = new System.Windows.Forms.ComboBox();
+            this.cmbPurInvUnit = new System.Windows.Forms.ComboBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbPurInvSubCat = new System.Windows.Forms.ComboBox();
             this.label41 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbPurInvCat = new System.Windows.Forms.ComboBox();
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -183,13 +183,13 @@
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cmbSalOrderPacking = new System.Windows.Forms.ComboBox();
+            this.cmbSalOrderUnit = new System.Windows.Forms.ComboBox();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cmbSalOrderSubCat = new System.Windows.Forms.ComboBox();
             this.label56 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.cmbSalOrderCat = new System.Windows.Forms.ComboBox();
             this.label57 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
@@ -221,13 +221,13 @@
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.cmbSaleInvPacking = new System.Windows.Forms.ComboBox();
+            this.cmbSaleInvUnit = new System.Windows.Forms.ComboBox();
             this.label69 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.cmbSaleInvSubCat = new System.Windows.Forms.ComboBox();
             this.label71 = new System.Windows.Forms.Label();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.cmbSaleInvCat = new System.Windows.Forms.ComboBox();
             this.label72 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
@@ -439,7 +439,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.Controls.Add(this.chkCategoryIsActive);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnCategoriesClear);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnUpdate);
@@ -449,9 +449,9 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(162, 249);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1048, 593);
             this.panel1.TabIndex = 0;
@@ -466,16 +466,17 @@
             this.chkCategoryIsActive.Text = "Is Active";
             this.chkCategoryIsActive.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCategoriesClear
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button1.Location = new System.Drawing.Point(848, 542);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 39);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCategoriesClear.BackColor = System.Drawing.SystemColors.Window;
+            this.btnCategoriesClear.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnCategoriesClear.Location = new System.Drawing.Point(848, 542);
+            this.btnCategoriesClear.Name = "btnCategoriesClear";
+            this.btnCategoriesClear.Size = new System.Drawing.Size(89, 39);
+            this.btnCategoriesClear.TabIndex = 7;
+            this.btnCategoriesClear.Text = "Clear";
+            this.btnCategoriesClear.UseVisualStyleBackColor = false;
+            this.btnCategoriesClear.Click += new System.EventHandler(this.btnCategoriesClear_Click);
             // 
             // label4
             // 
@@ -498,6 +499,7 @@
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -575,6 +577,8 @@
             // 
             // panel2
             // 
+            
+            this.panel2.Controls.Add(this.cmbItem);
             this.panel2.Controls.Add(this.chkItemIsActive);
             this.panel2.Controls.Add(this.button24);
             this.panel2.Controls.Add(this.label6);
@@ -582,15 +586,24 @@
             this.panel2.Controls.Add(this.btnUpdateItem);
             this.panel2.Controls.Add(this.btnSaveItem);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.cmbItem);
             this.panel2.Controls.Add(this.btnNewItem);
             this.panel2.Controls.Add(this.tbItem);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(90, 459);
             this.panel2.Name = "panel2";
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Size = new System.Drawing.Size(1048, 593);
             this.panel2.TabIndex = 6;
+            // 
+            // cmbItem
+            // 
+            this.cmbItem.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cmbItem.FormattingEnabled = true;
+            this.cmbItem.Location = new System.Drawing.Point(298, 188);
+            this.cmbItem.Name = "cmbItem";
+            this.cmbItem.Size = new System.Drawing.Size(549, 29);
+            this.cmbItem.TabIndex = 1;
+            this.cmbItem.SelectedIndexChanged += new System.EventHandler(this.cmbItem_SelectedIndexChanged);
             // 
             // chkItemIsActive
             // 
@@ -599,7 +612,7 @@
             this.chkItemIsActive.Location = new System.Drawing.Point(745, 347);
             this.chkItemIsActive.Name = "chkItemIsActive";
             this.chkItemIsActive.Size = new System.Drawing.Size(97, 25);
-            this.chkItemIsActive.TabIndex = 15;
+            this.chkItemIsActive.TabIndex = 3;
             this.chkItemIsActive.Text = "Is Active";
             this.chkItemIsActive.UseVisualStyleBackColor = true;
             // 
@@ -610,9 +623,10 @@
             this.button24.Location = new System.Drawing.Point(852, 543);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(89, 39);
-            this.button24.TabIndex = 14;
+            this.button24.TabIndex = 7;
             this.button24.Text = "Clear";
             this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // label6
             // 
@@ -632,7 +646,7 @@
             this.btnDeleteItem.Location = new System.Drawing.Point(947, 542);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(89, 39);
-            this.btnDeleteItem.TabIndex = 11;
+            this.btnDeleteItem.TabIndex = 8;
             this.btnDeleteItem.Text = "Delete";
             this.btnDeleteItem.UseVisualStyleBackColor = false;
             // 
@@ -643,9 +657,10 @@
             this.btnUpdateItem.Location = new System.Drawing.Point(757, 543);
             this.btnUpdateItem.Name = "btnUpdateItem";
             this.btnUpdateItem.Size = new System.Drawing.Size(89, 39);
-            this.btnUpdateItem.TabIndex = 10;
+            this.btnUpdateItem.TabIndex = 6;
             this.btnUpdateItem.Text = "Update";
             this.btnUpdateItem.UseVisualStyleBackColor = false;
+            this.btnUpdateItem.Click += new System.EventHandler(this.btnUpdateItem_Click);
             // 
             // btnSaveItem
             // 
@@ -654,7 +669,7 @@
             this.btnSaveItem.Location = new System.Drawing.Point(662, 543);
             this.btnSaveItem.Name = "btnSaveItem";
             this.btnSaveItem.Size = new System.Drawing.Size(89, 39);
-            this.btnSaveItem.TabIndex = 9;
+            this.btnSaveItem.TabIndex = 5;
             this.btnSaveItem.Text = "Save";
             this.btnSaveItem.UseVisualStyleBackColor = false;
             this.btnSaveItem.Click += new System.EventHandler(this.btnSaveItem_Click);
@@ -663,20 +678,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(164, 191);
+            this.label1.Location = new System.Drawing.Point(158, 198);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 21);
             this.label1.TabIndex = 10;
             this.label1.Text = "Select Item";
-            // 
-            // cmbItem
-            // 
-            this.cmbItem.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.cmbItem.FormattingEnabled = true;
-            this.cmbItem.Location = new System.Drawing.Point(313, 182);
-            this.cmbItem.Name = "cmbItem";
-            this.cmbItem.Size = new System.Drawing.Size(523, 29);
-            this.cmbItem.TabIndex = 2;
             // 
             // btnNewItem
             // 
@@ -685,7 +691,7 @@
             this.btnNewItem.Location = new System.Drawing.Point(563, 543);
             this.btnNewItem.Name = "btnNewItem";
             this.btnNewItem.Size = new System.Drawing.Size(89, 39);
-            this.btnNewItem.TabIndex = 8;
+            this.btnNewItem.TabIndex = 4;
             this.btnNewItem.Text = "New";
             this.btnNewItem.UseVisualStyleBackColor = false;
             this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
@@ -693,23 +699,24 @@
             // tbItem
             // 
             this.tbItem.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.tbItem.Location = new System.Drawing.Point(313, 270);
+            this.tbItem.Location = new System.Drawing.Point(298, 270);
             this.tbItem.Name = "tbItem";
-            this.tbItem.Size = new System.Drawing.Size(523, 27);
-            this.tbItem.TabIndex = 3;
+            this.tbItem.Size = new System.Drawing.Size(549, 27);
+            this.tbItem.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label5.Location = new System.Drawing.Point(170, 277);
+            this.label5.Location = new System.Drawing.Point(158, 276);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 21);
+            this.label5.Size = new System.Drawing.Size(86, 21);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Item";
+            this.label5.Text = "Add Item";
             // 
             // pnlUnit
             // 
+            
             this.pnlUnit.Controls.Add(this.label9);
             this.pnlUnit.Controls.Add(this.btnUnitDelete);
             this.pnlUnit.Controls.Add(this.btnUnitClear);
@@ -721,9 +728,9 @@
             this.pnlUnit.Controls.Add(this.cmbUnit);
             this.pnlUnit.Controls.Add(this.label15);
             this.pnlUnit.Controls.Add(this.label10);
-            this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUnit.Location = new System.Drawing.Point(0, 0);
+            this.pnlUnit.Location = new System.Drawing.Point(75, 420);
             this.pnlUnit.Name = "pnlUnit";
+            this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlUnit.Size = new System.Drawing.Size(1048, 593);
             this.pnlUnit.TabIndex = 14;
             // 
@@ -843,6 +850,7 @@
             // 
             // pnlPacking
             // 
+         
             this.pnlPacking.Controls.Add(this.label7);
             this.pnlPacking.Controls.Add(this.btnPackingDelete);
             this.pnlPacking.Controls.Add(this.btnPackingClear);
@@ -854,9 +862,9 @@
             this.pnlPacking.Controls.Add(this.cmbPacking);
             this.pnlPacking.Controls.Add(this.label16);
             this.pnlPacking.Controls.Add(this.label17);
-            this.pnlPacking.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPacking.Location = new System.Drawing.Point(0, 0);
+            this.pnlPacking.Location = new System.Drawing.Point(37, 339);
             this.pnlPacking.Name = "pnlPacking";
+            this.pnlPacking.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPacking.Size = new System.Drawing.Size(1048, 593);
             this.pnlPacking.TabIndex = 13;
             // 
@@ -976,6 +984,7 @@
             // 
             // pnlPurchaseOrder
             // 
+            
             this.pnlPurchaseOrder.Controls.Add(this.button2);
             this.pnlPurchaseOrder.Controls.Add(this.button3);
             this.pnlPurchaseOrder.Controls.Add(this.button4);
@@ -1006,9 +1015,9 @@
             this.pnlPurchaseOrder.Controls.Add(this.tbPurchaseOrderCode);
             this.pnlPurchaseOrder.Controls.Add(this.label19);
             this.pnlPurchaseOrder.Controls.Add(this.label18);
-            this.pnlPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPurchaseOrder.Location = new System.Drawing.Point(0, 0);
+            this.pnlPurchaseOrder.Location = new System.Drawing.Point(37, 332);
             this.pnlPurchaseOrder.Name = "pnlPurchaseOrder";
+            this.pnlPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPurchaseOrder.Size = new System.Drawing.Size(1048, 593);
             this.pnlPurchaseOrder.TabIndex = 23;
             // 
@@ -1248,7 +1257,6 @@
             this.cmbSelectCatPurchaseOrder.Name = "cmbSelectCatPurchaseOrder";
             this.cmbSelectCatPurchaseOrder.Size = new System.Drawing.Size(290, 25);
             this.cmbSelectCatPurchaseOrder.TabIndex = 2;
-            this.cmbSelectCatPurchaseOrder.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -1362,6 +1370,7 @@
             // 
             // pnlPurchaseInvoice
             // 
+          
             this.pnlPurchaseInvoice.Controls.Add(this.button12);
             this.pnlPurchaseInvoice.Controls.Add(this.button7);
             this.pnlPurchaseInvoice.Controls.Add(this.button8);
@@ -1381,20 +1390,20 @@
             this.pnlPurchaseInvoice.Controls.Add(this.label36);
             this.pnlPurchaseInvoice.Controls.Add(this.label37);
             this.pnlPurchaseInvoice.Controls.Add(this.label38);
-            this.pnlPurchaseInvoice.Controls.Add(this.comboBox1);
-            this.pnlPurchaseInvoice.Controls.Add(this.comboBox2);
+            this.pnlPurchaseInvoice.Controls.Add(this.cmbPurInvPacking);
+            this.pnlPurchaseInvoice.Controls.Add(this.cmbPurInvUnit);
             this.pnlPurchaseInvoice.Controls.Add(this.label39);
             this.pnlPurchaseInvoice.Controls.Add(this.label40);
-            this.pnlPurchaseInvoice.Controls.Add(this.comboBox3);
+            this.pnlPurchaseInvoice.Controls.Add(this.cmbPurInvSubCat);
             this.pnlPurchaseInvoice.Controls.Add(this.label41);
-            this.pnlPurchaseInvoice.Controls.Add(this.comboBox4);
+            this.pnlPurchaseInvoice.Controls.Add(this.cmbPurInvCat);
             this.pnlPurchaseInvoice.Controls.Add(this.label42);
             this.pnlPurchaseInvoice.Controls.Add(this.groupBox1);
             this.pnlPurchaseInvoice.Controls.Add(this.textBox17);
             this.pnlPurchaseInvoice.Controls.Add(this.label46);
             this.pnlPurchaseInvoice.Controls.Add(this.label47);
+            this.pnlPurchaseInvoice.Location = new System.Drawing.Point(6, 276);
             this.pnlPurchaseInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPurchaseInvoice.Location = new System.Drawing.Point(0, 0);
             this.pnlPurchaseInvoice.Name = "pnlPurchaseInvoice";
             this.pnlPurchaseInvoice.Size = new System.Drawing.Size(1048, 593);
             this.pnlPurchaseInvoice.TabIndex = 24;
@@ -1581,23 +1590,23 @@
             this.label38.TabIndex = 57;
             this.label38.Text = "Quantity";
             // 
-            // comboBox1
+            // cmbPurInvPacking
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(218, 196);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(290, 25);
-            this.comboBox1.TabIndex = 5;
+            this.cmbPurInvPacking.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbPurInvPacking.FormattingEnabled = true;
+            this.cmbPurInvPacking.Location = new System.Drawing.Point(218, 196);
+            this.cmbPurInvPacking.Name = "cmbPurInvPacking";
+            this.cmbPurInvPacking.Size = new System.Drawing.Size(290, 25);
+            this.cmbPurInvPacking.TabIndex = 5;
             // 
-            // comboBox2
+            // cmbPurInvUnit
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(218, 162);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(290, 25);
-            this.comboBox2.TabIndex = 4;
+            this.cmbPurInvUnit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPurInvUnit.FormattingEnabled = true;
+            this.cmbPurInvUnit.Location = new System.Drawing.Point(218, 162);
+            this.cmbPurInvUnit.Name = "cmbPurInvUnit";
+            this.cmbPurInvUnit.Size = new System.Drawing.Size(290, 25);
+            this.cmbPurInvUnit.TabIndex = 4;
             // 
             // label39
             // 
@@ -1619,14 +1628,14 @@
             this.label40.TabIndex = 53;
             this.label40.Text = "Select Unit";
             // 
-            // comboBox3
+            // cmbPurInvSubCat
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(218, 131);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(290, 25);
-            this.comboBox3.TabIndex = 3;
+            this.cmbPurInvSubCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPurInvSubCat.FormattingEnabled = true;
+            this.cmbPurInvSubCat.Location = new System.Drawing.Point(218, 131);
+            this.cmbPurInvSubCat.Name = "cmbPurInvSubCat";
+            this.cmbPurInvSubCat.Size = new System.Drawing.Size(290, 25);
+            this.cmbPurInvSubCat.TabIndex = 3;
             // 
             // label41
             // 
@@ -1638,14 +1647,14 @@
             this.label41.TabIndex = 51;
             this.label41.Text = "Select SubCategory";
             // 
-            // comboBox4
+            // cmbPurInvCat
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(218, 100);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(290, 25);
-            this.comboBox4.TabIndex = 2;
+            this.cmbPurInvCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPurInvCat.FormattingEnabled = true;
+            this.cmbPurInvCat.Location = new System.Drawing.Point(218, 100);
+            this.cmbPurInvCat.Name = "cmbPurInvCat";
+            this.cmbPurInvCat.Size = new System.Drawing.Size(290, 25);
+            this.cmbPurInvCat.TabIndex = 2;
             // 
             // label42
             // 
@@ -1759,6 +1768,7 @@
             // 
             // pnlSalesOrder
             // 
+            
             this.pnlSalesOrder.Controls.Add(this.button14);
             this.pnlSalesOrder.Controls.Add(this.button15);
             this.pnlSalesOrder.Controls.Add(this.button16);
@@ -1777,20 +1787,20 @@
             this.pnlSalesOrder.Controls.Add(this.label51);
             this.pnlSalesOrder.Controls.Add(this.label52);
             this.pnlSalesOrder.Controls.Add(this.label53);
-            this.pnlSalesOrder.Controls.Add(this.comboBox5);
-            this.pnlSalesOrder.Controls.Add(this.comboBox6);
+            this.pnlSalesOrder.Controls.Add(this.cmbSalOrderPacking);
+            this.pnlSalesOrder.Controls.Add(this.cmbSalOrderUnit);
             this.pnlSalesOrder.Controls.Add(this.label54);
             this.pnlSalesOrder.Controls.Add(this.label55);
-            this.pnlSalesOrder.Controls.Add(this.comboBox7);
+            this.pnlSalesOrder.Controls.Add(this.cmbSalOrderSubCat);
             this.pnlSalesOrder.Controls.Add(this.label56);
-            this.pnlSalesOrder.Controls.Add(this.comboBox8);
+            this.pnlSalesOrder.Controls.Add(this.cmbSalOrderCat);
             this.pnlSalesOrder.Controls.Add(this.label57);
             this.pnlSalesOrder.Controls.Add(this.groupBox2);
             this.pnlSalesOrder.Controls.Add(this.textBox26);
             this.pnlSalesOrder.Controls.Add(this.label61);
             this.pnlSalesOrder.Controls.Add(this.label62);
+            this.pnlSalesOrder.Location = new System.Drawing.Point(56, 290);
             this.pnlSalesOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSalesOrder.Location = new System.Drawing.Point(0, 0);
             this.pnlSalesOrder.Name = "pnlSalesOrder";
             this.pnlSalesOrder.Size = new System.Drawing.Size(1048, 593);
             this.pnlSalesOrder.TabIndex = 76;
@@ -1966,23 +1976,23 @@
             this.label53.TabIndex = 88;
             this.label53.Text = "Quantity";
             // 
-            // comboBox5
+            // cmbSalOrderPacking
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(218, 199);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(290, 25);
-            this.comboBox5.TabIndex = 5;
+            this.cmbSalOrderPacking.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbSalOrderPacking.FormattingEnabled = true;
+            this.cmbSalOrderPacking.Location = new System.Drawing.Point(218, 199);
+            this.cmbSalOrderPacking.Name = "cmbSalOrderPacking";
+            this.cmbSalOrderPacking.Size = new System.Drawing.Size(290, 25);
+            this.cmbSalOrderPacking.TabIndex = 5;
             // 
-            // comboBox6
+            // cmbSalOrderUnit
             // 
-            this.comboBox6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(218, 170);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(290, 25);
-            this.comboBox6.TabIndex = 4;
+            this.cmbSalOrderUnit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSalOrderUnit.FormattingEnabled = true;
+            this.cmbSalOrderUnit.Location = new System.Drawing.Point(218, 170);
+            this.cmbSalOrderUnit.Name = "cmbSalOrderUnit";
+            this.cmbSalOrderUnit.Size = new System.Drawing.Size(290, 25);
+            this.cmbSalOrderUnit.TabIndex = 4;
             // 
             // label54
             // 
@@ -2004,14 +2014,14 @@
             this.label55.TabIndex = 84;
             this.label55.Text = "Select Unit";
             // 
-            // comboBox7
+            // cmbSalOrderSubCat
             // 
-            this.comboBox7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(218, 138);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(290, 25);
-            this.comboBox7.TabIndex = 3;
+            this.cmbSalOrderSubCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSalOrderSubCat.FormattingEnabled = true;
+            this.cmbSalOrderSubCat.Location = new System.Drawing.Point(218, 138);
+            this.cmbSalOrderSubCat.Name = "cmbSalOrderSubCat";
+            this.cmbSalOrderSubCat.Size = new System.Drawing.Size(290, 25);
+            this.cmbSalOrderSubCat.TabIndex = 3;
             // 
             // label56
             // 
@@ -2023,14 +2033,14 @@
             this.label56.TabIndex = 82;
             this.label56.Text = "Select SubCategory";
             // 
-            // comboBox8
+            // cmbSalOrderCat
             // 
-            this.comboBox8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(218, 106);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(290, 25);
-            this.comboBox8.TabIndex = 2;
+            this.cmbSalOrderCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSalOrderCat.FormattingEnabled = true;
+            this.cmbSalOrderCat.Location = new System.Drawing.Point(218, 106);
+            this.cmbSalOrderCat.Name = "cmbSalOrderCat";
+            this.cmbSalOrderCat.Size = new System.Drawing.Size(290, 25);
+            this.cmbSalOrderCat.TabIndex = 2;
             // 
             // label57
             // 
@@ -2144,6 +2154,7 @@
             // 
             // pnlSaleInvoice
             // 
+            
             this.pnlSaleInvoice.Controls.Add(this.button13);
             this.pnlSaleInvoice.Controls.Add(this.button19);
             this.pnlSaleInvoice.Controls.Add(this.button20);
@@ -2163,13 +2174,13 @@
             this.pnlSaleInvoice.Controls.Add(this.label66);
             this.pnlSaleInvoice.Controls.Add(this.label67);
             this.pnlSaleInvoice.Controls.Add(this.label68);
-            this.pnlSaleInvoice.Controls.Add(this.comboBox9);
-            this.pnlSaleInvoice.Controls.Add(this.comboBox10);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvPacking);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvUnit);
             this.pnlSaleInvoice.Controls.Add(this.label69);
             this.pnlSaleInvoice.Controls.Add(this.label70);
-            this.pnlSaleInvoice.Controls.Add(this.comboBox11);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvSubCat);
             this.pnlSaleInvoice.Controls.Add(this.label71);
-            this.pnlSaleInvoice.Controls.Add(this.comboBox12);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvCat);
             this.pnlSaleInvoice.Controls.Add(this.label72);
             this.pnlSaleInvoice.Controls.Add(this.groupBox3);
             this.pnlSaleInvoice.Controls.Add(this.textBox35);
@@ -2363,23 +2374,23 @@
             this.label68.TabIndex = 119;
             this.label68.Text = "Quantity";
             // 
-            // comboBox9
+            // cmbSaleInvPacking
             // 
-            this.comboBox9.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(218, 196);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(290, 25);
-            this.comboBox9.TabIndex = 5;
+            this.cmbSaleInvPacking.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbSaleInvPacking.FormattingEnabled = true;
+            this.cmbSaleInvPacking.Location = new System.Drawing.Point(218, 196);
+            this.cmbSaleInvPacking.Name = "cmbSaleInvPacking";
+            this.cmbSaleInvPacking.Size = new System.Drawing.Size(290, 25);
+            this.cmbSaleInvPacking.TabIndex = 5;
             // 
-            // comboBox10
+            // cmbSaleInvUnit
             // 
-            this.comboBox10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(218, 165);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(290, 25);
-            this.comboBox10.TabIndex = 4;
+            this.cmbSaleInvUnit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSaleInvUnit.FormattingEnabled = true;
+            this.cmbSaleInvUnit.Location = new System.Drawing.Point(218, 165);
+            this.cmbSaleInvUnit.Name = "cmbSaleInvUnit";
+            this.cmbSaleInvUnit.Size = new System.Drawing.Size(290, 25);
+            this.cmbSaleInvUnit.TabIndex = 4;
             // 
             // label69
             // 
@@ -2401,14 +2412,14 @@
             this.label70.TabIndex = 115;
             this.label70.Text = "Select Unit";
             // 
-            // comboBox11
+            // cmbSaleInvSubCat
             // 
-            this.comboBox11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(218, 131);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(290, 25);
-            this.comboBox11.TabIndex = 3;
+            this.cmbSaleInvSubCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSaleInvSubCat.FormattingEnabled = true;
+            this.cmbSaleInvSubCat.Location = new System.Drawing.Point(218, 131);
+            this.cmbSaleInvSubCat.Name = "cmbSaleInvSubCat";
+            this.cmbSaleInvSubCat.Size = new System.Drawing.Size(290, 25);
+            this.cmbSaleInvSubCat.TabIndex = 3;
             // 
             // label71
             // 
@@ -2420,14 +2431,14 @@
             this.label71.TabIndex = 113;
             this.label71.Text = "Select SubCategory";
             // 
-            // comboBox12
+            // cmbSaleInvCat
             // 
-            this.comboBox12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Location = new System.Drawing.Point(218, 100);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(290, 25);
-            this.comboBox12.TabIndex = 2;
+            this.cmbSaleInvCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSaleInvCat.FormattingEnabled = true;
+            this.cmbSaleInvCat.Location = new System.Drawing.Point(218, 100);
+            this.cmbSaleInvCat.Name = "cmbSaleInvCat";
+            this.cmbSaleInvCat.Size = new System.Drawing.Size(290, 25);
+            this.cmbSaleInvCat.TabIndex = 2;
             // 
             // label72
             // 
@@ -2678,7 +2689,6 @@
         private System.Windows.Forms.Button btnUpdateItem;
         private System.Windows.Forms.Button btnSaveItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbItem;
         private System.Windows.Forms.Button btnNewItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
@@ -2769,13 +2779,13 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbPurInvPacking;
+        private System.Windows.Forms.ComboBox cmbPurInvUnit;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbPurInvSubCat;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbPurInvCat;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
@@ -2806,13 +2816,13 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmbSalOrderPacking;
+        private System.Windows.Forms.ComboBox cmbSalOrderUnit;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cmbSalOrderSubCat;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox cmbSalOrderCat;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox richTextBox3;
@@ -2844,13 +2854,13 @@
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.ComboBox cmbSaleInvPacking;
+        private System.Windows.Forms.ComboBox cmbSaleInvUnit;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.ComboBox comboBox11;
+        private System.Windows.Forms.ComboBox cmbSaleInvSubCat;
         private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.ComboBox comboBox12;
+        private System.Windows.Forms.ComboBox cmbSaleInvCat;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox richTextBox4;
@@ -2862,12 +2872,13 @@
         private System.Windows.Forms.TextBox textBox35;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCategoriesClear;
         private System.Windows.Forms.CheckBox chkCategoryIsActive;
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.CheckBox chkItemIsActive;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbItem;
     }
 }
