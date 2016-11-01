@@ -83,5 +83,21 @@ namespace Spane_Laboratory
             Application.Exit();
             
         }
+
+        private void tbUserName_Enter(object sender, EventArgs e)
+        {
+            if(tbUserName.Text=="UserName")
+            {
+                tbUserName.Text = "";
+            }
+        }
+
+        private void tbUserName_Leave(object sender, EventArgs e)
+        {
+            if(tbUserName.Text=="")
+            {
+                tbUserName.Text = "UserName";
+            }
+        }
     }
 }

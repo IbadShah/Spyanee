@@ -10,7 +10,7 @@ namespace Lab.Models
     {
         public int PackingId { get; set; }
         public string PackingName { get; set; }
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }

@@ -301,8 +301,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.pnlPurchaseInvoice);
             this.splitContainer1.Panel2.Controls.Add(this.pnlSalesOrder);
             this.splitContainer1.Panel2.Controls.Add(this.pnlSaleInvoice);
-            this.splitContainer1.Size = new System.Drawing.Size(1210, 593);
-            this.splitContainer1.SplitterDistance = 158;
+            this.splitContainer1.Size = new System.Drawing.Size(1264, 593);
+            this.splitContainer1.SplitterDistance = 165;
             this.splitContainer1.TabIndex = 0;
             // 
             // btnSaleInvoice
@@ -450,10 +450,9 @@
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.panel1.Location = new System.Drawing.Point(162, 249);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 644);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1048, 593);
+            this.panel1.Size = new System.Drawing.Size(1048, 240);
             this.panel1.TabIndex = 0;
             // 
             // chkCategoryIsActive
@@ -541,11 +540,13 @@
             // 
             this.cmbCategories.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cmbCategories.FormattingEnabled = true;
-            this.cmbCategories.Location = new System.Drawing.Point(328, 161);
+            this.cmbCategories.Location = new System.Drawing.Point(328, 160);
             this.cmbCategories.Name = "cmbCategories";
             this.cmbCategories.Size = new System.Drawing.Size(549, 29);
             this.cmbCategories.TabIndex = 1;
+            this.cmbCategories.Text = "--Add Category--";
             this.cmbCategories.SelectedIndexChanged += new System.EventHandler(this.cmbCategories_SelectedIndexChanged);
+            this.cmbCategories.TextChanged += new System.EventHandler(this.cmbCategories_TextChanged);
             // 
             // label13
             // 
@@ -577,7 +578,6 @@
             // 
             // panel2
             // 
-            
             this.panel2.Controls.Add(this.cmbItem);
             this.panel2.Controls.Add(this.chkItemIsActive);
             this.panel2.Controls.Add(this.button24);
@@ -589,27 +589,27 @@
             this.panel2.Controls.Add(this.btnNewItem);
             this.panel2.Controls.Add(this.tbItem);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(90, 459);
+            this.panel2.Location = new System.Drawing.Point(90, 631);
             this.panel2.Name = "panel2";
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Size = new System.Drawing.Size(1048, 593);
+            this.panel2.Size = new System.Drawing.Size(1048, 307);
             this.panel2.TabIndex = 6;
             // 
             // cmbItem
             // 
             this.cmbItem.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cmbItem.FormattingEnabled = true;
-            this.cmbItem.Location = new System.Drawing.Point(298, 188);
+            this.cmbItem.Location = new System.Drawing.Point(325, 152);
             this.cmbItem.Name = "cmbItem";
             this.cmbItem.Size = new System.Drawing.Size(549, 29);
             this.cmbItem.TabIndex = 1;
             this.cmbItem.SelectedIndexChanged += new System.EventHandler(this.cmbItem_SelectedIndexChanged);
+            this.cmbItem.TextChanged += new System.EventHandler(this.cmbItem_TextChanged);
             // 
             // chkItemIsActive
             // 
             this.chkItemIsActive.AutoSize = true;
             this.chkItemIsActive.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.chkItemIsActive.Location = new System.Drawing.Point(745, 347);
+            this.chkItemIsActive.Location = new System.Drawing.Point(777, 289);
             this.chkItemIsActive.Name = "chkItemIsActive";
             this.chkItemIsActive.Size = new System.Drawing.Size(97, 25);
             this.chkItemIsActive.TabIndex = 3;
@@ -649,6 +649,7 @@
             this.btnDeleteItem.TabIndex = 8;
             this.btnDeleteItem.Text = "Delete";
             this.btnDeleteItem.UseVisualStyleBackColor = false;
+            this.btnDeleteItem.Click += new System.EventHandler(this.btnDeleteItem_Click);
             // 
             // btnUpdateItem
             // 
@@ -678,7 +679,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(158, 198);
+            this.label1.Location = new System.Drawing.Point(174, 161);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 21);
             this.label1.TabIndex = 10;
@@ -699,7 +700,7 @@
             // tbItem
             // 
             this.tbItem.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.tbItem.Location = new System.Drawing.Point(298, 270);
+            this.tbItem.Location = new System.Drawing.Point(325, 215);
             this.tbItem.Name = "tbItem";
             this.tbItem.Size = new System.Drawing.Size(549, 27);
             this.tbItem.TabIndex = 2;
@@ -708,7 +709,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label5.Location = new System.Drawing.Point(158, 276);
+            this.label5.Location = new System.Drawing.Point(171, 221);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 21);
             this.label5.TabIndex = 2;
@@ -716,7 +717,6 @@
             // 
             // pnlUnit
             // 
-            
             this.pnlUnit.Controls.Add(this.label9);
             this.pnlUnit.Controls.Add(this.btnUnitDelete);
             this.pnlUnit.Controls.Add(this.btnUnitClear);
@@ -728,10 +728,9 @@
             this.pnlUnit.Controls.Add(this.cmbUnit);
             this.pnlUnit.Controls.Add(this.label15);
             this.pnlUnit.Controls.Add(this.label10);
-            this.pnlUnit.Location = new System.Drawing.Point(75, 420);
+            this.pnlUnit.Location = new System.Drawing.Point(51, 640);
             this.pnlUnit.Name = "pnlUnit";
-            this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUnit.Size = new System.Drawing.Size(1048, 593);
+            this.pnlUnit.Size = new System.Drawing.Size(1048, 254);
             this.pnlUnit.TabIndex = 14;
             // 
             // label9
@@ -755,6 +754,7 @@
             this.btnUnitDelete.TabIndex = 8;
             this.btnUnitDelete.Text = "Delete";
             this.btnUnitDelete.UseVisualStyleBackColor = false;
+            this.btnUnitDelete.Click += new System.EventHandler(this.btnUnitDelete_Click);
             // 
             // btnUnitClear
             // 
@@ -766,6 +766,7 @@
             this.btnUnitClear.TabIndex = 7;
             this.btnUnitClear.Text = "Clear";
             this.btnUnitClear.UseVisualStyleBackColor = false;
+            this.btnUnitClear.Click += new System.EventHandler(this.btnUnitClear_Click);
             // 
             // btnUnitUpdate
             // 
@@ -777,6 +778,7 @@
             this.btnUnitUpdate.TabIndex = 6;
             this.btnUnitUpdate.Text = "Update";
             this.btnUnitUpdate.UseVisualStyleBackColor = false;
+            this.btnUnitUpdate.Click += new System.EventHandler(this.btnUnitUpdate_Click);
             // 
             // btnUnitSave
             // 
@@ -788,6 +790,7 @@
             this.btnUnitSave.TabIndex = 5;
             this.btnUnitSave.Text = "Save";
             this.btnUnitSave.UseVisualStyleBackColor = false;
+            this.btnUnitSave.Click += new System.EventHandler(this.btnUnitSave_Click);
             // 
             // btnNewUnit
             // 
@@ -799,12 +802,13 @@
             this.btnNewUnit.TabIndex = 4;
             this.btnNewUnit.Text = "New";
             this.btnNewUnit.UseVisualStyleBackColor = false;
+            this.btnNewUnit.Click += new System.EventHandler(this.btnNewUnit_Click);
             // 
             // chkUnitIsAcive
             // 
             this.chkUnitIsAcive.AutoSize = true;
             this.chkUnitIsAcive.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.chkUnitIsAcive.Location = new System.Drawing.Point(658, 345);
+            this.chkUnitIsAcive.Location = new System.Drawing.Point(785, 325);
             this.chkUnitIsAcive.Name = "chkUnitIsAcive";
             this.chkUnitIsAcive.Size = new System.Drawing.Size(93, 25);
             this.chkUnitIsAcive.TabIndex = 3;
@@ -814,25 +818,27 @@
             // tbUnit
             // 
             this.tbUnit.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.tbUnit.Location = new System.Drawing.Point(298, 260);
+            this.tbUnit.Location = new System.Drawing.Point(354, 243);
             this.tbUnit.Name = "tbUnit";
-            this.tbUnit.Size = new System.Drawing.Size(453, 27);
+            this.tbUnit.Size = new System.Drawing.Size(524, 27);
             this.tbUnit.TabIndex = 2;
             // 
             // cmbUnit
             // 
             this.cmbUnit.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Location = new System.Drawing.Point(297, 182);
+            this.cmbUnit.Location = new System.Drawing.Point(354, 171);
             this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(454, 29);
+            this.cmbUnit.Size = new System.Drawing.Size(524, 29);
             this.cmbUnit.TabIndex = 1;
+            this.cmbUnit.SelectedIndexChanged += new System.EventHandler(this.cmbUnit_SelectedIndexChanged);
+            this.cmbUnit.TextChanged += new System.EventHandler(this.cmbUnit_TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label15.Location = new System.Drawing.Point(143, 266);
+            this.label15.Location = new System.Drawing.Point(164, 249);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(80, 21);
             this.label15.TabIndex = 1;
@@ -842,7 +848,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label10.Location = new System.Drawing.Point(143, 190);
+            this.label10.Location = new System.Drawing.Point(164, 183);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 21);
             this.label10.TabIndex = 0;
@@ -850,7 +856,6 @@
             // 
             // pnlPacking
             // 
-         
             this.pnlPacking.Controls.Add(this.label7);
             this.pnlPacking.Controls.Add(this.btnPackingDelete);
             this.pnlPacking.Controls.Add(this.btnPackingClear);
@@ -862,10 +867,9 @@
             this.pnlPacking.Controls.Add(this.cmbPacking);
             this.pnlPacking.Controls.Add(this.label16);
             this.pnlPacking.Controls.Add(this.label17);
-            this.pnlPacking.Location = new System.Drawing.Point(37, 339);
+            this.pnlPacking.Location = new System.Drawing.Point(0, 583);
             this.pnlPacking.Name = "pnlPacking";
-            this.pnlPacking.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPacking.Size = new System.Drawing.Size(1048, 593);
+            this.pnlPacking.Size = new System.Drawing.Size(1048, 10);
             this.pnlPacking.TabIndex = 13;
             // 
             // label7
@@ -889,6 +893,7 @@
             this.btnPackingDelete.TabIndex = 22;
             this.btnPackingDelete.Text = "Delete";
             this.btnPackingDelete.UseVisualStyleBackColor = false;
+            this.btnPackingDelete.Click += new System.EventHandler(this.btnPackingDelete_Click);
             // 
             // btnPackingClear
             // 
@@ -900,6 +905,7 @@
             this.btnPackingClear.TabIndex = 21;
             this.btnPackingClear.Text = "Clear";
             this.btnPackingClear.UseVisualStyleBackColor = false;
+            this.btnPackingClear.Click += new System.EventHandler(this.btnPackingClear_Click);
             // 
             // btnPackingUpdate
             // 
@@ -911,6 +917,7 @@
             this.btnPackingUpdate.TabIndex = 20;
             this.btnPackingUpdate.Text = "Update";
             this.btnPackingUpdate.UseVisualStyleBackColor = false;
+            this.btnPackingUpdate.Click += new System.EventHandler(this.btnPackingUpdate_Click);
             // 
             // btnPackingSave
             // 
@@ -922,6 +929,7 @@
             this.btnPackingSave.TabIndex = 19;
             this.btnPackingSave.Text = "Save";
             this.btnPackingSave.UseVisualStyleBackColor = false;
+            this.btnPackingSave.Click += new System.EventHandler(this.btnPackingSave_Click);
             // 
             // btnPackingNew
             // 
@@ -933,6 +941,7 @@
             this.btnPackingNew.TabIndex = 18;
             this.btnPackingNew.Text = "New";
             this.btnPackingNew.UseVisualStyleBackColor = false;
+            this.btnPackingNew.Click += new System.EventHandler(this.btnPackingNew_Click);
             // 
             // chkPackingIsActive
             // 
@@ -961,6 +970,7 @@
             this.cmbPacking.Name = "cmbPacking";
             this.cmbPacking.Size = new System.Drawing.Size(454, 29);
             this.cmbPacking.TabIndex = 15;
+            this.cmbPacking.SelectedIndexChanged += new System.EventHandler(this.cmbPacking_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -984,7 +994,6 @@
             // 
             // pnlPurchaseOrder
             // 
-            
             this.pnlPurchaseOrder.Controls.Add(this.button2);
             this.pnlPurchaseOrder.Controls.Add(this.button3);
             this.pnlPurchaseOrder.Controls.Add(this.button4);
@@ -1015,10 +1024,10 @@
             this.pnlPurchaseOrder.Controls.Add(this.tbPurchaseOrderCode);
             this.pnlPurchaseOrder.Controls.Add(this.label19);
             this.pnlPurchaseOrder.Controls.Add(this.label18);
-            this.pnlPurchaseOrder.Location = new System.Drawing.Point(37, 332);
-            this.pnlPurchaseOrder.Name = "pnlPurchaseOrder";
             this.pnlPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPurchaseOrder.Size = new System.Drawing.Size(1048, 593);
+            this.pnlPurchaseOrder.Location = new System.Drawing.Point(0, 0);
+            this.pnlPurchaseOrder.Name = "pnlPurchaseOrder";
+            this.pnlPurchaseOrder.Size = new System.Drawing.Size(1095, 593);
             this.pnlPurchaseOrder.TabIndex = 23;
             // 
             // button2
@@ -1079,49 +1088,49 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 289);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 290);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1020, 213);
+            this.dataGridView1.Size = new System.Drawing.Size(1067, 212);
             this.dataGridView1.TabIndex = 39;
             // 
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(939, 226);
+            this.textBox7.Location = new System.Drawing.Point(844, 233);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(106, 23);
+            this.textBox7.Size = new System.Drawing.Size(85, 23);
             this.textBox7.TabIndex = 13;
             // 
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(716, 226);
+            this.textBox6.Location = new System.Drawing.Point(653, 232);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(106, 23);
+            this.textBox6.Size = new System.Drawing.Size(85, 23);
             this.textBox6.TabIndex = 12;
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(471, 229);
+            this.textBox5.Location = new System.Drawing.Point(434, 232);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(106, 23);
+            this.textBox5.Size = new System.Drawing.Size(85, 23);
             this.textBox5.TabIndex = 11;
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(263, 229);
+            this.textBox4.Location = new System.Drawing.Point(242, 231);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(106, 23);
+            this.textBox4.Size = new System.Drawing.Size(85, 23);
             this.textBox4.TabIndex = 10;
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(75, 260);
+            this.textBox3.Location = new System.Drawing.Point(998, 230);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(106, 23);
+            this.textBox3.Size = new System.Drawing.Size(85, 23);
             this.textBox3.TabIndex = 14;
             // 
             // textBox2
@@ -1129,14 +1138,14 @@
             this.textBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(75, 231);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 23);
+            this.textBox2.Size = new System.Drawing.Size(85, 23);
             this.textBox2.TabIndex = 9;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(828, 229);
+            this.label32.Location = new System.Drawing.Point(744, 238);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(97, 17);
             this.label32.TabIndex = 32;
@@ -1146,7 +1155,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(586, 232);
+            this.label31.Location = new System.Drawing.Point(525, 238);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(124, 17);
             this.label31.TabIndex = 31;
@@ -1156,7 +1165,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(375, 235);
+            this.label30.Location = new System.Drawing.Point(333, 238);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(95, 17);
             this.label30.TabIndex = 30;
@@ -1166,7 +1175,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(193, 235);
+            this.label29.Location = new System.Drawing.Point(166, 238);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(64, 17);
             this.label29.TabIndex = 29;
@@ -1176,7 +1185,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(3, 266);
+            this.label28.Location = new System.Drawing.Point(931, 237);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(66, 17);
             this.label28.TabIndex = 28;
@@ -1370,7 +1379,6 @@
             // 
             // pnlPurchaseInvoice
             // 
-          
             this.pnlPurchaseInvoice.Controls.Add(this.button12);
             this.pnlPurchaseInvoice.Controls.Add(this.button7);
             this.pnlPurchaseInvoice.Controls.Add(this.button8);
@@ -1402,10 +1410,10 @@
             this.pnlPurchaseInvoice.Controls.Add(this.textBox17);
             this.pnlPurchaseInvoice.Controls.Add(this.label46);
             this.pnlPurchaseInvoice.Controls.Add(this.label47);
-            this.pnlPurchaseInvoice.Location = new System.Drawing.Point(6, 276);
             this.pnlPurchaseInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPurchaseInvoice.Location = new System.Drawing.Point(0, 0);
             this.pnlPurchaseInvoice.Name = "pnlPurchaseInvoice";
-            this.pnlPurchaseInvoice.Size = new System.Drawing.Size(1048, 593);
+            this.pnlPurchaseInvoice.Size = new System.Drawing.Size(1095, 593);
             this.pnlPurchaseInvoice.TabIndex = 24;
             // 
             // button12
@@ -1768,7 +1776,6 @@
             // 
             // pnlSalesOrder
             // 
-            
             this.pnlSalesOrder.Controls.Add(this.button14);
             this.pnlSalesOrder.Controls.Add(this.button15);
             this.pnlSalesOrder.Controls.Add(this.button16);
@@ -1799,10 +1806,10 @@
             this.pnlSalesOrder.Controls.Add(this.textBox26);
             this.pnlSalesOrder.Controls.Add(this.label61);
             this.pnlSalesOrder.Controls.Add(this.label62);
-            this.pnlSalesOrder.Location = new System.Drawing.Point(56, 290);
             this.pnlSalesOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSalesOrder.Location = new System.Drawing.Point(0, 0);
             this.pnlSalesOrder.Name = "pnlSalesOrder";
-            this.pnlSalesOrder.Size = new System.Drawing.Size(1048, 593);
+            this.pnlSalesOrder.Size = new System.Drawing.Size(1095, 593);
             this.pnlSalesOrder.TabIndex = 76;
             // 
             // button14
@@ -2154,7 +2161,6 @@
             // 
             // pnlSaleInvoice
             // 
-            
             this.pnlSaleInvoice.Controls.Add(this.button13);
             this.pnlSaleInvoice.Controls.Add(this.button19);
             this.pnlSaleInvoice.Controls.Add(this.button20);
@@ -2189,7 +2195,7 @@
             this.pnlSaleInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSaleInvoice.Location = new System.Drawing.Point(0, 0);
             this.pnlSaleInvoice.Name = "pnlSaleInvoice";
-            this.pnlSaleInvoice.Size = new System.Drawing.Size(1048, 593);
+            this.pnlSaleInvoice.Size = new System.Drawing.Size(1095, 593);
             this.pnlSaleInvoice.TabIndex = 25;
             // 
             // button13
@@ -2615,7 +2621,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = global::Spane_Laboratory.Properties.Resources.lab;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1210, 593);
+            this.ClientSize = new System.Drawing.Size(1264, 593);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminView";

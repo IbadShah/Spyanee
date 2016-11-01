@@ -54,15 +54,21 @@
             // 
             // tbUserName
             // 
+            this.tbUserName.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tbUserName.Location = new System.Drawing.Point(250, 55);
             this.tbUserName.MaxLength = 50;
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(257, 27);
             this.tbUserName.TabIndex = 1;
+            this.tbUserName.Text = "UserName";
             this.tbUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbUserName.Enter += new System.EventHandler(this.tbUserName_Enter);
+            this.tbUserName.Leave += new System.EventHandler(this.tbUserName_Leave);
             // 
             // tbPassword
             // 
+            this.tbPassword.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbPassword.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.tbPassword.Location = new System.Drawing.Point(250, 104);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(257, 27);
