@@ -297,7 +297,6 @@
             // 
             this.splitContainer1.Panel2.BackgroundImage = global::Spane_Laboratory.Properties.Resources.lab;
             this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.pnlUnit);
@@ -440,49 +439,10 @@
             this.btnAddCategory.UseVisualStyleBackColor = false;
             this.btnAddCategory.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pnlPurchaseOrder
-            // 
-            this.pnlPurchaseOrder.Controls.Add(this.pnlPacking);
-            this.pnlPurchaseOrder.Controls.Add(this.btnAddPurchaseOrderDetail);
-            this.pnlPurchaseOrder.Controls.Add(this.btnDeletePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnClearPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnUpdatePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnSavePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnNewPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.gvPurchaseOrder);
-            this.pnlPurchaseOrder.Controls.Add(this.tbAmountRePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbTotalAmPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbDiscountPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbUnitRatePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbRemAmPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbQuantityPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.label32);
-            this.pnlPurchaseOrder.Controls.Add(this.label31);
-            this.pnlPurchaseOrder.Controls.Add(this.label30);
-            this.pnlPurchaseOrder.Controls.Add(this.label29);
-            this.pnlPurchaseOrder.Controls.Add(this.label28);
-            this.pnlPurchaseOrder.Controls.Add(this.label27);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbPurOrderPacking);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbPurOrderUnit);
-            this.pnlPurchaseOrder.Controls.Add(this.label26);
-            this.pnlPurchaseOrder.Controls.Add(this.label25);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbSelectSubCatPurchaseOrder);
-            this.pnlPurchaseOrder.Controls.Add(this.label24);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbSelectCatPurchaseOrder);
-            this.pnlPurchaseOrder.Controls.Add(this.label23);
-            this.pnlPurchaseOrder.Controls.Add(this.gbVendorInfo);
-            this.pnlPurchaseOrder.Controls.Add(this.tbPurchaseOrderCode);
-            this.pnlPurchaseOrder.Controls.Add(this.label19);
-            this.pnlPurchaseOrder.Controls.Add(this.label18);
-            this.pnlPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPurchaseOrder.Location = new System.Drawing.Point(0, 0);
-            this.pnlPurchaseOrder.Name = "pnlPurchaseOrder";
-            this.pnlPurchaseOrder.Size = new System.Drawing.Size(1090, 593);
-            this.pnlPurchaseOrder.TabIndex = 23;
+           
             // 
             // pnlPacking
             // 
-            this.pnlPacking.Controls.Add(this.pnlUnit);
             this.pnlPacking.Controls.Add(this.label7);
             this.pnlPacking.Controls.Add(this.btnPackingDelete);
             this.pnlPacking.Controls.Add(this.btnPackingClear);
@@ -494,6 +454,8 @@
             this.pnlPacking.Controls.Add(this.cmbPacking);
             this.pnlPacking.Controls.Add(this.label16);
             this.pnlPacking.Controls.Add(this.label17);
+            this.pnlPacking.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.pnlPacking.Location = new System.Drawing.Point(16, 587);
             this.pnlPacking.Name = "pnlPacking";
             this.pnlPacking.Size = new System.Drawing.Size(1090, 549);
@@ -501,7 +463,7 @@
             // 
             // pnlUnit
             // 
-            this.pnlUnit.Controls.Add(this.panel2);
+            
             this.pnlUnit.Controls.Add(this.label9);
             this.pnlUnit.Controls.Add(this.btnUnitDelete);
             this.pnlUnit.Controls.Add(this.btnUnitClear);
@@ -513,6 +475,8 @@
             this.pnlUnit.Controls.Add(this.cmbUnit);
             this.pnlUnit.Controls.Add(this.label15);
             this.pnlUnit.Controls.Add(this.label10);
+            this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.pnlUnit.Location = new System.Drawing.Point(75, 411);
             this.pnlUnit.Name = "pnlUnit";
             this.pnlUnit.Size = new System.Drawing.Size(1090, 593);
@@ -520,7 +484,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel1);
+           
             this.panel2.Controls.Add(this.cmbItem);
             this.panel2.Controls.Add(this.chkItemIsActive);
             this.panel2.Controls.Add(this.button24);
@@ -532,6 +496,8 @@
             this.panel2.Controls.Add(this.btnNewItem);
             this.panel2.Controls.Add(this.tbItem);
             this.panel2.Controls.Add(this.label5);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.panel2.Location = new System.Drawing.Point(75, 436);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1090, 593);
@@ -551,6 +517,8 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.panel1.Location = new System.Drawing.Point(57, 495);
             this.panel1.Name = "panel1";
@@ -1825,7 +1793,7 @@
             this.label45.Size = new System.Drawing.Size(158, 17);
             this.label45.TabIndex = 56;
             this.label45.Text = "Purchase Invoice Code";
-            this.label45.Click += new System.EventHandler(this.label45_Click);
+            
             // 
             // btnPrintPurInv
             // 

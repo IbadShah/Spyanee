@@ -375,12 +375,12 @@ namespace Spane_Laboratory
         public void SetPurchaseInvoiceCode()
         {
             var dt = GetPurchaseInvoiceCode();
-            tbPurInvCode.Text = dt.Rows[0]["PurchaseInvoiceCode"].ToString();
+            tbPurchaseInvoiceCode.Text = dt.Rows[0]["PurchaseInvoiceCode"].ToString();
         }
         public void SetSaleOrderCode()
         {
             var dt = GetSaleOrderCode();
-            tbSaleOrCode.Text = dt.Rows[0]["SaleOrderCode"].ToString();
+            tbSaleOrderCode.Text = dt.Rows[0]["SaleOrderCode"].ToString();
         }
         //public void SetSaleInvoiceCode()
         //{
