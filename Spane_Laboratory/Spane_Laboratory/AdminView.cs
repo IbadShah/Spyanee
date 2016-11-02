@@ -188,7 +188,9 @@ namespace Spane_Laboratory
             PopulateCategories();
             PopulatePackings();
             PopulateUnits();
-           
+            SetPurchaseOrderCode();
+            SetPurchaseInvoiceCode();
+            SetSaleOrderCode();
         }
         public void PopulatePackings()
         {
@@ -311,7 +313,7 @@ namespace Spane_Laboratory
         {
             gvPurchaseOrder.DataSource = PurchaseOrderDataTable();
         }
-     public DataTable PurchaseOrderDataTable()
+        public DataTable PurchaseOrderDataTable()
         {
             DataTable dt = new DataTable();
             dt.Clear();
@@ -325,10 +327,63 @@ namespace Spane_Laboratory
             dt.Columns["Discount"].DefaultValue = 0;
             return dt;
         }
-        //public void Populte
-
+        public DataTable GetPurchaseOrderCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspPurchaseOrderCodeGet", pram);
+        }
+        public DataTable GetPurchaseInvoiceCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspPurchaseInvoiveCodeGet", pram);
+        }
+        public DataTable GetSaleOrderCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspSaleOrderCodeGet", pram);
+        }
+        public DataTable GetSaleInvoiceCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspSalInvoiveCodeGet", pram);
+        }
         //Data Poupulatuion methods END
 
+
+        //Set Codes Methods START
+        public void SetPurchaseOrderCode()
+        {
+            var dt = GetPurchaseOrderCode();
+            tbPurchaseOrderCode.Text = dt.Rows[0]["PurchaseOrderCode"].ToString();
+        }
+        public void SetPurchaseInvoiceCode()
+        {
+            var dt = GetPurchaseInvoiceCode();
+            tbPurInvCode.Text = dt.Rows[0]["PurchaseInvoiceCode"].ToString();
+        }
+        public void SetSaleOrderCode()
+        {
+            var dt = GetSaleOrderCode();
+            tbSaleOrCode.Text = dt.Rows[0]["SaleOrderCode"].ToString();
+        }
+        //public void SetSaleInvoiceCode()
+        //{
+        //    var dt = GetSaleInvoiceCode();
+        //    tbSaleInvCode.Text = dt.Rows[0]["SaleInvoiceCode"].ToString();
+        //}
+        //Get Codes Methods END
 
         //Model Initializer
         private Categories Initializer()
