@@ -90,7 +90,7 @@
             this.cmbPacking = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.pnlPurchaseOrder = new System.Windows.Forms.Panel();
+
             this.btnAddPurchaseOrderDetail = new System.Windows.Forms.Button();
             this.btnDeletePurOr = new System.Windows.Forms.Button();
             this.btnClearPurOr = new System.Windows.Forms.Button();
@@ -476,7 +476,6 @@
             this.pnlUnit.Controls.Add(this.label15);
             this.pnlUnit.Controls.Add(this.label10);
             this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-
             this.pnlUnit.Location = new System.Drawing.Point(75, 411);
             this.pnlUnit.Name = "pnlUnit";
             this.pnlUnit.Size = new System.Drawing.Size(1090, 593);
@@ -497,7 +496,6 @@
             this.panel2.Controls.Add(this.tbItem);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-
             this.panel2.Location = new System.Drawing.Point(75, 436);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1090, 593);
@@ -518,7 +516,6 @@
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.panel1.Location = new System.Drawing.Point(57, 495);
             this.panel1.Name = "panel1";

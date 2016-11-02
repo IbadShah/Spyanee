@@ -68,7 +68,6 @@ namespace Spane_Laboratory
         {
             panel1.Show();
 
-          
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
