@@ -2227,7 +2227,7 @@
             this.pnlSaleInvoice.Controls.Add(this.button21);
             this.pnlSaleInvoice.Controls.Add(this.button22);
             this.pnlSaleInvoice.Controls.Add(this.button23);
-            this.pnlSaleInvoice.Controls.Add(this.pnlSalesOrder);
+            
             this.pnlSaleInvoice.Controls.Add(this.dataGridView4);
             this.pnlSaleInvoice.Controls.Add(this.textBox27);
             this.pnlSaleInvoice.Controls.Add(this.textBox28);
