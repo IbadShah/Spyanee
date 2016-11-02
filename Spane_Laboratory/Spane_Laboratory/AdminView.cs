@@ -142,20 +142,20 @@ namespace Spane_Laboratory
                 cmbCategories.SelectedIndex = -1;
       
                 //Purchase Invoice Category cmb
-                cmbPurInvCat.DataSource = dt;
-                cmbPurInvCat.DisplayMember = "CatName";
-                cmbPurInvCat.ValueMember = "CatId";
-                cmbPurInvCat.SelectedIndex = -1;
+                cmbSelectCatPurchaseInvoice.DataSource = dt;
+                cmbSelectCatPurchaseInvoice.DisplayMember = "CatName";
+                cmbSelectCatPurchaseInvoice.ValueMember = "CatId";
+                cmbSelectCatPurchaseInvoice.SelectedIndex = -1;
                 //Sale Invoice Category cmb
                 cmbSaleInvCat.DataSource = dt;
                 cmbSaleInvCat.DisplayMember = "CatName";
                 cmbSaleInvCat.ValueMember = "CatId";
                 cmbSaleInvCat.SelectedIndex = -1;
                 //Sale Order Category cmb
-                cmbSalOrderCat.DataSource = dt;
-                cmbSalOrderCat.DisplayMember = "CatName";
-                cmbSalOrderCat.ValueMember = "CatId";
-                cmbSalOrderCat.SelectedIndex = -1;
+                cmbSelectCatSaleOrder.DataSource = dt;
+                cmbSelectCatSaleOrder.DisplayMember = "CatName";
+                cmbSelectCatSaleOrder.ValueMember = "CatId";
+                cmbSelectCatSaleOrder.SelectedIndex = -1;
                 _oDbHelper.CloseConnection();
 
 
@@ -207,20 +207,20 @@ namespace Spane_Laboratory
                 cmbPacking.ValueMember = "PackingId";
                 cmbPacking.SelectedIndex = -1;
                 //Purchase Invoice Packing cmb
-                cmbPurInvPacking.DataSource = dt;
-                cmbPurInvPacking.DisplayMember = "PackingName";
-                cmbPurInvPacking.ValueMember = "PackingId";
-                cmbPurInvPacking.SelectedIndex = -1;
+                cmbSelectPackingPurchaseInvoice.DataSource = dt;
+                cmbSelectPackingPurchaseInvoice.DisplayMember = "PackingName";
+                cmbSelectPackingPurchaseInvoice.ValueMember = "PackingId";
+                cmbSelectPackingPurchaseInvoice.SelectedIndex = -1;
                 //Sale Invoice Packing cmb
                 cmbSaleInvPacking.DataSource = dt;
                 cmbSaleInvPacking.DisplayMember = "PackingName";
                 cmbSaleInvPacking.ValueMember = "PackingId";
                 cmbSaleInvPacking.SelectedIndex = -1;
                 //Sale Order Packing cmb
-                cmbSalOrderPacking.DataSource = dt;
-                cmbSalOrderPacking.DisplayMember = "PackingName";
-                cmbSalOrderPacking.ValueMember = "PackingId";
-                cmbSalOrderPacking.SelectedIndex = -1;
+                cmbSaleOrderPacking.DataSource = dt;
+                cmbSaleOrderPacking.DisplayMember = "PackingName";
+                cmbSaleOrderPacking.ValueMember = "PackingId";
+                cmbSaleOrderPacking.SelectedIndex = -1;
                 _oDbHelper.CloseConnection();
 
             }
@@ -246,20 +246,20 @@ namespace Spane_Laboratory
                 cmbUnit.ValueMember = "UnitId";
                 cmbUnit.SelectedIndex = -1;
                 //Purchase Invoice Unit cmb
-                cmbPurInvUnit.DataSource = dt;
-                cmbPurInvUnit.DisplayMember = "UnitName";
-                cmbPurInvUnit.ValueMember = "UnitId";
-                cmbPurInvUnit.SelectedIndex = -1;
+                cmbSelectUnitPurchaseInvoice.DataSource = dt;
+                cmbSelectUnitPurchaseInvoice.DisplayMember = "UnitName";
+                cmbSelectUnitPurchaseInvoice.ValueMember = "UnitId";
+                cmbSelectUnitPurchaseInvoice.SelectedIndex = -1;
                 //Sale Invoice Unit cmb
                 cmbSaleInvUnit.DataSource = dt;
                 cmbSaleInvUnit.DisplayMember = "UnitName";
                 cmbSaleInvUnit.ValueMember = "UnitId";
                 cmbSaleInvUnit.SelectedIndex = -1;
                 //Sale order Unit cmb
-                cmbSalOrderUnit.DataSource = dt;
-                cmbSalOrderUnit.DisplayMember = "UnitName";
-                cmbSalOrderUnit.ValueMember = "UnitId";
-                cmbSalOrderUnit.SelectedIndex = -1;
+                cmbSaleOrderUnit.DataSource = dt;
+                cmbSaleOrderUnit.DisplayMember = "UnitName";
+                cmbSaleOrderUnit.ValueMember = "UnitId";
+                cmbSaleOrderUnit.SelectedIndex = -1;
                 _oDbHelper.CloseConnection();
 
             }
@@ -280,20 +280,20 @@ namespace Spane_Laboratory
                 cmbSelectSubCatPurchaseOrder.ValueMember = "SubCatId";
                 cmbSelectSubCatPurchaseOrder.SelectedIndex = -1;
                 //Purchase Invoice SubCategory cmb
-                cmbPurInvSubCat.DataSource = dt;
-                cmbPurInvSubCat.DisplayMember = "SubCatName";
-                cmbPurInvSubCat.ValueMember = "SubCatId";
-                cmbPurInvSubCat.SelectedIndex = -1;
+                cmbSelectSubCatPurchaseInvoice.DataSource = dt;
+                cmbSelectSubCatPurchaseInvoice.DisplayMember = "SubCatName";
+                cmbSelectSubCatPurchaseInvoice.ValueMember = "SubCatId";
+                cmbSelectSubCatPurchaseInvoice.SelectedIndex = -1;
                 //Item Screen SubCategory cmb
                 cmbItem.DataSource = dt;
                 cmbItem.DisplayMember = "SubCatName";
                 cmbItem.ValueMember = "SubCatId";
                 cmbItem.SelectedIndex = -1;
                 //Sale Order SubCategory cmb
-                cmbSalOrderSubCat.DataSource = dt;
-                cmbSalOrderSubCat.DisplayMember = "SubCatName";
-                cmbSalOrderSubCat.ValueMember = "SubCatId";
-                cmbSalOrderSubCat.SelectedIndex = -1;
+                cmbSelectSubCatSaleOrder.DataSource = dt;
+                cmbSelectSubCatSaleOrder.DisplayMember = "SubCatName";
+                cmbSelectSubCatSaleOrder.ValueMember = "SubCatId";
+                cmbSelectSubCatSaleOrder.SelectedIndex = -1;
                 //Sale Invoice SubCategory cmb
                 cmbSaleInvSubCat.DataSource = dt;
                 cmbSaleInvSubCat.DisplayMember = "SubCatName";
