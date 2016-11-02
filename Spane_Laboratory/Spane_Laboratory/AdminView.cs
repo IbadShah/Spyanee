@@ -121,45 +121,9 @@ namespace Spane_Laboratory
         //Admin Main Form END
 
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            New(cmbCategories,tbCategories,chkCategoryIsActive);
-        }
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!cmbCategories.Enabled)
-                {
-                    if (tbCategories.Text != "")
-                    {
-                        _oDbHelper.OpenConnection();
-                        var catgories = Initializer();
-                        SaveCategories(catgories);
-                        _oDbHelper.CloseConnection();
-                        cmbCategories.Enabled = true;
-                        MessageBox.Show("Category Record is Inserted.");
-                        PopulateCategories();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please Insert Record.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Press New Before Entering New Category Record.");
-                }
-            }   
-            
-                 catch (Exception ex)
-            {
-                cmbCategories.Enabled = true;
-                MessageBox.Show("Insertion Failed." + ex);
-                _oDbHelper.CloseConnection();
-            }
-          
-        }
+        
+
+        //Data Poupulatuion methods START
         public void PopulateCategories()
         {
             try
@@ -224,6 +188,7 @@ namespace Spane_Laboratory
             PopulateCategories();
             PopulatePackings();
             PopulateUnits();
+           
         }
         public void PopulatePackings()
         {
@@ -342,7 +307,27 @@ namespace Spane_Laboratory
                 MessageBox.Show("Error in Loading Items."+ex);
             }
         }
+        public void PopulateGvPurchaseOrder()
+        {
+            gvPurchaseOrder.DataSource = PurchaseOrderDataTable();
+        }
+     public DataTable PurchaseOrderDataTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            
+            dt.Columns.Add("Quantity", typeof(int));
+            dt.Columns.Add("UnitRate", typeof(decimal));
+            dt.Columns.Add("Discount", typeof(decimal));
+            dt.Columns.Add("TotalAmount", typeof(decimal));
+            dt.Columns.Add("AmountReceived", typeof(decimal));
+            dt.Columns.Add("RemainingAmount", typeof(decimal));
+            dt.Columns["Discount"].DefaultValue = 0;
+            return dt;
+        }
+        //public void Populte
 
+        //Data Poupulatuion methods END
 
 
         //Model Initializer
@@ -398,7 +383,7 @@ namespace Spane_Laboratory
         //Model Initializer END
 
 
-
+        //Save Methods START
         public void SaveCategories(Categories model)
         {         
                 SqlParameter[] param =
@@ -417,7 +402,6 @@ namespace Spane_Laboratory
                 };
                var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspCategoriesSave", RetVal, param);    
         }
-
         public void SaveUnit(Unit model)
         {
             SqlParameter[] param =
@@ -453,6 +437,49 @@ namespace Spane_Laboratory
                     _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
                 };
             var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspPackingSave", RetVal, param);
+        }
+        //Save Methods END
+
+
+        //Category Screen Buttons START
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            New(cmbCategories, tbCategories, chkCategoryIsActive);
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!cmbCategories.Enabled)
+                {
+                    if (tbCategories.Text != "")
+                    {
+                        _oDbHelper.OpenConnection();
+                        var catgories = Initializer();
+                        SaveCategories(catgories);
+                        _oDbHelper.CloseConnection();
+                        cmbCategories.Enabled = true;
+                        MessageBox.Show("Category Record is Inserted.");
+                        PopulateCategories();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Insert Record.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Press New Before Entering New Category Record.");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                cmbCategories.Enabled = true;
+                MessageBox.Show("Insertion Failed." + ex);
+                _oDbHelper.CloseConnection();
+            }
+
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -503,6 +530,11 @@ namespace Spane_Laboratory
                // MessageBox.Show("Category Loading Failed."+ex);
             }
         }
+        private void cmbCategories_TextChanged(object sender, EventArgs e)
+        {
+            CmbSelectedText("--Select Category--", cmbCategories);
+        }
+        //Category Screen Buttons END
 
         //Get Models Methods
         public Categories GetById(int id)
@@ -532,7 +564,6 @@ namespace Spane_Laboratory
             var list = _oDbHelper.GenericSqlDataReader<Packing>("uspGetAllPackings", pram).FirstOrDefault();
             return list;
         }
-
         public Unit UnitGetById(int id)
         {
             SqlParameter[] pram =
@@ -614,7 +645,6 @@ namespace Spane_Laboratory
             pnlSaleInvoice.Hide();
            
         }
-       
         private void btnPurchaseOrder_Click(object sender, EventArgs e)
         {
             panel1.Hide();
@@ -663,12 +693,10 @@ namespace Spane_Laboratory
             pnlSaleInvoice.Show();
             
         }
-
         private void btnCategoriesClear_Click(object sender, EventArgs e)
         {
             Clear(tbCategories,chkCategoryIsActive,cmbCategories);
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -695,7 +723,7 @@ namespace Spane_Laboratory
 
         }
 
-        //Delete Methods
+        //Delete Methods START
         public void DeleteCategory(int id)
         {
             SqlParameter[] param =
@@ -706,7 +734,6 @@ namespace Spane_Laboratory
 
             _oDbHelper.ExecuteScalar("uspDeleteCategory", param);
         }
-
         public void DeleteItem(int id)
         {
             SqlParameter[] param =
@@ -717,7 +744,6 @@ namespace Spane_Laboratory
 
             _oDbHelper.ExecuteScalar("uspDeleteSubCategory", param);
         }
-
         public void DeleteUnit(int id)
         {
             SqlParameter[] param =
@@ -738,6 +764,7 @@ namespace Spane_Laboratory
 
             _oDbHelper.ExecuteScalar("uspDeletePacking", param);
         }
+        //Delete Methods END
         private void cmbItem_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -758,7 +785,6 @@ namespace Spane_Laboratory
                
             }
         }
-
         private void button24_Click(object sender, EventArgs e)
         {
             tbItem.Text = "";
@@ -767,7 +793,6 @@ namespace Spane_Laboratory
             cmbItem.Enabled = true;
             cmbItem.SelectedIndex = -1;
         }
-
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
            try
@@ -786,10 +811,7 @@ namespace Spane_Laboratory
             }
         }
 
-        private void cmbCategories_TextChanged(object sender, EventArgs e)
-        {
-            CmbSelectedText("--Select Category--", cmbCategories);
-        }
+     
 
         private void cmbItem_TextChanged(object sender, EventArgs e)
         {
