@@ -40,7 +40,11 @@ namespace Spane_Laboratory
 
         private readonly DbHelper _oDbHelper = new DbHelper();
         public int adminId = 1;
-
+        int quantity;
+        decimal unitRate;
+        decimal discount;
+        decimal amount;
+        decimal discountAmount;
         //Global Variables END
         public AdminView()
         {
@@ -1205,13 +1209,28 @@ namespace Spane_Laboratory
             }
         }
 
-        private void label45_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         //packing screen Buttons END
+
+
+        //Purchase Order Screen Coding START
+        private void tbDiscountPurOr_Leave(object sender, EventArgs e)
+        {
+            quantity = Convert.ToInt16(tbQuantityPurOr.Text);
+            unitRate = Convert.ToDecimal(tbUnitRatePurOr.Text);
+            discount = Convert.ToDecimal(tbDiscountPurOr.Text);
+            amount = quantity * unitRate;
+            discountAmount = amount * (discount/100);
+            tbTotalAmPurOr.Text =Convert.ToString(amount-discountAmount);
+        }
+        private void tbAmountRePurOr_Leave(object sender, EventArgs e)
+        {
+            decimal totalAmount = Convert.ToDecimal(tbTotalAmPurOr.Text);
+            decimal amountReceived=Convert.ToDecimal(tbAmountRePurOr.Text);
+            tbRemAmPurOr.Text= Convert.ToString(totalAmount- amountReceived);
+        }
+        //Purchase Order Screen Coding END
+
+
 
     }
 

@@ -41,6 +41,10 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAddItems = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
+            this.pnlPurchaseOrder = new System.Windows.Forms.Panel();
+            this.pnlPacking = new System.Windows.Forms.Panel();
+            this.pnlUnit = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkCategoryIsActive = new System.Windows.Forms.CheckBox();
             this.btnCategoriesClear = new System.Windows.Forms.Button();
@@ -53,7 +57,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tbCategories = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.cmbItem = new System.Windows.Forms.ComboBox();
             this.chkItemIsActive = new System.Windows.Forms.CheckBox();
             this.button24 = new System.Windows.Forms.Button();
@@ -65,7 +68,6 @@
             this.btnNewItem = new System.Windows.Forms.Button();
             this.tbItem = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pnlUnit = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnUnitDelete = new System.Windows.Forms.Button();
             this.btnUnitClear = new System.Windows.Forms.Button();
@@ -77,7 +79,6 @@
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.pnlPacking = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnPackingDelete = new System.Windows.Forms.Button();
             this.btnPackingClear = new System.Windows.Forms.Button();
@@ -89,7 +90,6 @@
             this.cmbPacking = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.pnlPurchaseOrder = new System.Windows.Forms.Panel();
             this.btnAddPurchaseOrderDetail = new System.Windows.Forms.Button();
             this.btnDeletePurOr = new System.Windows.Forms.Button();
             this.btnClearPurOr = new System.Windows.Forms.Button();
@@ -254,11 +254,11 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pnlUnit.SuspendLayout();
-            this.pnlPacking.SuspendLayout();
             this.pnlPurchaseOrder.SuspendLayout();
+            this.pnlPacking.SuspendLayout();
+            this.pnlUnit.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvPurchaseOrder)).BeginInit();
             this.gbVendorInfo.SuspendLayout();
             this.pnlPurchaseInvoice.SuspendLayout();
@@ -297,10 +297,6 @@
             // 
             this.splitContainer1.Panel2.BackgroundImage = global::Spane_Laboratory.Properties.Resources.lab;
             this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Panel2.Controls.Add(this.panel2);
-            this.splitContainer1.Panel2.Controls.Add(this.pnlUnit);
-            this.splitContainer1.Panel2.Controls.Add(this.pnlPacking);
             this.splitContainer1.Panel2.Controls.Add(this.pnlPurchaseOrder);
             this.splitContainer1.Panel2.Controls.Add(this.pnlPurchaseInvoice);
             this.splitContainer1.Panel2.Controls.Add(this.pnlSalesOrder);
@@ -439,6 +435,103 @@
             this.btnAddCategory.UseVisualStyleBackColor = false;
             this.btnAddCategory.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pnlPurchaseOrder
+            // 
+            this.pnlPurchaseOrder.Controls.Add(this.pnlPacking);
+            this.pnlPurchaseOrder.Controls.Add(this.btnAddPurchaseOrderDetail);
+            this.pnlPurchaseOrder.Controls.Add(this.btnDeletePurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.btnClearPurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.btnUpdatePurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.btnSavePurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.btnNewPurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.gvPurchaseOrder);
+            this.pnlPurchaseOrder.Controls.Add(this.tbAmountRePurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.tbTotalAmPurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.tbDiscountPurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.tbUnitRatePurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.tbRemAmPurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.tbQuantityPurOr);
+            this.pnlPurchaseOrder.Controls.Add(this.label32);
+            this.pnlPurchaseOrder.Controls.Add(this.label31);
+            this.pnlPurchaseOrder.Controls.Add(this.label30);
+            this.pnlPurchaseOrder.Controls.Add(this.label29);
+            this.pnlPurchaseOrder.Controls.Add(this.label28);
+            this.pnlPurchaseOrder.Controls.Add(this.label27);
+            this.pnlPurchaseOrder.Controls.Add(this.cmbPurOrderPacking);
+            this.pnlPurchaseOrder.Controls.Add(this.cmbPurOrderUnit);
+            this.pnlPurchaseOrder.Controls.Add(this.label26);
+            this.pnlPurchaseOrder.Controls.Add(this.label25);
+            this.pnlPurchaseOrder.Controls.Add(this.cmbSelectSubCatPurchaseOrder);
+            this.pnlPurchaseOrder.Controls.Add(this.label24);
+            this.pnlPurchaseOrder.Controls.Add(this.cmbSelectCatPurchaseOrder);
+            this.pnlPurchaseOrder.Controls.Add(this.label23);
+            this.pnlPurchaseOrder.Controls.Add(this.gbVendorInfo);
+            this.pnlPurchaseOrder.Controls.Add(this.tbPurchaseOrderCode);
+            this.pnlPurchaseOrder.Controls.Add(this.label19);
+            this.pnlPurchaseOrder.Controls.Add(this.label18);
+            this.pnlPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPurchaseOrder.Location = new System.Drawing.Point(0, 0);
+            this.pnlPurchaseOrder.Name = "pnlPurchaseOrder";
+            this.pnlPurchaseOrder.Size = new System.Drawing.Size(1090, 593);
+            this.pnlPurchaseOrder.TabIndex = 23;
+            // 
+            // pnlPacking
+            // 
+            this.pnlPacking.Controls.Add(this.pnlUnit);
+            this.pnlPacking.Controls.Add(this.label7);
+            this.pnlPacking.Controls.Add(this.btnPackingDelete);
+            this.pnlPacking.Controls.Add(this.btnPackingClear);
+            this.pnlPacking.Controls.Add(this.btnPackingUpdate);
+            this.pnlPacking.Controls.Add(this.btnPackingSave);
+            this.pnlPacking.Controls.Add(this.btnPackingNew);
+            this.pnlPacking.Controls.Add(this.chkPackingIsActive);
+            this.pnlPacking.Controls.Add(this.tbPacking);
+            this.pnlPacking.Controls.Add(this.cmbPacking);
+            this.pnlPacking.Controls.Add(this.label16);
+            this.pnlPacking.Controls.Add(this.label17);
+            this.pnlPacking.Location = new System.Drawing.Point(16, 587);
+            this.pnlPacking.Name = "pnlPacking";
+            this.pnlPacking.Size = new System.Drawing.Size(1090, 549);
+            this.pnlPacking.TabIndex = 13;
+            // 
+            // pnlUnit
+            // 
+            this.pnlUnit.Controls.Add(this.panel2);
+            this.pnlUnit.Controls.Add(this.label9);
+            this.pnlUnit.Controls.Add(this.btnUnitDelete);
+            this.pnlUnit.Controls.Add(this.btnUnitClear);
+            this.pnlUnit.Controls.Add(this.btnUnitUpdate);
+            this.pnlUnit.Controls.Add(this.btnUnitSave);
+            this.pnlUnit.Controls.Add(this.btnNewUnit);
+            this.pnlUnit.Controls.Add(this.chkUnitIsAcive);
+            this.pnlUnit.Controls.Add(this.tbUnit);
+            this.pnlUnit.Controls.Add(this.cmbUnit);
+            this.pnlUnit.Controls.Add(this.label15);
+            this.pnlUnit.Controls.Add(this.label10);
+            this.pnlUnit.Location = new System.Drawing.Point(75, 411);
+            this.pnlUnit.Name = "pnlUnit";
+            this.pnlUnit.Size = new System.Drawing.Size(1090, 593);
+            this.pnlUnit.TabIndex = 14;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.cmbItem);
+            this.panel2.Controls.Add(this.chkItemIsActive);
+            this.panel2.Controls.Add(this.button24);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.btnDeleteItem);
+            this.panel2.Controls.Add(this.btnUpdateItem);
+            this.panel2.Controls.Add(this.btnSaveItem);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnNewItem);
+            this.panel2.Controls.Add(this.tbItem);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Location = new System.Drawing.Point(75, 436);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1090, 593);
+            this.panel2.TabIndex = 6;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
@@ -453,9 +546,8 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(57, 495);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1090, 593);
             this.panel1.TabIndex = 0;
@@ -581,25 +673,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Add Category";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cmbItem);
-            this.panel2.Controls.Add(this.chkItemIsActive);
-            this.panel2.Controls.Add(this.button24);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.btnDeleteItem);
-            this.panel2.Controls.Add(this.btnUpdateItem);
-            this.panel2.Controls.Add(this.btnSaveItem);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.btnNewItem);
-            this.panel2.Controls.Add(this.tbItem);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1090, 593);
-            this.panel2.TabIndex = 6;
-            // 
             // cmbItem
             // 
             this.cmbItem.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -720,25 +793,6 @@
             this.label5.Size = new System.Drawing.Size(86, 21);
             this.label5.TabIndex = 2;
             this.label5.Text = "Add Item";
-            // 
-            // pnlUnit
-            // 
-            this.pnlUnit.Controls.Add(this.label9);
-            this.pnlUnit.Controls.Add(this.btnUnitDelete);
-            this.pnlUnit.Controls.Add(this.btnUnitClear);
-            this.pnlUnit.Controls.Add(this.btnUnitUpdate);
-            this.pnlUnit.Controls.Add(this.btnUnitSave);
-            this.pnlUnit.Controls.Add(this.btnNewUnit);
-            this.pnlUnit.Controls.Add(this.chkUnitIsAcive);
-            this.pnlUnit.Controls.Add(this.tbUnit);
-            this.pnlUnit.Controls.Add(this.cmbUnit);
-            this.pnlUnit.Controls.Add(this.label15);
-            this.pnlUnit.Controls.Add(this.label10);
-            this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUnit.Location = new System.Drawing.Point(0, 0);
-            this.pnlUnit.Name = "pnlUnit";
-            this.pnlUnit.Size = new System.Drawing.Size(1090, 593);
-            this.pnlUnit.TabIndex = 14;
             // 
             // label9
             // 
@@ -861,25 +915,6 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Select Unit";
             // 
-            // pnlPacking
-            // 
-            this.pnlPacking.Controls.Add(this.label7);
-            this.pnlPacking.Controls.Add(this.btnPackingDelete);
-            this.pnlPacking.Controls.Add(this.btnPackingClear);
-            this.pnlPacking.Controls.Add(this.btnPackingUpdate);
-            this.pnlPacking.Controls.Add(this.btnPackingSave);
-            this.pnlPacking.Controls.Add(this.btnPackingNew);
-            this.pnlPacking.Controls.Add(this.chkPackingIsActive);
-            this.pnlPacking.Controls.Add(this.tbPacking);
-            this.pnlPacking.Controls.Add(this.cmbPacking);
-            this.pnlPacking.Controls.Add(this.label16);
-            this.pnlPacking.Controls.Add(this.label17);
-            this.pnlPacking.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPacking.Location = new System.Drawing.Point(0, 0);
-            this.pnlPacking.Name = "pnlPacking";
-            this.pnlPacking.Size = new System.Drawing.Size(1090, 593);
-            this.pnlPacking.TabIndex = 13;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -1000,45 +1035,6 @@
             this.label17.TabIndex = 13;
             this.label17.Text = "Select Packing";
             // 
-            // pnlPurchaseOrder
-            // 
-            this.pnlPurchaseOrder.Controls.Add(this.btnAddPurchaseOrderDetail);
-            this.pnlPurchaseOrder.Controls.Add(this.btnDeletePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnClearPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnUpdatePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnSavePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.btnNewPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.gvPurchaseOrder);
-            this.pnlPurchaseOrder.Controls.Add(this.tbAmountRePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbTotalAmPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbDiscountPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbUnitRatePurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbRemAmPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.tbQuantityPurOr);
-            this.pnlPurchaseOrder.Controls.Add(this.label32);
-            this.pnlPurchaseOrder.Controls.Add(this.label31);
-            this.pnlPurchaseOrder.Controls.Add(this.label30);
-            this.pnlPurchaseOrder.Controls.Add(this.label29);
-            this.pnlPurchaseOrder.Controls.Add(this.label28);
-            this.pnlPurchaseOrder.Controls.Add(this.label27);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbPurOrderPacking);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbPurOrderUnit);
-            this.pnlPurchaseOrder.Controls.Add(this.label26);
-            this.pnlPurchaseOrder.Controls.Add(this.label25);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbSelectSubCatPurchaseOrder);
-            this.pnlPurchaseOrder.Controls.Add(this.label24);
-            this.pnlPurchaseOrder.Controls.Add(this.cmbSelectCatPurchaseOrder);
-            this.pnlPurchaseOrder.Controls.Add(this.label23);
-            this.pnlPurchaseOrder.Controls.Add(this.gbVendorInfo);
-            this.pnlPurchaseOrder.Controls.Add(this.tbPurchaseOrderCode);
-            this.pnlPurchaseOrder.Controls.Add(this.label19);
-            this.pnlPurchaseOrder.Controls.Add(this.label18);
-            this.pnlPurchaseOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPurchaseOrder.Location = new System.Drawing.Point(0, 0);
-            this.pnlPurchaseOrder.Name = "pnlPurchaseOrder";
-            this.pnlPurchaseOrder.Size = new System.Drawing.Size(1090, 593);
-            this.pnlPurchaseOrder.TabIndex = 23;
-            // 
             // btnAddPurchaseOrderDetail
             // 
             this.btnAddPurchaseOrderDetail.BackColor = System.Drawing.SystemColors.Window;
@@ -1120,6 +1116,7 @@
             this.tbAmountRePurOr.Name = "tbAmountRePurOr";
             this.tbAmountRePurOr.Size = new System.Drawing.Size(85, 23);
             this.tbAmountRePurOr.TabIndex = 13;
+            this.tbAmountRePurOr.Leave += new System.EventHandler(this.tbAmountRePurOr_Leave);
             // 
             // tbTotalAmPurOr
             // 
@@ -1137,6 +1134,7 @@
             this.tbDiscountPurOr.Name = "tbDiscountPurOr";
             this.tbDiscountPurOr.Size = new System.Drawing.Size(85, 23);
             this.tbDiscountPurOr.TabIndex = 11;
+            this.tbDiscountPurOr.Leave += new System.EventHandler(this.tbDiscountPurOr_Leave);
             // 
             // tbUnitRatePurOr
             // 
@@ -1148,6 +1146,7 @@
             // 
             // tbRemAmPurOr
             // 
+            this.tbRemAmPurOr.Enabled = false;
             this.tbRemAmPurOr.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRemAmPurOr.Location = new System.Drawing.Point(998, 230);
             this.tbRemAmPurOr.Name = "tbRemAmPurOr";
@@ -1168,9 +1167,9 @@
             this.label32.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(680, 241);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(124, 17);
+            this.label32.Size = new System.Drawing.Size(104, 17);
             this.label32.TabIndex = 32;
-            this.label32.Text = "Amount Received";
+            this.label32.Text = "Amount Payed";
             // 
             // label31
             // 
@@ -1785,7 +1784,6 @@
             this.label45.Size = new System.Drawing.Size(158, 17);
             this.label45.TabIndex = 56;
             this.label45.Text = "Purchase Invoice Code";
-            this.label45.Click += new System.EventHandler(this.label45_Click);
             // 
             // button12
             // 
@@ -2694,16 +2692,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.pnlUnit.ResumeLayout(false);
-            this.pnlUnit.PerformLayout();
-            this.pnlPacking.ResumeLayout(false);
-            this.pnlPacking.PerformLayout();
             this.pnlPurchaseOrder.ResumeLayout(false);
             this.pnlPurchaseOrder.PerformLayout();
+            this.pnlPacking.ResumeLayout(false);
+            this.pnlPacking.PerformLayout();
+            this.pnlUnit.ResumeLayout(false);
+            this.pnlUnit.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvPurchaseOrder)).EndInit();
             this.gbVendorInfo.ResumeLayout(false);
             this.gbVendorInfo.PerformLayout();
