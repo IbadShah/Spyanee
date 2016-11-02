@@ -67,7 +67,6 @@ namespace Spane_Laboratory
         private void button1_Click(object sender, EventArgs e)
         {
             panel1.Show();
-
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
