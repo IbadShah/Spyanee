@@ -1150,7 +1150,12 @@ namespace Spane_Laboratory
             }
         }
 
-       
+        private void label45_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         //packing screen Buttons END
 
     }
