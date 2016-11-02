@@ -40,7 +40,11 @@ namespace Spane_Laboratory
 
         private readonly DbHelper _oDbHelper = new DbHelper();
         public int adminId = 1;
-
+        int quantity;
+        decimal unitRate;
+        decimal discount;
+        decimal amount;
+        decimal discountAmount;
         //Global Variables END
         public AdminView()
         {
@@ -188,7 +192,9 @@ namespace Spane_Laboratory
             PopulateCategories();
             PopulatePackings();
             PopulateUnits();
-           
+            SetPurchaseOrderCode();
+            SetPurchaseInvoiceCode();
+            SetSaleOrderCode();
         }
         public void PopulatePackings()
         {
@@ -311,7 +317,7 @@ namespace Spane_Laboratory
         {
             gvPurchaseOrder.DataSource = PurchaseOrderDataTable();
         }
-     public DataTable PurchaseOrderDataTable()
+        public DataTable PurchaseOrderDataTable()
         {
             DataTable dt = new DataTable();
             dt.Clear();
@@ -325,10 +331,63 @@ namespace Spane_Laboratory
             dt.Columns["Discount"].DefaultValue = 0;
             return dt;
         }
-        //public void Populte
-
+        public DataTable GetPurchaseOrderCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspPurchaseOrderCodeGet", pram);
+        }
+        public DataTable GetPurchaseInvoiceCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspPurchaseInvoiveCodeGet", pram);
+        }
+        public DataTable GetSaleOrderCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspSaleOrderCodeGet", pram);
+        }
+        public DataTable GetSaleInvoiceCode()
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.OutParam("@RetCode",SqlDbType.VarChar,20)
+            };
+            return _oDbHelper.GetDataTable("uspSalInvoiveCodeGet", pram);
+        }
         //Data Poupulatuion methods END
 
+
+        //Set Codes Methods START
+        public void SetPurchaseOrderCode()
+        {
+            var dt = GetPurchaseOrderCode();
+            tbPurchaseOrderCode.Text = dt.Rows[0]["PurchaseOrderCode"].ToString();
+        }
+        public void SetPurchaseInvoiceCode()
+        {
+            var dt = GetPurchaseInvoiceCode();
+            tbPurInvCode.Text = dt.Rows[0]["PurchaseInvoiceCode"].ToString();
+        }
+        public void SetSaleOrderCode()
+        {
+            var dt = GetSaleOrderCode();
+            tbSaleOrCode.Text = dt.Rows[0]["SaleOrderCode"].ToString();
+        }
+        //public void SetSaleInvoiceCode()
+        //{
+        //    var dt = GetSaleInvoiceCode();
+        //    tbSaleInvCode.Text = dt.Rows[0]["SaleInvoiceCode"].ToString();
+        //}
+        //Get Codes Methods END
 
         //Model Initializer
         private Categories Initializer()
@@ -1150,13 +1209,28 @@ namespace Spane_Laboratory
             }
         }
 
-        private void label45_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         //packing screen Buttons END
+
+
+        //Purchase Order Screen Coding START
+        private void tbDiscountPurOr_Leave(object sender, EventArgs e)
+        {
+            quantity = Convert.ToInt16(tbQuantityPurOr.Text);
+            unitRate = Convert.ToDecimal(tbUnitRatePurOr.Text);
+            discount = Convert.ToDecimal(tbDiscountPurOr.Text);
+            amount = quantity * unitRate;
+            discountAmount = amount * (discount/100);
+            tbTotalAmPurOr.Text =Convert.ToString(amount-discountAmount);
+        }
+        private void tbAmountRePurOr_Leave(object sender, EventArgs e)
+        {
+            decimal totalAmount = Convert.ToDecimal(tbTotalAmPurOr.Text);
+            decimal amountReceived=Convert.ToDecimal(tbAmountRePurOr.Text);
+            tbRemAmPurOr.Text= Convert.ToString(totalAmount- amountReceived);
+        }
+        //Purchase Order Screen Coding END
+
+
 
     }
 
