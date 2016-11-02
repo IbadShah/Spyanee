@@ -246,7 +246,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.gvSubCategories = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -996,7 +995,6 @@
             // 
             // pnlPurchaseOrder
             // 
-            this.pnlPurchaseOrder.Controls.Add(this.label8);
             this.pnlPurchaseOrder.Controls.Add(this.btnAddPurchaseOrderDetail);
             this.pnlPurchaseOrder.Controls.Add(this.button2);
             this.pnlPurchaseOrder.Controls.Add(this.button3);
@@ -2630,15 +2628,6 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Unit";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(169, 27);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 40;
-            this.label8.Text = "label8";
-            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2912,6 +2901,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbItem;
         private System.Windows.Forms.Button btnAddPurchaseOrderDetail;
-        private System.Windows.Forms.Label label8;
     }
 }
