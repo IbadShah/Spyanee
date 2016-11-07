@@ -248,6 +248,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.gvSubCategories = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnPurchaseOrderPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -453,10 +454,9 @@
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.panel1.Location = new System.Drawing.Point(57, 495);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(57, 596);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1090, 593);
+            this.panel1.Size = new System.Drawing.Size(1090, 492);
             this.panel1.TabIndex = 0;
             // 
             // chkCategoryIsActive
@@ -593,10 +593,9 @@
             this.panel2.Controls.Add(this.btnNewItem);
             this.panel2.Controls.Add(this.tbItem);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(75, 436);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(75, 617);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1090, 593);
+            this.panel2.Size = new System.Drawing.Size(1090, 412);
             this.panel2.TabIndex = 6;
             // 
             // cmbItem
@@ -733,10 +732,9 @@
             this.pnlUnit.Controls.Add(this.cmbUnit);
             this.pnlUnit.Controls.Add(this.label15);
             this.pnlUnit.Controls.Add(this.label10);
-            this.pnlUnit.Location = new System.Drawing.Point(75, 411);
-            this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUnit.Location = new System.Drawing.Point(75, 626);
             this.pnlUnit.Name = "pnlUnit";
-            this.pnlUnit.Size = new System.Drawing.Size(1090, 593);
+            this.pnlUnit.Size = new System.Drawing.Size(1090, 378);
             this.pnlUnit.TabIndex = 14;
             // 
             // label9
@@ -874,7 +872,6 @@
             this.pnlPacking.Controls.Add(this.label16);
             this.pnlPacking.Controls.Add(this.label17);
             this.pnlPacking.Location = new System.Drawing.Point(16, 587);
-            this.pnlPacking.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPacking.Name = "pnlPacking";
             this.pnlPacking.Size = new System.Drawing.Size(1090, 549);
             this.pnlPacking.TabIndex = 13;
@@ -1001,6 +998,7 @@
             // 
             // pnlPurchaseOrder
             // 
+            this.pnlPurchaseOrder.Controls.Add(this.btnPurchaseOrderPrint);
             this.pnlPurchaseOrder.Controls.Add(this.btnAddPurchaseOrderDetail);
             this.pnlPurchaseOrder.Controls.Add(this.btnDeletePurOr);
             this.pnlPurchaseOrder.Controls.Add(this.btnClearPurOr);
@@ -1048,6 +1046,7 @@
             this.btnAddPurchaseOrderDetail.TabIndex = 15;
             this.btnAddPurchaseOrderDetail.Text = "Add";
             this.btnAddPurchaseOrderDetail.UseVisualStyleBackColor = false;
+            this.btnAddPurchaseOrderDetail.Click += new System.EventHandler(this.btnAddPurchaseOrderDetail_Click);
             // 
             // btnDeletePurOr
             // 
@@ -1059,6 +1058,7 @@
             this.btnDeletePurOr.TabIndex = 20;
             this.btnDeletePurOr.Text = "Delete";
             this.btnDeletePurOr.UseVisualStyleBackColor = false;
+            this.btnDeletePurOr.Click += new System.EventHandler(this.btnDeletePurOr_Click);
             // 
             // btnClearPurOr
             // 
@@ -1070,6 +1070,7 @@
             this.btnClearPurOr.TabIndex = 19;
             this.btnClearPurOr.Text = "Clear";
             this.btnClearPurOr.UseVisualStyleBackColor = false;
+            this.btnClearPurOr.Click += new System.EventHandler(this.btnClearPurOr_Click);
             // 
             // btnUpdatePurOr
             // 
@@ -1092,6 +1093,7 @@
             this.btnSavePurOr.TabIndex = 17;
             this.btnSavePurOr.Text = "Save";
             this.btnSavePurOr.UseVisualStyleBackColor = false;
+            this.btnSavePurOr.Click += new System.EventHandler(this.btnSavePurOr_Click);
             // 
             // btnNewPurOr
             // 
@@ -1109,7 +1111,7 @@
             this.gvPurchaseOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvPurchaseOrder.Location = new System.Drawing.Point(16, 290);
             this.gvPurchaseOrder.Name = "gvPurchaseOrder";
-            this.gvPurchaseOrder.Size = new System.Drawing.Size(1071, 246);
+            this.gvPurchaseOrder.Size = new System.Drawing.Size(1067, 246);
             this.gvPurchaseOrder.TabIndex = 39;
             // 
             // tbAmountRePurOr
@@ -2662,6 +2664,17 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Unit";
             // 
+            // btnPurchaseOrderPrint
+            // 
+            this.btnPurchaseOrderPrint.BackColor = System.Drawing.SystemColors.Window;
+            this.btnPurchaseOrderPrint.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPurchaseOrderPrint.Location = new System.Drawing.Point(988, 27);
+            this.btnPurchaseOrderPrint.Name = "btnPurchaseOrderPrint";
+            this.btnPurchaseOrderPrint.Size = new System.Drawing.Size(89, 39);
+            this.btnPurchaseOrderPrint.TabIndex = 40;
+            this.btnPurchaseOrderPrint.Text = "Print";
+            this.btnPurchaseOrderPrint.UseVisualStyleBackColor = false;
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2937,5 +2950,6 @@
         private System.Windows.Forms.TextBox tbSaleOrderVendorName;
         private System.Windows.Forms.TextBox tbSaleOrderCode;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button btnPurchaseOrderPrint;
     }
 }

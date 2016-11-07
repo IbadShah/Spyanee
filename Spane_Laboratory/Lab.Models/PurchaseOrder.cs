@@ -11,10 +11,10 @@ namespace Lab.Models
         public int PurchaseOrderId { get; set; }
         public string PurchaseOrderCode { get; set; }
         public int VendorId { get; set; }
-        public int CatId { get; set; }
-        public int SubCatId { get; set; }
-        public int UnitId { get; set; }
-        public int PackingId { get; set; }
+        public string CatName { get; set; }
+        public string SubCatName { get; set; }
+        public string UnitName { get; set; }
+        public string PackingName { get; set; }
         public decimal Quantity { get; set; }
         public decimal UnitRate { get; set; }
         public decimal Discount { get; set; }

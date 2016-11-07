@@ -30,10 +30,15 @@ namespace Spane_Laboratory
         private const string Units = "@Units";
         private const string UnitRate = "@UnitRate";
         private const string Amount = "@Amount";
+        private const string VendorId = "@VendorId";
+        private const string VendorName = "@VendorName";
+        private const string VendorContactNumber = "@VendorContactNumber";
+        private const string VendorAddress = "@VendorAddress";
+        private const string PurchaseOrderCode = "@PurchaseOrderCode";
         private const string IsActive = "@IsActive";
         private const string CreatedBy = "@CreatedBy";
         private const string UpdatedBy = "@UpdatedBy";
-
+        private const string purchaseOrderTable = "@purchaseOrderTable";
         #endregion
 
         //Global Variables
@@ -193,6 +198,7 @@ namespace Spane_Laboratory
             SetPurchaseOrderCode();
             SetPurchaseInvoiceCode();
             SetSaleOrderCode();
+            PopulateGvPurchaseOrder();
         }
         public void PopulatePackings()
         {
@@ -313,22 +319,25 @@ namespace Spane_Laboratory
         }
         public void PopulateGvPurchaseOrder()
         {
-            gvPurchaseOrder.DataSource = PurchaseOrderDataTable();
+         
+         
+            gvPurchaseOrder.ColumnCount = 11;
+            gvPurchaseOrder.Columns[0].Name = "PurchaseOrderId";
+            gvPurchaseOrder.Columns[0].Visible = false;
+            gvPurchaseOrder.Columns[1].Name = "CatName";
+            gvPurchaseOrder.Columns[2].Name = "SubCatName";
+            gvPurchaseOrder.Columns[3].Name = "UnitName";
+            gvPurchaseOrder.Columns[4].Name = "PackingName";
+            gvPurchaseOrder.Columns[5].Name = "Quantity";
+            gvPurchaseOrder.Columns[6].Name = "UnitRate";
+            gvPurchaseOrder.Columns[7].Name = "Discount";
+            gvPurchaseOrder.Columns[8].Name = "TotalAmount";
+            gvPurchaseOrder.Columns[9].Name = "AmountReceived";
+            gvPurchaseOrder.Columns[10].Name = "RemainingAmount";
+            gvPurchaseOrder.Columns[10].Width = 124;
+
         }
-        public DataTable PurchaseOrderDataTable()
-        {
-            DataTable dt = new DataTable();
-            dt.Clear();
-            
-            dt.Columns.Add("Quantity", typeof(int));
-            dt.Columns.Add("UnitRate", typeof(decimal));
-            dt.Columns.Add("Discount", typeof(decimal));
-            dt.Columns.Add("TotalAmount", typeof(decimal));
-            dt.Columns.Add("AmountReceived", typeof(decimal));
-            dt.Columns.Add("RemainingAmount", typeof(decimal));
-            dt.Columns["Discount"].DefaultValue = 0;
-            return dt;
-        }
+    
         public DataTable GetPurchaseOrderCode()
         {
             SqlParameter[] pram =
@@ -437,6 +446,27 @@ namespace Spane_Laboratory
             };
             return packing;
         }
+        private PurchaseOrder InitializerPurchaseOrder()
+        {
+            var purchaseOrder = new PurchaseOrder
+            {
+                PurchaseOrderCode = tbPurchaseOrderCode.Text
+            };
+            return purchaseOrder;
+            
+        }
+        private Vendor InitializerVendor()
+        {
+            var vendor = new Vendor
+            {
+                VendorName = tbPurOrderVendorName.Text,
+                VendorContactNumber=Convert.ToInt32(tbPurOrContactNumber.Text),
+                VendorAddress= richTbPurOrAddress.Text,
+                CreatedBy = adminId,
+                UpdatedBy = adminId
+            };
+            return vendor;
+        }
         //Model Initializer END
 
 
@@ -476,6 +506,30 @@ namespace Spane_Laboratory
                     _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
                 };
             var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspUnitSave", RetVal, param);
+        }
+        public void SavePurchaseOrder(Vendor model,PurchaseOrder model1,DataTable dt)
+        {
+
+            SqlParameter[] param =
+            {
+
+                _oDbHelper.InParam(purchaseOrderTable, SqlDbType.Structured,0,dt),
+
+                    _oDbHelper.InParam(VendorName, SqlDbType.NVarChar, 50, model.VendorName),
+
+                    _oDbHelper.InParam(VendorContactNumber,SqlDbType.BigInt,15,model.VendorContactNumber),
+
+                    _oDbHelper.InParam(VendorAddress,SqlDbType.NVarChar,50,model.VendorAddress),
+
+                   _oDbHelper.InParam(PurchaseOrderCode,SqlDbType.NVarChar,50,model1.PurchaseOrderCode),
+
+                    _oDbHelper.InParam(CreatedBy,SqlDbType.Int,4,model.CreatedBy),
+
+                    _oDbHelper.InParam(UpdatedBy,SqlDbType.Int,4,model.UpdatedBy),
+
+                    _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
+                };
+            var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspPurchseOrderSave", RetVal, param);
         }
         public void SavePacking(Packing model)
         {
@@ -1226,7 +1280,135 @@ namespace Spane_Laboratory
             decimal amountReceived=Convert.ToDecimal(tbAmountRePurOr.Text);
             tbRemAmPurOr.Text= Convert.ToString(totalAmount- amountReceived);
         }
+        private void btnAddPurchaseOrderDetail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tbRemAmPurOr.Text != "")
+                {
+
+                    //int row = 0;
+                    //gvPurchaseOrder.Rows.Add();
+                    //gvPurchaseOrder["PurchaseOrderId", row].Value = 0;
+                    //gvPurchaseOrder["CatName", row].Value = cmbSelectCatPurchaseOrder.Text;
+                    //gvPurchaseOrder["SubCatName", row].Value = cmbSelectSubCatPurchaseOrder.Text;
+                    //gvPurchaseOrder["UnitName", row].Value = cmbPurOrderUnit.Text;
+                    //gvPurchaseOrder["PackingName", row].Value = cmbPurOrderPacking.Text;
+                    //gvPurchaseOrder["Quantity", row].Value = Convert.ToDecimal(tbQuantityPurOr.Text);
+                    //gvPurchaseOrder["UnitRate", row].Value = Convert.ToDecimal(tbUnitRatePurOr.Text);
+                    //gvPurchaseOrder["Discount", row].Value = Convert.ToDecimal(tbDiscountPurOr.Text);
+                    //gvPurchaseOrder["TotalAmount", row].Value = Convert.ToDecimal(tbTotalAmPurOr.Text);
+                    //gvPurchaseOrder["AmountReceived", row].Value = Convert.ToDecimal(tbAmountRePurOr.Text);
+                    //gvPurchaseOrder["RemainingAmount", row].Value = Convert.ToDecimal(tbRemAmPurOr.Text);
+                    gvPurchaseOrder.Rows.Add(0,cmbSelectCatPurchaseOrder.Text, cmbSelectSubCatPurchaseOrder.Text,  cmbPurOrderUnit.Text, cmbPurOrderPacking.Text, Convert.ToDecimal(tbQuantityPurOr.Text), Convert.ToDecimal(tbUnitRatePurOr.Text), Convert.ToDecimal(tbDiscountPurOr.Text), Convert.ToDecimal(tbTotalAmPurOr.Text), Convert.ToDecimal(tbAmountRePurOr.Text), Convert.ToDecimal(tbRemAmPurOr.Text));
+                    PurchaseFieldClear();
+                }
+                else
+                {
+                    MessageBox.Show("please enter values.");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(""+ex);
+            }
+
+        }
+
+        private void btnSavePurOr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+              
+                   
+                        _oDbHelper.OpenConnection();
+
+                var dt = new DataTable();
+                foreach (DataGridViewColumn column in gvPurchaseOrder.Columns)
+                {
+                   
+                        // You could potentially name the column based on the DGV column name (beware of dupes)
+                        // or assign a type based on the data type of the data bound to this DGV column.
+                        dt.Columns.Add();
+                    
+                }
+
+                object[] cellValues = new object[gvPurchaseOrder.Columns.Count];
+                foreach (DataGridViewRow row in gvPurchaseOrder.Rows)
+                {
+                    for (int i = 0; i < row.Cells.Count; i++)
+                    {
+                        if (row.Cells[i].Value != null)
+                        {
+                            cellValues[i] = row.Cells[i].Value;
+                            if(i==10)
+                            {
+                                dt.Rows.Add(cellValues);
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                   
+                }
+
+              
+                var vendor = InitializerVendor();
+                var purchaseOrder = InitializerPurchaseOrder();
+                SavePurchaseOrder(vendor, purchaseOrder, dt);
+                SetPurchaseOrderCode();
+                _oDbHelper.CloseConnection();
+                        cmbUnit.Enabled = true;
+                        MessageBox.Show("Category Record is Inserted.");
+                        PopulateUnits();
+                 
+            }
+
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show("Insertion Failed." + ex);
+                _oDbHelper.CloseConnection();
+            }
+        }
+
+        private void btnClearPurOr_Click(object sender, EventArgs e)
+        {
+            tbPurOrderVendorName.Text = "";
+            tbPurOrContactNumber.Text = "";
+            richTbPurOrAddress.Text = "";
+            gvPurchaseOrder.Rows.Clear();
+            gvPurchaseOrder.Refresh();
+            PurchaseFieldClear();
+        }
+
+
         //Purchase Order Screen Coding END
+
+
+        //Purchase Order Fields Clear START
+        public void PurchaseFieldClear()
+        {
+            tbQuantityPurOr.Text = "";
+            tbUnitRatePurOr.Text = "";
+            tbDiscountPurOr.Text = "";
+            tbTotalAmPurOr.Text = "";
+            tbAmountRePurOr.Text = "";
+            tbRemAmPurOr.Text = "";
+        }
+
+        private void btnDeletePurOr_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt = (DataTable)gvPurchaseOrder.DataSource;
+        }
+        //
+
+        //
+        //Purchase Invoice Screen Coding START
+        //Purchase Invoice Screen Coding START
 
 
 
