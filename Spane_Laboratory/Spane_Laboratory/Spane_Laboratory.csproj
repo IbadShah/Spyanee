@@ -163,9 +163,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\admin.png" />
+    <None Include="Images\ICO\Oxygen-Icons.org-Oxygen-Actions-window-close.ico" />
+    <None Include="Images\ICO\Hopstarter-Sleek-Xp-Basic-Ok.ico" />
+    <None Include="Images\err.ico" />
+    <None Include="Images\empty.ico" />
+    <None Include="Images\go.ico" />
+    <None Include="Images\emp.ico" />
+    <None Include="Images\cor.ico" />
     <Content Include="Images\lab.jpg" />
+    <None Include="Images\ok.ico" />
+    <None Include="Images\ques.ico" />
+    <None Include="Images\qMark.ico" />
     <Content Include="Images\register_now.jpg" />
     <Content Include="Images\user-login-icon-29.png" />
+    <None Include="Resources\Icon1.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lab.Models\Lab.Models.csproj">

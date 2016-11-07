@@ -61,12 +61,42 @@ namespace Spane_Laboratory.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon cor {
+            get {
+                object obj = ResourceManager.GetObject("cor", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon err {
+            get {
+                object obj = ResourceManager.GetObject("err", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap lab {
             get {
                 object obj = ResourceManager.GetObject("lab", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon qMark {
+            get {
+                object obj = ResourceManager.GetObject("qMark", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

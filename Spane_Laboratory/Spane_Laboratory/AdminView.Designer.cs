@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminView));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnAddClass = new System.Windows.Forms.Button();
             this.btnSaleInvoice = new System.Windows.Forms.Button();
             this.btnSaleOrder = new System.Windows.Forms.Button();
             this.btnPurchaseInvoice = new System.Windows.Forms.Button();
@@ -41,6 +43,18 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAddItems = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
+            this.pnlClass = new System.Windows.Forms.Panel();
+            this.cbIsActive = new System.Windows.Forms.CheckBox();
+            this.btnClassClear = new System.Windows.Forms.Button();
+            this.label68 = new System.Windows.Forms.Label();
+            this.btnClassDelete = new System.Windows.Forms.Button();
+            this.btnClassUpdate = new System.Windows.Forms.Button();
+            this.btnCLassSave = new System.Windows.Forms.Button();
+            this.btnClassNew = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label78 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label79 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkCategoryIsActive = new System.Windows.Forms.CheckBox();
             this.btnCategoriesClear = new System.Windows.Forms.Button();
@@ -205,41 +219,42 @@
             this.label60 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
             this.pnlSaleInvoice = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.btnAddSaleInvDetail = new System.Windows.Forms.Button();
+            this.tbRemAmountSaleInv = new System.Windows.Forms.TextBox();
+            this.tbAmountReSaleInv = new System.Windows.Forms.TextBox();
+            this.tbTotalAmountSaleInv = new System.Windows.Forms.TextBox();
+            this.tbDiscountSaleInv = new System.Windows.Forms.TextBox();
+            this.tbUnitRateSaleInv = new System.Windows.Forms.TextBox();
+            this.tbQuantitySaleInv = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.cmbSaleInvPacking = new System.Windows.Forms.ComboBox();
-            this.cmbSaleInvUnit = new System.Windows.Forms.ComboBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.btnDeleteSaleInv = new System.Windows.Forms.Button();
+            this.btnClearSaleInv = new System.Windows.Forms.Button();
+            this.btnUpdateSaleInv = new System.Windows.Forms.Button();
+            this.btnSaveSaleInv = new System.Windows.Forms.Button();
+            this.btnNewSaleInv = new System.Windows.Forms.Button();
+            this.gvSaleInv = new System.Windows.Forms.DataGridView();
+            this.cmbSelectPackingSaleInvoice = new System.Windows.Forms.ComboBox();
+            this.cmbSelectUnitSaleInvoice = new System.Windows.Forms.ComboBox();
             this.label69 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
-            this.cmbSaleInvSubCat = new System.Windows.Forms.ComboBox();
+            this.cmbSelectSubCatSaleInvoice = new System.Windows.Forms.ComboBox();
             this.label71 = new System.Windows.Forms.Label();
-            this.cmbSaleInvCat = new System.Windows.Forms.ComboBox();
+            this.cmbSelectCatSaleInvoice = new System.Windows.Forms.ComboBox();
             this.label72 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.richTbSaleInvoiceVendorAddress = new System.Windows.Forms.RichTextBox();
             this.label73 = new System.Windows.Forms.Label();
-            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.tbSaleInvoiceVendorContactNumber = new System.Windows.Forms.TextBox();
             this.label74 = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.tbSaleInvoiceVendorName = new System.Windows.Forms.TextBox();
+            this.tbSaleInvoiceCode = new System.Windows.Forms.TextBox();
             this.label76 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -249,11 +264,13 @@
             this.gvSubCategories = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPurchaseOrderPrint = new System.Windows.Forms.Button();
+            this.ePCategory = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlClass.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlUnit.SuspendLayout();
@@ -268,9 +285,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.pnlSaleInvoice.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSaleInv)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvSubCategories)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -281,6 +299,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnAddClass);
             this.splitContainer1.Panel1.Controls.Add(this.btnSaleInvoice);
             this.splitContainer1.Panel1.Controls.Add(this.btnSaleOrder);
             this.splitContainer1.Panel1.Controls.Add(this.btnPurchaseInvoice);
@@ -297,6 +316,7 @@
             // 
             this.splitContainer1.Panel2.BackgroundImage = global::Spane_Laboratory.Properties.Resources.lab;
             this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.splitContainer1.Panel2.Controls.Add(this.pnlClass);
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Controls.Add(this.pnlUnit);
@@ -308,6 +328,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(1257, 593);
             this.splitContainer1.SplitterDistance = 163;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnAddClass
+            // 
+            this.btnAddClass.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAddClass.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnAddClass.Location = new System.Drawing.Point(2, 159);
+            this.btnAddClass.Name = "btnAddClass";
+            this.btnAddClass.Size = new System.Drawing.Size(152, 34);
+            this.btnAddClass.TabIndex = 13;
+            this.btnAddClass.Text = "Add Class";
+            this.btnAddClass.UseVisualStyleBackColor = false;
+            this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
             // btnSaleInvoice
             // 
@@ -386,7 +418,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 192);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 155);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -439,6 +471,140 @@
             this.btnAddCategory.UseVisualStyleBackColor = false;
             this.btnAddCategory.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pnlClass
+            // 
+            this.pnlClass.Controls.Add(this.cbIsActive);
+            this.pnlClass.Controls.Add(this.btnClassClear);
+            this.pnlClass.Controls.Add(this.label68);
+            this.pnlClass.Controls.Add(this.btnClassDelete);
+            this.pnlClass.Controls.Add(this.btnClassUpdate);
+            this.pnlClass.Controls.Add(this.btnCLassSave);
+            this.pnlClass.Controls.Add(this.btnClassNew);
+            this.pnlClass.Controls.Add(this.comboBox1);
+            this.pnlClass.Controls.Add(this.label78);
+            this.pnlClass.Controls.Add(this.textBox7);
+            this.pnlClass.Controls.Add(this.label79);
+            this.pnlClass.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlClass.Location = new System.Drawing.Point(0, 0);
+            this.pnlClass.Name = "pnlClass";
+            this.pnlClass.Size = new System.Drawing.Size(1090, 593);
+            this.pnlClass.TabIndex = 13;
+            // 
+            // cbIsActive
+            // 
+            this.cbIsActive.AutoSize = true;
+            this.cbIsActive.Location = new System.Drawing.Point(719, 325);
+            this.cbIsActive.Name = "cbIsActive";
+            this.cbIsActive.Size = new System.Drawing.Size(67, 17);
+            this.cbIsActive.TabIndex = 16;
+            this.cbIsActive.Text = "Is Active";
+            this.cbIsActive.UseVisualStyleBackColor = true;
+            // 
+            // btnClassClear
+            // 
+            this.btnClassClear.BackColor = System.Drawing.SystemColors.Window;
+            this.btnClassClear.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnClassClear.Location = new System.Drawing.Point(787, 542);
+            this.btnClassClear.Name = "btnClassClear";
+            this.btnClassClear.Size = new System.Drawing.Size(89, 39);
+            this.btnClassClear.TabIndex = 21;
+            this.btnClassClear.Text = "Clear";
+            this.btnClassClear.UseVisualStyleBackColor = false;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label68.Font = new System.Drawing.Font("Algerian", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(362, 10);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(122, 41);
+            this.label68.TabIndex = 23;
+            this.label68.Text = "CLASS";
+            // 
+            // btnClassDelete
+            // 
+            this.btnClassDelete.BackColor = System.Drawing.SystemColors.Window;
+            this.btnClassDelete.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnClassDelete.Location = new System.Drawing.Point(882, 542);
+            this.btnClassDelete.Name = "btnClassDelete";
+            this.btnClassDelete.Size = new System.Drawing.Size(89, 39);
+            this.btnClassDelete.TabIndex = 22;
+            this.btnClassDelete.Text = "Delete";
+            this.btnClassDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnClassUpdate
+            // 
+            this.btnClassUpdate.BackColor = System.Drawing.SystemColors.Window;
+            this.btnClassUpdate.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnClassUpdate.Location = new System.Drawing.Point(692, 542);
+            this.btnClassUpdate.Name = "btnClassUpdate";
+            this.btnClassUpdate.Size = new System.Drawing.Size(89, 39);
+            this.btnClassUpdate.TabIndex = 19;
+            this.btnClassUpdate.Text = "Update";
+            this.btnClassUpdate.UseVisualStyleBackColor = false;
+            // 
+            // btnCLassSave
+            // 
+            this.btnCLassSave.BackColor = System.Drawing.SystemColors.Window;
+            this.btnCLassSave.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnCLassSave.Location = new System.Drawing.Point(597, 542);
+            this.btnCLassSave.Name = "btnCLassSave";
+            this.btnCLassSave.Size = new System.Drawing.Size(89, 39);
+            this.btnCLassSave.TabIndex = 18;
+            this.btnCLassSave.Text = "Save";
+            this.btnCLassSave.UseVisualStyleBackColor = false;
+            // 
+            // btnClassNew
+            // 
+            this.btnClassNew.BackColor = System.Drawing.SystemColors.Window;
+            this.btnClassNew.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnClassNew.Location = new System.Drawing.Point(502, 543);
+            this.btnClassNew.Name = "btnClassNew";
+            this.btnClassNew.Size = new System.Drawing.Size(89, 39);
+            this.btnClassNew.TabIndex = 17;
+            this.btnClassNew.Text = "New";
+            this.btnClassNew.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(267, 160);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(549, 29);
+            this.comboBox1.TabIndex = 13;
+            this.comboBox1.Text = "--Add Class--";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label78.Location = new System.Drawing.Point(120, 161);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(101, 21);
+            this.label78.TabIndex = 20;
+            this.label78.Text = "Select Class";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.textBox7.Location = new System.Drawing.Point(267, 246);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(549, 27);
+            this.textBox7.TabIndex = 14;
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label79.Location = new System.Drawing.Point(120, 253);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(88, 21);
+            this.label79.TabIndex = 15;
+            this.label79.Text = "Add Class";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
@@ -453,11 +619,13 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.tbCategories);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.panel1.Location = new System.Drawing.Point(57, 596);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1090, 492);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // chkCategoryIsActive
             // 
@@ -468,6 +636,7 @@
             this.chkCategoryIsActive.TabIndex = 3;
             this.chkCategoryIsActive.Text = "Is Active";
             this.chkCategoryIsActive.UseVisualStyleBackColor = true;
+            this.chkCategoryIsActive.CheckedChanged += new System.EventHandler(this.chkCategoryIsActive_CheckedChanged_1);
             // 
             // btnCategoriesClear
             // 
@@ -491,6 +660,7 @@
             this.label4.Size = new System.Drawing.Size(197, 41);
             this.label4.TabIndex = 12;
             this.label4.Text = "Category";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnDelete
             // 
@@ -561,6 +731,7 @@
             this.label13.Size = new System.Drawing.Size(137, 21);
             this.label13.TabIndex = 6;
             this.label13.Text = "Select Category";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // tbCategories
             // 
@@ -569,6 +740,7 @@
             this.tbCategories.Name = "tbCategories";
             this.tbCategories.Size = new System.Drawing.Size(549, 27);
             this.tbCategories.TabIndex = 2;
+            this.tbCategories.TextChanged += new System.EventHandler(this.tbCategories_TextChanged);
             // 
             // label2
             // 
@@ -579,6 +751,7 @@
             this.label2.Size = new System.Drawing.Size(124, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Add Category";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel2
             // 
@@ -593,7 +766,8 @@
             this.panel2.Controls.Add(this.btnNewItem);
             this.panel2.Controls.Add(this.tbItem);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(75, 617);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1090, 412);
             this.panel2.TabIndex = 6;
@@ -708,6 +882,7 @@
             this.tbItem.Name = "tbItem";
             this.tbItem.Size = new System.Drawing.Size(549, 27);
             this.tbItem.TabIndex = 2;
+            this.tbItem.TextChanged += new System.EventHandler(this.tbItem_TextChanged);
             // 
             // label5
             // 
@@ -732,7 +907,8 @@
             this.pnlUnit.Controls.Add(this.cmbUnit);
             this.pnlUnit.Controls.Add(this.label15);
             this.pnlUnit.Controls.Add(this.label10);
-            this.pnlUnit.Location = new System.Drawing.Point(75, 626);
+            this.pnlUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUnit.Location = new System.Drawing.Point(0, 0);
             this.pnlUnit.Name = "pnlUnit";
             this.pnlUnit.Size = new System.Drawing.Size(1090, 378);
             this.pnlUnit.TabIndex = 14;
@@ -826,6 +1002,7 @@
             this.tbUnit.Name = "tbUnit";
             this.tbUnit.Size = new System.Drawing.Size(524, 27);
             this.tbUnit.TabIndex = 2;
+            this.tbUnit.TextChanged += new System.EventHandler(this.tbUnit_TextChanged);
             // 
             // cmbUnit
             // 
@@ -871,9 +1048,10 @@
             this.pnlPacking.Controls.Add(this.cmbPacking);
             this.pnlPacking.Controls.Add(this.label16);
             this.pnlPacking.Controls.Add(this.label17);
-            this.pnlPacking.Location = new System.Drawing.Point(16, 587);
+            this.pnlPacking.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPacking.Location = new System.Drawing.Point(0, 0);
             this.pnlPacking.Name = "pnlPacking";
-            this.pnlPacking.Size = new System.Drawing.Size(1090, 549);
+            this.pnlPacking.Size = new System.Drawing.Size(1090, 593);
             this.pnlPacking.TabIndex = 13;
             // 
             // label7
@@ -965,6 +1143,7 @@
             this.tbPacking.Name = "tbPacking";
             this.tbPacking.Size = new System.Drawing.Size(453, 27);
             this.tbPacking.TabIndex = 16;
+            this.tbPacking.TextChanged += new System.EventHandler(this.tbPacking_TextChanged);
             // 
             // cmbPacking
             // 
@@ -2211,35 +2390,36 @@
             // 
             // pnlSaleInvoice
             // 
-            this.pnlSaleInvoice.Controls.Add(this.button13);
-            this.pnlSaleInvoice.Controls.Add(this.button19);
-            this.pnlSaleInvoice.Controls.Add(this.button20);
-            this.pnlSaleInvoice.Controls.Add(this.button21);
-            this.pnlSaleInvoice.Controls.Add(this.button22);
-            this.pnlSaleInvoice.Controls.Add(this.button23);
-            this.pnlSaleInvoice.Controls.Add(this.dataGridView4);
-            this.pnlSaleInvoice.Controls.Add(this.textBox27);
-            this.pnlSaleInvoice.Controls.Add(this.textBox28);
-            this.pnlSaleInvoice.Controls.Add(this.textBox29);
-            this.pnlSaleInvoice.Controls.Add(this.textBox30);
-            this.pnlSaleInvoice.Controls.Add(this.textBox31);
-            this.pnlSaleInvoice.Controls.Add(this.textBox32);
+            this.pnlSaleInvoice.Controls.Add(this.btnAddSaleInvDetail);
+            this.pnlSaleInvoice.Controls.Add(this.tbRemAmountSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.tbAmountReSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.tbTotalAmountSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.tbDiscountSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.tbUnitRateSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.tbQuantitySaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.label61);
             this.pnlSaleInvoice.Controls.Add(this.label63);
             this.pnlSaleInvoice.Controls.Add(this.label64);
             this.pnlSaleInvoice.Controls.Add(this.label65);
             this.pnlSaleInvoice.Controls.Add(this.label66);
             this.pnlSaleInvoice.Controls.Add(this.label67);
-            this.pnlSaleInvoice.Controls.Add(this.label68);
-            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvPacking);
-            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvUnit);
+            this.pnlSaleInvoice.Controls.Add(this.button13);
+            this.pnlSaleInvoice.Controls.Add(this.btnDeleteSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.btnClearSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.btnUpdateSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.btnSaveSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.btnNewSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.gvSaleInv);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSelectPackingSaleInvoice);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSelectUnitSaleInvoice);
             this.pnlSaleInvoice.Controls.Add(this.label69);
             this.pnlSaleInvoice.Controls.Add(this.label70);
-            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvSubCat);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSelectSubCatSaleInvoice);
             this.pnlSaleInvoice.Controls.Add(this.label71);
-            this.pnlSaleInvoice.Controls.Add(this.cmbSaleInvCat);
+            this.pnlSaleInvoice.Controls.Add(this.cmbSelectCatSaleInvoice);
             this.pnlSaleInvoice.Controls.Add(this.label72);
             this.pnlSaleInvoice.Controls.Add(this.groupBox3);
-            this.pnlSaleInvoice.Controls.Add(this.textBox35);
+            this.pnlSaleInvoice.Controls.Add(this.tbSaleInvoiceCode);
             this.pnlSaleInvoice.Controls.Add(this.label76);
             this.pnlSaleInvoice.Controls.Add(this.label77);
             this.pnlSaleInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2248,205 +2428,217 @@
             this.pnlSaleInvoice.Size = new System.Drawing.Size(1090, 593);
             this.pnlSaleInvoice.TabIndex = 25;
             // 
-            // button13
+            // btnAddSaleInvDetail
             // 
-            this.button13.BackColor = System.Drawing.SystemColors.Window;
-            this.button13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(905, 27);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(89, 38);
-            this.button13.TabIndex = 20;
-            this.button13.Text = "Print";
-            this.button13.UseVisualStyleBackColor = false;
+            this.btnAddSaleInvDetail.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAddSaleInvDetail.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSaleInvDetail.Location = new System.Drawing.Point(1016, 268);
+            this.btnAddSaleInvDetail.Name = "btnAddSaleInvDetail";
+            this.btnAddSaleInvDetail.Size = new System.Drawing.Size(67, 31);
+            this.btnAddSaleInvDetail.TabIndex = 138;
+            this.btnAddSaleInvDetail.Text = "Add";
+            this.btnAddSaleInvDetail.UseVisualStyleBackColor = false;
             // 
-            // button19
+            // tbRemAmountSaleInv
             // 
-            this.button19.BackColor = System.Drawing.SystemColors.Window;
-            this.button19.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button19.Location = new System.Drawing.Point(943, 543);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(89, 39);
-            this.button19.TabIndex = 19;
-            this.button19.Text = "Delete";
-            this.button19.UseVisualStyleBackColor = false;
+            this.tbRemAmountSaleInv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRemAmountSaleInv.Location = new System.Drawing.Point(998, 241);
+            this.tbRemAmountSaleInv.Name = "tbRemAmountSaleInv";
+            this.tbRemAmountSaleInv.Size = new System.Drawing.Size(85, 23);
+            this.tbRemAmountSaleInv.TabIndex = 137;
             // 
-            // button20
+            // tbAmountReSaleInv
             // 
-            this.button20.BackColor = System.Drawing.SystemColors.Window;
-            this.button20.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button20.Location = new System.Drawing.Point(848, 543);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(89, 39);
-            this.button20.TabIndex = 18;
-            this.button20.Text = "Clear";
-            this.button20.UseVisualStyleBackColor = false;
+            this.tbAmountReSaleInv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAmountReSaleInv.Location = new System.Drawing.Point(806, 244);
+            this.tbAmountReSaleInv.Name = "tbAmountReSaleInv";
+            this.tbAmountReSaleInv.Size = new System.Drawing.Size(85, 23);
+            this.tbAmountReSaleInv.TabIndex = 136;
             // 
-            // button21
+            // tbTotalAmountSaleInv
             // 
-            this.button21.BackColor = System.Drawing.SystemColors.Window;
-            this.button21.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button21.Location = new System.Drawing.Point(753, 543);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(89, 39);
-            this.button21.TabIndex = 17;
-            this.button21.Text = "Update";
-            this.button21.UseVisualStyleBackColor = false;
+            this.tbTotalAmountSaleInv.Enabled = false;
+            this.tbTotalAmountSaleInv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTotalAmountSaleInv.Location = new System.Drawing.Point(585, 246);
+            this.tbTotalAmountSaleInv.Name = "tbTotalAmountSaleInv";
+            this.tbTotalAmountSaleInv.Size = new System.Drawing.Size(85, 23);
+            this.tbTotalAmountSaleInv.TabIndex = 135;
             // 
-            // button22
+            // tbDiscountSaleInv
             // 
-            this.button22.BackColor = System.Drawing.SystemColors.Window;
-            this.button22.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.button22.Location = new System.Drawing.Point(658, 543);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(89, 39);
-            this.button22.TabIndex = 16;
-            this.button22.Text = "Save";
-            this.button22.UseVisualStyleBackColor = false;
+            this.tbDiscountSaleInv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDiscountSaleInv.Location = new System.Drawing.Point(381, 244);
+            this.tbDiscountSaleInv.Name = "tbDiscountSaleInv";
+            this.tbDiscountSaleInv.Size = new System.Drawing.Size(85, 23);
+            this.tbDiscountSaleInv.TabIndex = 134;
             // 
-            // button23
+            // tbUnitRateSaleInv
             // 
-            this.button23.BackColor = System.Drawing.SystemColors.Window;
-            this.button23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button23.Location = new System.Drawing.Point(563, 543);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(89, 39);
-            this.button23.TabIndex = 15;
-            this.button23.Text = "New";
-            this.button23.UseVisualStyleBackColor = false;
+            this.tbUnitRateSaleInv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUnitRateSaleInv.Location = new System.Drawing.Point(229, 242);
+            this.tbUnitRateSaleInv.Name = "tbUnitRateSaleInv";
+            this.tbUnitRateSaleInv.Size = new System.Drawing.Size(85, 23);
+            this.tbUnitRateSaleInv.TabIndex = 133;
             // 
-            // dataGridView4
+            // tbQuantitySaleInv
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(16, 290);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(1020, 213);
-            this.dataGridView4.TabIndex = 131;
+            this.tbQuantitySaleInv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuantitySaleInv.Location = new System.Drawing.Point(71, 245);
+            this.tbQuantitySaleInv.Name = "tbQuantitySaleInv";
+            this.tbQuantitySaleInv.Size = new System.Drawing.Size(85, 23);
+            this.tbQuantitySaleInv.TabIndex = 132;
             // 
-            // textBox27
+            // label61
             // 
-            this.textBox27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox27.Location = new System.Drawing.Point(939, 227);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(106, 23);
-            this.textBox27.TabIndex = 13;
-            // 
-            // textBox28
-            // 
-            this.textBox28.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox28.Location = new System.Drawing.Point(716, 227);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(106, 23);
-            this.textBox28.TabIndex = 12;
-            // 
-            // textBox29
-            // 
-            this.textBox29.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox29.Location = new System.Drawing.Point(471, 230);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(106, 23);
-            this.textBox29.TabIndex = 11;
-            // 
-            // textBox30
-            // 
-            this.textBox30.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox30.Location = new System.Drawing.Point(263, 230);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(106, 23);
-            this.textBox30.TabIndex = 10;
-            // 
-            // textBox31
-            // 
-            this.textBox31.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox31.Location = new System.Drawing.Point(75, 261);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(106, 23);
-            this.textBox31.TabIndex = 14;
-            // 
-            // textBox32
-            // 
-            this.textBox32.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox32.Location = new System.Drawing.Point(75, 232);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(106, 23);
-            this.textBox32.TabIndex = 9;
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(676, 252);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(124, 17);
+            this.label61.TabIndex = 144;
+            this.label61.Text = "Amount Received";
             // 
             // label63
             // 
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(828, 230);
+            this.label63.Location = new System.Drawing.Point(479, 250);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(97, 17);
-            this.label63.TabIndex = 124;
-            this.label63.Text = "Rem. Amount";
+            this.label63.Size = new System.Drawing.Size(99, 17);
+            this.label63.TabIndex = 143;
+            this.label63.Text = "Total Amount ";
             // 
             // label64
             // 
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(586, 233);
+            this.label64.Location = new System.Drawing.Point(318, 249);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(124, 17);
-            this.label64.TabIndex = 123;
-            this.label64.Text = "Amount Received";
+            this.label64.Size = new System.Drawing.Size(64, 17);
+            this.label64.TabIndex = 142;
+            this.label64.Text = "Discount";
             // 
             // label65
             // 
             this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.Location = new System.Drawing.Point(375, 236);
+            this.label65.Location = new System.Drawing.Point(162, 249);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(95, 17);
-            this.label65.TabIndex = 122;
-            this.label65.Text = "Total Amount";
+            this.label65.Size = new System.Drawing.Size(66, 17);
+            this.label65.TabIndex = 141;
+            this.label65.Text = "Unit Rate";
             // 
             // label66
             // 
             this.label66.AutoSize = true;
             this.label66.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label66.Location = new System.Drawing.Point(193, 236);
+            this.label66.Location = new System.Drawing.Point(898, 248);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(64, 17);
-            this.label66.TabIndex = 121;
-            this.label66.Text = "Discount";
+            this.label66.Size = new System.Drawing.Size(97, 17);
+            this.label66.TabIndex = 140;
+            this.label66.Text = "Rem. Amount";
             // 
             // label67
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(3, 267);
+            this.label67.Location = new System.Drawing.Point(2, 248);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(66, 17);
-            this.label67.TabIndex = 120;
-            this.label67.Text = "Unit Rate";
+            this.label67.Size = new System.Drawing.Size(63, 17);
+            this.label67.TabIndex = 139;
+            this.label67.Text = "Quantity";
             // 
-            // label68
+            // button13
             // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label68.Location = new System.Drawing.Point(6, 238);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(63, 17);
-            this.label68.TabIndex = 119;
-            this.label68.Text = "Quantity";
+            this.button13.BackColor = System.Drawing.SystemColors.Window;
+            this.button13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Location = new System.Drawing.Point(966, 14);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(91, 38);
+            this.button13.TabIndex = 20;
+            this.button13.Text = "Print";
+            this.button13.UseVisualStyleBackColor = false;
             // 
-            // cmbSaleInvPacking
+            // btnDeleteSaleInv
             // 
-            this.cmbSaleInvPacking.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.cmbSaleInvPacking.FormattingEnabled = true;
-            this.cmbSaleInvPacking.Location = new System.Drawing.Point(218, 196);
-            this.cmbSaleInvPacking.Name = "cmbSaleInvPacking";
-            this.cmbSaleInvPacking.Size = new System.Drawing.Size(290, 25);
-            this.cmbSaleInvPacking.TabIndex = 5;
+            this.btnDeleteSaleInv.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDeleteSaleInv.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnDeleteSaleInv.Location = new System.Drawing.Point(990, 539);
+            this.btnDeleteSaleInv.Name = "btnDeleteSaleInv";
+            this.btnDeleteSaleInv.Size = new System.Drawing.Size(89, 39);
+            this.btnDeleteSaleInv.TabIndex = 19;
+            this.btnDeleteSaleInv.Text = "Delete";
+            this.btnDeleteSaleInv.UseVisualStyleBackColor = false;
             // 
-            // cmbSaleInvUnit
+            // btnClearSaleInv
             // 
-            this.cmbSaleInvUnit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSaleInvUnit.FormattingEnabled = true;
-            this.cmbSaleInvUnit.Location = new System.Drawing.Point(218, 165);
-            this.cmbSaleInvUnit.Name = "cmbSaleInvUnit";
-            this.cmbSaleInvUnit.Size = new System.Drawing.Size(290, 25);
-            this.cmbSaleInvUnit.TabIndex = 4;
+            this.btnClearSaleInv.BackColor = System.Drawing.SystemColors.Window;
+            this.btnClearSaleInv.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnClearSaleInv.Location = new System.Drawing.Point(895, 539);
+            this.btnClearSaleInv.Name = "btnClearSaleInv";
+            this.btnClearSaleInv.Size = new System.Drawing.Size(89, 39);
+            this.btnClearSaleInv.TabIndex = 18;
+            this.btnClearSaleInv.Text = "Clear";
+            this.btnClearSaleInv.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdateSaleInv
+            // 
+            this.btnUpdateSaleInv.BackColor = System.Drawing.SystemColors.Window;
+            this.btnUpdateSaleInv.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnUpdateSaleInv.Location = new System.Drawing.Point(800, 539);
+            this.btnUpdateSaleInv.Name = "btnUpdateSaleInv";
+            this.btnUpdateSaleInv.Size = new System.Drawing.Size(89, 39);
+            this.btnUpdateSaleInv.TabIndex = 17;
+            this.btnUpdateSaleInv.Text = "Update";
+            this.btnUpdateSaleInv.UseVisualStyleBackColor = false;
+            // 
+            // btnSaveSaleInv
+            // 
+            this.btnSaveSaleInv.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSaveSaleInv.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnSaveSaleInv.Location = new System.Drawing.Point(705, 539);
+            this.btnSaveSaleInv.Name = "btnSaveSaleInv";
+            this.btnSaveSaleInv.Size = new System.Drawing.Size(89, 39);
+            this.btnSaveSaleInv.TabIndex = 16;
+            this.btnSaveSaleInv.Text = "Save";
+            this.btnSaveSaleInv.UseVisualStyleBackColor = false;
+            // 
+            // btnNewSaleInv
+            // 
+            this.btnNewSaleInv.BackColor = System.Drawing.SystemColors.Window;
+            this.btnNewSaleInv.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewSaleInv.Location = new System.Drawing.Point(610, 539);
+            this.btnNewSaleInv.Name = "btnNewSaleInv";
+            this.btnNewSaleInv.Size = new System.Drawing.Size(89, 39);
+            this.btnNewSaleInv.TabIndex = 15;
+            this.btnNewSaleInv.Text = "New";
+            this.btnNewSaleInv.UseVisualStyleBackColor = false;
+            // 
+            // gvSaleInv
+            // 
+            this.gvSaleInv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSaleInv.Location = new System.Drawing.Point(5, 302);
+            this.gvSaleInv.Name = "gvSaleInv";
+            this.gvSaleInv.Size = new System.Drawing.Size(1078, 213);
+            this.gvSaleInv.TabIndex = 131;
+            // 
+            // cmbSelectPackingSaleInvoice
+            // 
+            this.cmbSelectPackingSaleInvoice.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cmbSelectPackingSaleInvoice.FormattingEnabled = true;
+            this.cmbSelectPackingSaleInvoice.Location = new System.Drawing.Point(218, 196);
+            this.cmbSelectPackingSaleInvoice.Name = "cmbSelectPackingSaleInvoice";
+            this.cmbSelectPackingSaleInvoice.Size = new System.Drawing.Size(292, 25);
+            this.cmbSelectPackingSaleInvoice.TabIndex = 5;
+            // 
+            // cmbSelectUnitSaleInvoice
+            // 
+            this.cmbSelectUnitSaleInvoice.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSelectUnitSaleInvoice.FormattingEnabled = true;
+            this.cmbSelectUnitSaleInvoice.Location = new System.Drawing.Point(218, 165);
+            this.cmbSelectUnitSaleInvoice.Name = "cmbSelectUnitSaleInvoice";
+            this.cmbSelectUnitSaleInvoice.Size = new System.Drawing.Size(292, 25);
+            this.cmbSelectUnitSaleInvoice.TabIndex = 4;
             // 
             // label69
             // 
@@ -2468,14 +2660,14 @@
             this.label70.TabIndex = 115;
             this.label70.Text = "Select Unit";
             // 
-            // cmbSaleInvSubCat
+            // cmbSelectSubCatSaleInvoice
             // 
-            this.cmbSaleInvSubCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSaleInvSubCat.FormattingEnabled = true;
-            this.cmbSaleInvSubCat.Location = new System.Drawing.Point(218, 131);
-            this.cmbSaleInvSubCat.Name = "cmbSaleInvSubCat";
-            this.cmbSaleInvSubCat.Size = new System.Drawing.Size(290, 25);
-            this.cmbSaleInvSubCat.TabIndex = 3;
+            this.cmbSelectSubCatSaleInvoice.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSelectSubCatSaleInvoice.FormattingEnabled = true;
+            this.cmbSelectSubCatSaleInvoice.Location = new System.Drawing.Point(218, 131);
+            this.cmbSelectSubCatSaleInvoice.Name = "cmbSelectSubCatSaleInvoice";
+            this.cmbSelectSubCatSaleInvoice.Size = new System.Drawing.Size(292, 25);
+            this.cmbSelectSubCatSaleInvoice.TabIndex = 3;
             // 
             // label71
             // 
@@ -2487,14 +2679,14 @@
             this.label71.TabIndex = 113;
             this.label71.Text = "Select SubCategory";
             // 
-            // cmbSaleInvCat
+            // cmbSelectCatSaleInvoice
             // 
-            this.cmbSaleInvCat.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSaleInvCat.FormattingEnabled = true;
-            this.cmbSaleInvCat.Location = new System.Drawing.Point(218, 100);
-            this.cmbSaleInvCat.Name = "cmbSaleInvCat";
-            this.cmbSaleInvCat.Size = new System.Drawing.Size(290, 25);
-            this.cmbSaleInvCat.TabIndex = 2;
+            this.cmbSelectCatSaleInvoice.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSelectCatSaleInvoice.FormattingEnabled = true;
+            this.cmbSelectCatSaleInvoice.Location = new System.Drawing.Point(218, 100);
+            this.cmbSelectCatSaleInvoice.Name = "cmbSelectCatSaleInvoice";
+            this.cmbSelectCatSaleInvoice.Size = new System.Drawing.Size(292, 25);
+            this.cmbSelectCatSaleInvoice.TabIndex = 2;
             // 
             // label72
             // 
@@ -2508,28 +2700,28 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.richTextBox4);
+            this.groupBox3.Controls.Add(this.richTbSaleInvoiceVendorAddress);
             this.groupBox3.Controls.Add(this.label73);
-            this.groupBox3.Controls.Add(this.textBox33);
+            this.groupBox3.Controls.Add(this.tbSaleInvoiceVendorContactNumber);
             this.groupBox3.Controls.Add(this.label74);
             this.groupBox3.Controls.Add(this.label75);
-            this.groupBox3.Controls.Add(this.textBox34);
+            this.groupBox3.Controls.Add(this.tbSaleInvoiceVendorName);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.groupBox3.Location = new System.Drawing.Point(514, 71);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(522, 155);
+            this.groupBox3.Size = new System.Drawing.Size(524, 155);
             this.groupBox3.TabIndex = 110;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Customer\'s Information";
             // 
-            // richTextBox4
+            // richTbSaleInvoiceVendorAddress
             // 
-            this.richTextBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox4.Location = new System.Drawing.Point(163, 94);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(295, 56);
-            this.richTextBox4.TabIndex = 8;
-            this.richTextBox4.Text = "";
+            this.richTbSaleInvoiceVendorAddress.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTbSaleInvoiceVendorAddress.Location = new System.Drawing.Point(163, 94);
+            this.richTbSaleInvoiceVendorAddress.Name = "richTbSaleInvoiceVendorAddress";
+            this.richTbSaleInvoiceVendorAddress.Size = new System.Drawing.Size(295, 56);
+            this.richTbSaleInvoiceVendorAddress.TabIndex = 8;
+            this.richTbSaleInvoiceVendorAddress.Text = "";
             // 
             // label73
             // 
@@ -2541,13 +2733,13 @@
             this.label73.TabIndex = 20;
             this.label73.Text = "Address";
             // 
-            // textBox33
+            // tbSaleInvoiceVendorContactNumber
             // 
-            this.textBox33.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox33.Location = new System.Drawing.Point(163, 64);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(295, 23);
-            this.textBox33.TabIndex = 7;
+            this.tbSaleInvoiceVendorContactNumber.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSaleInvoiceVendorContactNumber.Location = new System.Drawing.Point(163, 64);
+            this.tbSaleInvoiceVendorContactNumber.Name = "tbSaleInvoiceVendorContactNumber";
+            this.tbSaleInvoiceVendorContactNumber.Size = new System.Drawing.Size(295, 23);
+            this.tbSaleInvoiceVendorContactNumber.TabIndex = 7;
             // 
             // label74
             // 
@@ -2569,21 +2761,21 @@
             this.label75.TabIndex = 15;
             this.label75.Text = "Name";
             // 
-            // textBox34
+            // tbSaleInvoiceVendorName
             // 
-            this.textBox34.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox34.Location = new System.Drawing.Point(163, 32);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(295, 23);
-            this.textBox34.TabIndex = 6;
+            this.tbSaleInvoiceVendorName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSaleInvoiceVendorName.Location = new System.Drawing.Point(163, 32);
+            this.tbSaleInvoiceVendorName.Name = "tbSaleInvoiceVendorName";
+            this.tbSaleInvoiceVendorName.Size = new System.Drawing.Size(295, 23);
+            this.tbSaleInvoiceVendorName.TabIndex = 6;
             // 
-            // textBox35
+            // tbSaleInvoiceCode
             // 
-            this.textBox35.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox35.Location = new System.Drawing.Point(218, 71);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(290, 23);
-            this.textBox35.TabIndex = 1;
+            this.tbSaleInvoiceCode.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSaleInvoiceCode.Location = new System.Drawing.Point(218, 71);
+            this.tbSaleInvoiceCode.Name = "tbSaleInvoiceCode";
+            this.tbSaleInvoiceCode.Size = new System.Drawing.Size(292, 23);
+            this.tbSaleInvoiceCode.TabIndex = 1;
             // 
             // label76
             // 
@@ -2675,6 +2867,12 @@
             this.btnPurchaseOrderPrint.Text = "Print";
             this.btnPurchaseOrderPrint.UseVisualStyleBackColor = false;
             // 
+            // ePCategory
+            // 
+            this.ePCategory.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ePCategory.ContainerControl = this;
+            this.ePCategory.Icon = ((System.Drawing.Icon)(resources.GetObject("ePCategory.Icon")));
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2695,6 +2893,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlClass.ResumeLayout(false);
+            this.pnlClass.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -2720,10 +2920,11 @@
             this.groupBox2.PerformLayout();
             this.pnlSaleInvoice.ResumeLayout(false);
             this.pnlSaleInvoice.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSaleInv)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvSubCategories)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2833,40 +3034,28 @@
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Panel pnlSaleInvoice;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.ComboBox cmbSaleInvPacking;
-        private System.Windows.Forms.ComboBox cmbSaleInvUnit;
+        private System.Windows.Forms.Button btnDeleteSaleInv;
+        private System.Windows.Forms.Button btnClearSaleInv;
+        private System.Windows.Forms.Button btnUpdateSaleInv;
+        private System.Windows.Forms.Button btnSaveSaleInv;
+        private System.Windows.Forms.Button btnNewSaleInv;
+        private System.Windows.Forms.DataGridView gvSaleInv;
+        private System.Windows.Forms.ComboBox cmbSelectPackingSaleInvoice;
+        private System.Windows.Forms.ComboBox cmbSelectUnitSaleInvoice;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.ComboBox cmbSaleInvSubCat;
+        private System.Windows.Forms.ComboBox cmbSelectSubCatSaleInvoice;
         private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.ComboBox cmbSaleInvCat;
+        private System.Windows.Forms.ComboBox cmbSelectCatSaleInvoice;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.RichTextBox richTbSaleInvoiceVendorAddress;
         private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.TextBox tbSaleInvoiceVendorContactNumber;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
+        private System.Windows.Forms.TextBox tbSaleInvoiceVendorName;
+        private System.Windows.Forms.TextBox tbSaleInvoiceCode;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Button btnCategoriesClear;
@@ -2950,6 +3139,32 @@
         private System.Windows.Forms.TextBox tbSaleOrderVendorName;
         private System.Windows.Forms.TextBox tbSaleOrderCode;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Button btnPurchaseOrderPrint;
+        private System.Windows.Forms.ErrorProvider ePCategory;
+        private System.Windows.Forms.Button btnAddSaleInvDetail;
+        private System.Windows.Forms.TextBox tbRemAmountSaleInv;
+        private System.Windows.Forms.TextBox tbAmountReSaleInv;
+        private System.Windows.Forms.TextBox tbTotalAmountSaleInv;
+        private System.Windows.Forms.TextBox tbDiscountSaleInv;
+        private System.Windows.Forms.TextBox tbUnitRateSaleInv;
+        private System.Windows.Forms.TextBox tbQuantitySaleInv;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Panel pnlClass;
+        private System.Windows.Forms.CheckBox cbIsActive;
+        private System.Windows.Forms.Button btnClassClear;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Button btnClassDelete;
+        private System.Windows.Forms.Button btnClassUpdate;
+        private System.Windows.Forms.Button btnCLassSave;
+        private System.Windows.Forms.Button btnClassNew;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Button btnAddClass;
     }
 }

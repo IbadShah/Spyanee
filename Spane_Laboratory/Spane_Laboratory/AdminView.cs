@@ -59,7 +59,9 @@ namespace Spane_Laboratory
         //Admin Main Form
         private void button2_Click(object sender, EventArgs e)
         {
-            panel1.Hide(); 
+            panel1.Hide();
+            pnlClass.Hide();
+            pnlClass.Hide();
             panel2.Show();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -72,6 +74,7 @@ namespace Spane_Laboratory
         private void button1_Click(object sender, EventArgs e)
         {
             panel1.Show();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -85,6 +88,7 @@ namespace Spane_Laboratory
         {
             
             DataLoader();
+            pnlClass.Hide();
             panel1.Hide();
             panel2.Hide();
             pnlUnit.Hide();
@@ -98,7 +102,7 @@ namespace Spane_Laboratory
         }
         private void button4_Click(object sender, EventArgs e)
         {
-
+            pnlClass.Hide();
             panel1.Hide();
             panel2.Hide();
             pnlUnit.Hide();
@@ -154,10 +158,10 @@ namespace Spane_Laboratory
                 cmbSelectCatPurchaseInvoice.ValueMember = "CatId";
                 cmbSelectCatPurchaseInvoice.SelectedIndex = -1;
                 //Sale Invoice Category cmb
-                cmbSaleInvCat.DataSource = dt;
-                cmbSaleInvCat.DisplayMember = "CatName";
-                cmbSaleInvCat.ValueMember = "CatId";
-                cmbSaleInvCat.SelectedIndex = -1;
+                cmbSelectCatSaleInvoice.DataSource = dt;
+                cmbSelectCatSaleInvoice.DisplayMember = "CatName";
+                cmbSelectCatSaleInvoice.ValueMember = "CatId";
+                cmbSelectCatSaleInvoice.SelectedIndex = -1;
                 //Sale Order Category cmb
                 cmbSelectCatSaleOrder.DataSource = dt;
                 cmbSelectCatSaleOrder.DisplayMember = "CatName";
@@ -222,10 +226,10 @@ namespace Spane_Laboratory
                 cmbSelectPackingPurchaseInvoice.ValueMember = "PackingId";
                 cmbSelectPackingPurchaseInvoice.SelectedIndex = -1;
                 //Sale Invoice Packing cmb
-                cmbSaleInvPacking.DataSource = dt;
-                cmbSaleInvPacking.DisplayMember = "PackingName";
-                cmbSaleInvPacking.ValueMember = "PackingId";
-                cmbSaleInvPacking.SelectedIndex = -1;
+                cmbSelectPackingSaleInvoice.DataSource = dt;
+                cmbSelectPackingSaleInvoice.DisplayMember = "PackingName";
+                cmbSelectPackingSaleInvoice.ValueMember = "PackingId";
+                cmbSelectPackingSaleInvoice.SelectedIndex = -1;
                 //Sale Order Packing cmb
                 cmbSaleOrderPacking.DataSource = dt;
                 cmbSaleOrderPacking.DisplayMember = "PackingName";
@@ -261,10 +265,10 @@ namespace Spane_Laboratory
                 cmbSelectUnitPurchaseInvoice.ValueMember = "UnitId";
                 cmbSelectUnitPurchaseInvoice.SelectedIndex = -1;
                 //Sale Invoice Unit cmb
-                cmbSaleInvUnit.DataSource = dt;
-                cmbSaleInvUnit.DisplayMember = "UnitName";
-                cmbSaleInvUnit.ValueMember = "UnitId";
-                cmbSaleInvUnit.SelectedIndex = -1;
+                cmbSelectUnitSaleInvoice.DataSource = dt;
+                cmbSelectUnitSaleInvoice.DisplayMember = "UnitName";
+                cmbSelectUnitSaleInvoice.ValueMember = "UnitId";
+                cmbSelectUnitSaleInvoice.SelectedIndex = -1;
                 //Sale order Unit cmb
                 cmbSaleOrderUnit.DataSource = dt;
                 cmbSaleOrderUnit.DisplayMember = "UnitName";
@@ -305,10 +309,10 @@ namespace Spane_Laboratory
                 cmbSelectSubCatSaleOrder.ValueMember = "SubCatId";
                 cmbSelectSubCatSaleOrder.SelectedIndex = -1;
                 //Sale Invoice SubCategory cmb
-                cmbSaleInvSubCat.DataSource = dt;
-                cmbSaleInvSubCat.DisplayMember = "SubCatName";
-                cmbSaleInvSubCat.ValueMember = "SubCatId";
-                cmbSaleInvSubCat.SelectedIndex = -1;
+                cmbSelectSubCatSaleInvoice.DataSource = dt;
+                cmbSelectSubCatSaleInvoice.DisplayMember = "SubCatName";
+                cmbSelectSubCatSaleInvoice.ValueMember = "SubCatId";
+                cmbSelectSubCatSaleInvoice.SelectedIndex = -1;
                 _oDbHelper.CloseConnection();
                 
             }
@@ -559,8 +563,11 @@ namespace Spane_Laboratory
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             try
             {
+                ShowError(tbCategories, "Error");
+
                 if (!cmbCategories.Enabled)
                 {
                     if (tbCategories.Text != "")
@@ -580,7 +587,7 @@ namespace Spane_Laboratory
                 }
                 else
                 {
-                    MessageBox.Show("Press New Before Entering New Category Record.");
+                    //MessageBox.Show("Press New Before Entering New Category Record.");
                 }
             }
 
@@ -687,8 +694,12 @@ namespace Spane_Laboratory
         //Get Models Methods End
         private void btnSaveItem_Click(object sender, EventArgs e)
         {
+
+            
             try
             {
+                ShowError(tbItem, "Error");
+
                 if (!cmbItem.Enabled)
                 {
                     _oDbHelper.OpenConnection();
@@ -701,12 +712,12 @@ namespace Spane_Laboratory
                 }
                 else
                 {
-                    MessageBox.Show("Press New Before Entering New Item Record.");
+                   // MessageBox.Show("Press New Before Entering New Item Record.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Item is not Inserted."+ex);
+                //MessageBox.Show("Item is not Inserted."+ex);
             }
         }
         public void SaveSubCategories(SubCategories subCategories)
@@ -732,9 +743,23 @@ namespace Spane_Laboratory
         {
            New(cmbItem, tbItem, chkItemIsActive);
         }
+          private void btnAddClass_Click(object sender, EventArgs e)
+        {
+            pnlClass.Show();
+            panel1.Hide();
+            panel2.Hide();
+            pnlUnit.Hide();
+            pnlPurchaseOrder.Hide();
+            pnlPacking.Hide();
+            pnlPurchaseInvoice.Hide();
+            pnlSalesOrder.Hide();
+            pnlSaleInvoice.Hide();
+
+        }
         private void btnAddUnit_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Show();
             pnlPurchaseOrder.Hide();
@@ -747,6 +772,7 @@ namespace Spane_Laboratory
         private void btnAddPacking_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -759,6 +785,7 @@ namespace Spane_Laboratory
         private void btnPurchaseOrder_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Show();
@@ -771,6 +798,7 @@ namespace Spane_Laboratory
         private void btnPurchaseInvoice_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -783,6 +811,7 @@ namespace Spane_Laboratory
         private void btnSaleOrder_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -795,6 +824,7 @@ namespace Spane_Laboratory
         private void btnSaleInvoice_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -1015,8 +1045,11 @@ namespace Spane_Laboratory
 
         private void btnUnitSave_Click(object sender, EventArgs e)
         {
+           
             try
             {
+                ShowError(tbUnit, "Error");
+
                 if (!cmbUnit.Enabled)
                 {
                     if (tbUnit.Text != "")
@@ -1036,7 +1069,7 @@ namespace Spane_Laboratory
                 }
                 else
                 {
-                    MessageBox.Show("Press New Before Entering New Category Record.");
+                    //MessageBox.Show("Press New Before Entering New Category Record.");
                 }
             }
 
@@ -1141,8 +1174,13 @@ namespace Spane_Laboratory
 
         private void btnPackingSave_Click(object sender, EventArgs e)
         {
+
+
+           
             try
             {
+                ShowError(tbPacking,"Error");
+
                 if (!cmbPacking.Enabled)
                 {
                     if (tbPacking.Text != "")
@@ -1162,7 +1200,7 @@ namespace Spane_Laboratory
                 }
                 else
                 {
-                    MessageBox.Show("Press New Before Entering New Packing Record.");
+                    //MessageBox.Show("Press New Before Entering New Packing Record.");
                 }
             }
 
@@ -1387,6 +1425,76 @@ namespace Spane_Laboratory
 
         //Purchase Order Screen Coding END
 
+        //Check is empty fields on first 4 screens Start
+        private void tbCategories_TextChanged(object sender, EventArgs e)
+        {
+
+            IsEmptyTextBox(tbCategories,"Please Enter Category.");
+        }
+
+        private void tbItem_TextChanged(object sender, EventArgs e)
+        {
+
+            IsEmptyTextBox(tbItem, "Please Enter Item.");
+        }
+
+        private void tbUnit_TextChanged(object sender, EventArgs e)
+        {
+            IsEmptyTextBox(tbUnit, "Please Enter Unit.");
+        }
+
+        private void tbPacking_TextChanged(object sender, EventArgs e)
+        {
+            IsEmptyTextBox(tbPacking, "Please Enter Packing.");
+        }
+
+
+        public void IsEmptyTextBox( TextBox tb,string message)
+        {
+
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                ePCategory.Icon = Properties.Resources.qMark;
+                ePCategory.SetError(tb,message);
+            }
+            else
+            {
+                ePCategory.Icon = Properties.Resources.cor;
+                ePCategory.SetError(tb, "Ok");
+            }
+        }
+
+        //Button Error Icon Show
+        public void ShowError(TextBox tb1, string mess)
+        {
+            if (string.IsNullOrEmpty(tb1.Text))
+            {
+                ePCategory.Icon = Properties.Resources.err;
+                ePCategory.SetError(tb1, mess);
+            }
+            else
+            {
+                ePCategory.Icon = Properties.Resources.cor;
+                ePCategory.SetError(tb1, "Ok");
+            }
+        }
+
+       
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkCategoryIsActive_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
 
         //Purchase Order Fields Clear START
         public void PurchaseFieldClear()
