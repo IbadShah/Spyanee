@@ -54,7 +54,9 @@ namespace Spane_Laboratory
         //Admin Main Form
         private void button2_Click(object sender, EventArgs e)
         {
-            panel1.Hide(); 
+            panel1.Hide();
+            pnlClass.Hide();
+            pnlClass.Hide();
             panel2.Show();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -67,6 +69,7 @@ namespace Spane_Laboratory
         private void button1_Click(object sender, EventArgs e)
         {
             panel1.Show();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -80,6 +83,7 @@ namespace Spane_Laboratory
         {
             
             DataLoader();
+            pnlClass.Hide();
             panel1.Hide();
             panel2.Hide();
             pnlUnit.Hide();
@@ -93,7 +97,7 @@ namespace Spane_Laboratory
         }
         private void button4_Click(object sender, EventArgs e)
         {
-
+            pnlClass.Hide();
             panel1.Hide();
             panel2.Hide();
             pnlUnit.Hide();
@@ -685,9 +689,23 @@ namespace Spane_Laboratory
         {
            New(cmbItem, tbItem, chkItemIsActive);
         }
+          private void btnAddClass_Click(object sender, EventArgs e)
+        {
+            pnlClass.Show();
+            panel1.Hide();
+            panel2.Hide();
+            pnlUnit.Hide();
+            pnlPurchaseOrder.Hide();
+            pnlPacking.Hide();
+            pnlPurchaseInvoice.Hide();
+            pnlSalesOrder.Hide();
+            pnlSaleInvoice.Hide();
+
+        }
         private void btnAddUnit_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Show();
             pnlPurchaseOrder.Hide();
@@ -700,6 +718,7 @@ namespace Spane_Laboratory
         private void btnAddPacking_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -712,6 +731,7 @@ namespace Spane_Laboratory
         private void btnPurchaseOrder_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Show();
@@ -724,6 +744,7 @@ namespace Spane_Laboratory
         private void btnPurchaseInvoice_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -736,6 +757,7 @@ namespace Spane_Laboratory
         private void btnSaleOrder_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -748,6 +770,7 @@ namespace Spane_Laboratory
         private void btnSaleInvoice_Click(object sender, EventArgs e)
         {
             panel1.Hide();
+            pnlClass.Hide();
             panel2.Hide();
             pnlUnit.Hide();
             pnlPurchaseOrder.Hide();
@@ -1298,6 +1321,45 @@ namespace Spane_Laboratory
                 ePCategory.SetError(tb1, "Ok");
             }
         }
+
+       
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkCategoryIsActive_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chkCategoryIsActive_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
         //End
 
     }
