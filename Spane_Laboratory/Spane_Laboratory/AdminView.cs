@@ -1683,6 +1683,12 @@ namespace Spane_Laboratory
                 _oDbHelper.CloseConnection();
             }
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Crytal_Report cry = new Crytal_Report();
+            cry.Show();
+        }
         //
 
         //
