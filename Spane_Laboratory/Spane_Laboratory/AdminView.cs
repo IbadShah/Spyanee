@@ -1512,6 +1512,17 @@ namespace Spane_Laboratory
             DataTable dt = new DataTable();
             dt = (DataTable)gvPurchaseOrder.DataSource;
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Crytal_Report cry = new Crytal_Report();
+            cry.Show();
+        }
+
+        private void pnlSalesOrder_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
         //
 
         //

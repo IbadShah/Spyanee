@@ -16,7 +16,7 @@ namespace Spane_Laboratory
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Crytal_Report());
+            Application.Run(new frmLogin());
         }
     }
 }
