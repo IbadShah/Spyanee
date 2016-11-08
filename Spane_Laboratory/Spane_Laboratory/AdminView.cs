@@ -39,6 +39,8 @@ namespace Spane_Laboratory
         private const string CreatedBy = "@CreatedBy";
         private const string UpdatedBy = "@UpdatedBy";
         private const string purchaseOrderTable = "@purchaseOrderTable";
+        private const string ClassId = "@ClassId";
+        private const string ClassName = "ClassName";
         #endregion
 
         //Global Variables
@@ -132,9 +134,27 @@ namespace Spane_Laboratory
         //Admin Main Form END
 
 
-        
+
 
         //Data Poupulatuion methods START
+        public void PopulateStandard() {
+            try {
+                _oDbHelper.OpenConnection();
+                var dt = _oDbHelper.GetDataTable("uspGetAllStandard");
+                //Class cmb
+                cmbSelectClass.DataSource = dt;
+                cmbSelectClass.DisplayMember = "ClassName";
+                cmbSelectClass.ValueMember = "ClassId";
+                cmbSelectClass.SelectedIndex = -1;
+               }
+            catch (Exception ex) {
+                MessageBox.Show("Unable to Load Class." + ex);
+                _oDbHelper.CloseConnection();
+
+            }
+
+
+        }
         public void PopulateCategories()
         {
             try
@@ -195,6 +215,7 @@ namespace Spane_Laboratory
         }
         public void DataLoader()
         {
+            PopulateStandard();
             PopulateItems();
             PopulateCategories();
             PopulatePackings();
@@ -401,6 +422,18 @@ namespace Spane_Laboratory
         //Get Codes Methods END
 
         //Model Initializer
+        private Standard IntilizerStandard() {
+            var standard = new Standard
+            {
+                ClassId = cmbSelectClass.Enabled ? (int)cmbSelectClass.SelectedValue : 0,
+                ClassName = tbAddClass.Text,
+                IsActive = cbIsActive.Checked,
+                CreatedBy = adminId,
+                UpdatedBy=adminId,
+
+            };
+            return standard;
+        }
         private Categories Initializer()
         {
             var catgories = new Categories
@@ -552,6 +585,26 @@ namespace Spane_Laboratory
                     _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
                 };
             var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspPackingSave", RetVal, param);
+        }
+
+        public void SaveStandard(Standard model) {
+
+
+            SqlParameter[] param =
+            {
+                _oDbHelper.InParam(ClassId, SqlDbType.Int, 4, model.ClassId),
+
+                _oDbHelper.InParam(ClassName, SqlDbType.NVarChar, 50, model.ClassName),
+
+                    _oDbHelper.InParam(IsActive,SqlDbType.Bit,1,model.IsActive),
+
+                    _oDbHelper.InParam(CreatedBy,SqlDbType.Int,4,model.CreatedBy),
+
+                    _oDbHelper.InParam(UpdatedBy,SqlDbType.Int,4,model.UpdatedBy),
+
+                    _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
+                };
+            var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspStandardSave", RetVal, param);
         }
         //Save Methods END
 
@@ -904,6 +957,17 @@ namespace Spane_Laboratory
             };
 
             _oDbHelper.ExecuteScalar("uspDeletePacking", param);
+        }
+
+        public void DeleteStandard(int id)
+        {
+            SqlParameter[] param =
+          {
+                _oDbHelper.InParam(ClassId, SqlDbType.Int, 4, id)
+
+            };
+
+            _oDbHelper.ExecuteScalar("uspDeleteStandard", param);
         }
         //Delete Methods END
         private void cmbItem_SelectedIndexChanged(object sender, EventArgs e)
@@ -1511,6 +1575,113 @@ namespace Spane_Laboratory
         {
             DataTable dt = new DataTable();
             dt = (DataTable)gvPurchaseOrder.DataSource;
+        }
+
+        private void btnClassNew_Click(object sender, EventArgs e)
+        {
+            New(cmbSelectClass,tbAddClass,cbIsActive);
+        }
+
+        private void btnCLassSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowError(tbAddClass, "Error");
+
+                if (!cmbSelectClass.Enabled)
+                {
+                    if (tbAddClass.Text != "")
+                    {
+                        _oDbHelper.OpenConnection();
+                        var Standard = IntilizerStandard();
+                        SaveStandard(Standard);
+                        _oDbHelper.CloseConnection();
+                        cmbSelectClass.Enabled = true;
+                        MessageBox.Show("Class Record is Inserted.");
+                        PopulateStandard();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Insert Record.");
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("Press New Before Entering New Packing Record.");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                cmbSelectClass.Enabled = true;
+                MessageBox.Show("Insertion Failed." + ex);
+                _oDbHelper.CloseConnection();
+            }
+        }
+
+        private void btnClassUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbSelectClass.Enabled)
+                {
+                    if (cmbSelectClass.Text != "")
+                    {
+                        _oDbHelper.OpenConnection();
+                        var Standard = IntilizerStandard();
+                        SaveStandard(Standard);
+                        _oDbHelper.CloseConnection();
+                        cmbSelectClass.Enabled = true;
+                        MessageBox.Show("Class Record is Updated.");
+                        PopulateStandard();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Enter Packing.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please Select the Packing Before Update Record.");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                cmbSelectClass.Enabled = true;
+                MessageBox.Show("Insertion Failed." + ex);
+                _oDbHelper.CloseConnection();
+            }
+        }
+
+        private void btnClassClear_Click(object sender, EventArgs e)
+        {
+            Clear(tbAddClass,cbIsActive,cmbSelectClass);
+        }
+
+        private void btnClassDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbSelectClass.Text != "")
+                {
+                    _oDbHelper.OpenConnection();
+                    int id = (int)cmbSelectClass.SelectedValue;
+                    DeleteStandard(id);
+                    _oDbHelper.CloseConnection();
+                    MessageBox.Show("Class Record is Deleted Successfully.");
+                    PopulateStandard();
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Class to Deleted.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to Delete." + ex);
+                _oDbHelper.CloseConnection();
+            }
         }
         //
 
