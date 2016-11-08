@@ -142,10 +142,10 @@ namespace Spane_Laboratory
                 _oDbHelper.OpenConnection();
                 var dt = _oDbHelper.GetDataTable("uspGetAllStandard");
                 //Class cmb
-                cmbSelectClass.DataSource = dt;
-                cmbSelectClass.DisplayMember = "ClassName";
-                cmbSelectClass.ValueMember = "ClassId";
-                cmbSelectClass.SelectedIndex = -1;
+                cmbAddClass.DataSource = dt;
+                cmbAddClass.DisplayMember = "ClassName";
+                cmbAddClass.ValueMember = "ClassId";
+                cmbAddClass.SelectedIndex = -1;
                }
             catch (Exception ex) {
                 MessageBox.Show("Unable to Load Class." + ex);
@@ -425,7 +425,7 @@ namespace Spane_Laboratory
         private Standard IntilizerStandard() {
             var standard = new Standard
             {
-                ClassId = cmbSelectClass.Enabled ? (int)cmbSelectClass.SelectedValue : 0,
+                ClassId = cmbAddClass.Enabled ? (int)cmbAddClass.SelectedValue : 0,
                 ClassName = tbAddClass.Text,
                 IsActive = cbIsActive.Checked,
                 CreatedBy = adminId,
@@ -1579,7 +1579,7 @@ namespace Spane_Laboratory
 
         private void btnClassNew_Click(object sender, EventArgs e)
         {
-            New(cmbSelectClass,tbAddClass,cbIsActive);
+            New(cmbAddClass,tbAddClass,cbIsActive);
         }
 
         private void btnCLassSave_Click(object sender, EventArgs e)
@@ -1588,7 +1588,7 @@ namespace Spane_Laboratory
             {
                 ShowError(tbAddClass, "Error");
 
-                if (!cmbSelectClass.Enabled)
+                if (!cmbAddClass.Enabled)
                 {
                     if (tbAddClass.Text != "")
                     {
@@ -1596,7 +1596,7 @@ namespace Spane_Laboratory
                         var Standard = IntilizerStandard();
                         SaveStandard(Standard);
                         _oDbHelper.CloseConnection();
-                        cmbSelectClass.Enabled = true;
+                        cmbAddClass.Enabled = true;
                         MessageBox.Show("Class Record is Inserted.");
                         PopulateStandard();
                     }
@@ -1613,7 +1613,7 @@ namespace Spane_Laboratory
 
             catch (Exception ex)
             {
-                cmbSelectClass.Enabled = true;
+                cmbAddClass.Enabled = true;
                 MessageBox.Show("Insertion Failed." + ex);
                 _oDbHelper.CloseConnection();
             }
@@ -1623,15 +1623,15 @@ namespace Spane_Laboratory
         {
             try
             {
-                if (cmbSelectClass.Enabled)
+                if (cmbAddClass.Enabled)
                 {
-                    if (cmbSelectClass.Text != "")
+                    if (cmbAddClass.Text != "")
                     {
                         _oDbHelper.OpenConnection();
                         var Standard = IntilizerStandard();
                         SaveStandard(Standard);
                         _oDbHelper.CloseConnection();
-                        cmbSelectClass.Enabled = true;
+                        cmbAddClass.Enabled = true;
                         MessageBox.Show("Class Record is Updated.");
                         PopulateStandard();
                     }
@@ -1648,7 +1648,7 @@ namespace Spane_Laboratory
 
             catch (Exception ex)
             {
-                cmbSelectClass.Enabled = true;
+                cmbAddClass.Enabled = true;
                 MessageBox.Show("Insertion Failed." + ex);
                 _oDbHelper.CloseConnection();
             }
@@ -1656,17 +1656,17 @@ namespace Spane_Laboratory
 
         private void btnClassClear_Click(object sender, EventArgs e)
         {
-            Clear(tbAddClass,cbIsActive,cmbSelectClass);
+            Clear(tbAddClass,cbIsActive, cmbAddClass);
         }
 
         private void btnClassDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cmbSelectClass.Text != "")
+                if (cmbAddClass.Text != "")
                 {
                     _oDbHelper.OpenConnection();
-                    int id = (int)cmbSelectClass.SelectedValue;
+                    int id = (int)cmbAddClass.SelectedValue;
                     DeleteStandard(id);
                     _oDbHelper.CloseConnection();
                     MessageBox.Show("Class Record is Deleted Successfully.");

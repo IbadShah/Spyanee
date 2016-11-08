@@ -52,7 +52,7 @@
             this.btnClassUpdate = new System.Windows.Forms.Button();
             this.btnCLassSave = new System.Windows.Forms.Button();
             this.btnClassNew = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbAddClass = new System.Windows.Forms.ComboBox();
             this.label78 = new System.Windows.Forms.Label();
             this.tbAddClass = new System.Windows.Forms.TextBox();
             this.label79 = new System.Windows.Forms.Label();
@@ -496,7 +496,7 @@
             this.pnlClass.Controls.Add(this.btnClassUpdate);
             this.pnlClass.Controls.Add(this.btnCLassSave);
             this.pnlClass.Controls.Add(this.btnClassNew);
-            this.pnlClass.Controls.Add(this.comboBox1);
+            this.pnlClass.Controls.Add(this.cmbAddClass);
             this.pnlClass.Controls.Add(this.label78);
             this.pnlClass.Controls.Add(this.tbAddClass);
             this.pnlClass.Controls.Add(this.label79);
@@ -526,6 +526,7 @@
             this.btnClassClear.TabIndex = 21;
             this.btnClassClear.Text = "Clear";
             this.btnClassClear.UseVisualStyleBackColor = false;
+            this.btnClassClear.Click += new System.EventHandler(this.btnClassClear_Click);
             // 
             // label68
             // 
@@ -548,6 +549,7 @@
             this.btnClassDelete.TabIndex = 22;
             this.btnClassDelete.Text = "Delete";
             this.btnClassDelete.UseVisualStyleBackColor = false;
+            this.btnClassDelete.Click += new System.EventHandler(this.btnClassDelete_Click);
             // 
             // btnClassUpdate
             // 
@@ -559,6 +561,7 @@
             this.btnClassUpdate.TabIndex = 19;
             this.btnClassUpdate.Text = "Update";
             this.btnClassUpdate.UseVisualStyleBackColor = false;
+            this.btnClassUpdate.Click += new System.EventHandler(this.btnClassUpdate_Click);
             // 
             // btnCLassSave
             // 
@@ -570,6 +573,7 @@
             this.btnCLassSave.TabIndex = 18;
             this.btnCLassSave.Text = "Save";
             this.btnCLassSave.UseVisualStyleBackColor = false;
+            this.btnCLassSave.Click += new System.EventHandler(this.btnCLassSave_Click);
             // 
             // btnClassNew
             // 
@@ -581,16 +585,17 @@
             this.btnClassNew.TabIndex = 17;
             this.btnClassNew.Text = "New";
             this.btnClassNew.UseVisualStyleBackColor = false;
+            this.btnClassNew.Click += new System.EventHandler(this.btnClassNew_Click);
             // 
-            // comboBox1
+            // cmbAddClass
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(267, 160);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(549, 29);
-            this.comboBox1.TabIndex = 13;
-            this.comboBox1.Text = "--Add Class--";
+            this.cmbAddClass.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cmbAddClass.FormattingEnabled = true;
+            this.cmbAddClass.Location = new System.Drawing.Point(267, 160);
+            this.cmbAddClass.Name = "cmbAddClass";
+            this.cmbAddClass.Size = new System.Drawing.Size(549, 29);
+            this.cmbAddClass.TabIndex = 13;
+            this.cmbAddClass.Text = "--Add Class--";
             // 
             // label78
             // 
@@ -3204,7 +3209,7 @@
         private System.Windows.Forms.Button btnClassUpdate;
         private System.Windows.Forms.Button btnCLassSave;
         private System.Windows.Forms.Button btnClassNew;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbAddClass;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.TextBox tbAddClass;
         private System.Windows.Forms.Label label79;
