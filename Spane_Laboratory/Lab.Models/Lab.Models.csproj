@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categories.cs" />
+    <Compile Include="Standard.cs" />
     <Compile Include="PurchaseInvoice.cs" />
     <Compile Include="SaleInvoice.cs" />
     <Compile Include="SaleOrder.cs" />
