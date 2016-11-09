@@ -17,14 +17,13 @@ namespace Lab.Models
         public string PackingName { get; set; }
         public decimal Quantity { get; set; }
         public decimal UnitRate { get; set; }
-        public decimal Discount { get; set; }
-        public decimal TotalAmount { get; set; }
-        public decimal AmountRecieved { get; set; }
+        public decimal PurchaseRate { get; set; }
+        public decimal AmountPaid { get; set; }
         public decimal RemainingAmount { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public int? UpdatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public int UpdatedBy { get; set; }
 
     }
 }

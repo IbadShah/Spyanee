@@ -47,11 +47,7 @@ namespace Spane_Laboratory
 
         private readonly DbHelper _oDbHelper = new DbHelper();
         public int adminId = 1;
-        int quantity;
-        decimal unitRate;
-        decimal discount;
-        decimal amount;
-        decimal discountAmount;
+      
         //Global Variables END
         public AdminView()
         {
@@ -148,6 +144,27 @@ namespace Spane_Laboratory
                 cmbAddClass.SelectedIndex = -1;
                }
             catch (Exception ex) {
+                MessageBox.Show("Unable to Load Class." + ex);
+                _oDbHelper.CloseConnection();
+
+            }
+
+
+        }
+        public void PopulatePurchaseRate(SqlParameter[]param)
+        {
+            try
+            {
+                _oDbHelper.OpenConnection();
+                var dt = _oDbHelper.GetDataTable("uspGetPurchaseRate",param);
+                //Class cmb
+                cmbPurchaseRate.DataSource = dt;
+                cmbPurchaseRate.DisplayMember = "UnitRate";
+        
+                cmbPurchaseRate.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Unable to Load Class." + ex);
                 _oDbHelper.CloseConnection();
 
@@ -346,7 +363,7 @@ namespace Spane_Laboratory
         {
          
          
-            gvPurchaseOrder.ColumnCount = 11;
+            gvPurchaseOrder.ColumnCount = 10;
             gvPurchaseOrder.Columns[0].Name = "PurchaseOrderId";
             gvPurchaseOrder.Columns[0].Visible = false;
             gvPurchaseOrder.Columns[1].Name = "CatName";
@@ -355,11 +372,15 @@ namespace Spane_Laboratory
             gvPurchaseOrder.Columns[4].Name = "PackingName";
             gvPurchaseOrder.Columns[5].Name = "Quantity";
             gvPurchaseOrder.Columns[6].Name = "UnitRate";
-            gvPurchaseOrder.Columns[7].Name = "Discount";
-            gvPurchaseOrder.Columns[8].Name = "TotalAmount";
-            gvPurchaseOrder.Columns[9].Name = "AmountReceived";
-            gvPurchaseOrder.Columns[10].Name = "RemainingAmount";
-            gvPurchaseOrder.Columns[10].Width = 124;
+            gvPurchaseOrder.Columns[7].Name = "TotalAmount";
+            gvPurchaseOrder.Columns[8].Name = "AmountReceived";
+            gvPurchaseOrder.Columns[9].Name = "RemainingAmount";
+            gvPurchaseOrder.Columns[0].Width = 124;
+            gvPurchaseOrder.Columns[1].Width = 124;
+            gvPurchaseOrder.Columns[2].Width = 124;
+            gvPurchaseOrder.Columns[3].Width = 124;
+            gvPurchaseOrder.Columns[6].Width = 124;
+            gvPurchaseOrder.Columns[9].Width =  128;
 
         }
     
@@ -708,6 +729,16 @@ namespace Spane_Laboratory
         //Category Screen Buttons END
 
         //Get Models Methods
+
+        public Standard StandardGetById(int id)
+        {
+            SqlParameter[] pram =
+            {
+                _oDbHelper.InParam(ClassId,SqlDbType.Int,4,id)
+            };
+            var list = _oDbHelper.GenericSqlDataReader<Standard>("uspGetAllStandard", pram).FirstOrDefault();
+            return list;
+        }
         public Categories GetById(int id)
         {
             SqlParameter[] pram =
@@ -1367,20 +1398,12 @@ namespace Spane_Laboratory
 
 
         //Purchase Order Screen Coding START
-        private void tbDiscountPurOr_Leave(object sender, EventArgs e)
-        {
-            quantity = Convert.ToInt16(tbQuantityPurOr.Text);
-            unitRate = Convert.ToDecimal(tbUnitRatePurOr.Text);
-            discount = Convert.ToDecimal(tbDiscountPurOr.Text);
-            amount = quantity * unitRate;
-            discountAmount = amount * (discount/100);
-            tbTotalAmPurOr.Text =Convert.ToString(amount-discountAmount);
-        }
+       
         private void tbAmountRePurOr_Leave(object sender, EventArgs e)
         {
-            decimal totalAmount = Convert.ToDecimal(tbTotalAmPurOr.Text);
-            decimal amountReceived=Convert.ToDecimal(tbAmountRePurOr.Text);
-            tbRemAmPurOr.Text= Convert.ToString(totalAmount- amountReceived);
+            decimal purchaseRate = Convert.ToDecimal(tbTotalAmPurOr.Text);
+            decimal amountpaid=Convert.ToDecimal(tbAmountRePurOr.Text);
+            tbRemAmPurOr.Text= Convert.ToString(purchaseRate-amountpaid);
         }
         private void btnAddPurchaseOrderDetail_Click(object sender, EventArgs e)
         {
@@ -1389,20 +1412,8 @@ namespace Spane_Laboratory
                 if (tbRemAmPurOr.Text != "")
                 {
 
-                    //int row = 0;
-                    //gvPurchaseOrder.Rows.Add();
-                    //gvPurchaseOrder["PurchaseOrderId", row].Value = 0;
-                    //gvPurchaseOrder["CatName", row].Value = cmbSelectCatPurchaseOrder.Text;
-                    //gvPurchaseOrder["SubCatName", row].Value = cmbSelectSubCatPurchaseOrder.Text;
-                    //gvPurchaseOrder["UnitName", row].Value = cmbPurOrderUnit.Text;
-                    //gvPurchaseOrder["PackingName", row].Value = cmbPurOrderPacking.Text;
-                    //gvPurchaseOrder["Quantity", row].Value = Convert.ToDecimal(tbQuantityPurOr.Text);
-                    //gvPurchaseOrder["UnitRate", row].Value = Convert.ToDecimal(tbUnitRatePurOr.Text);
-                    //gvPurchaseOrder["Discount", row].Value = Convert.ToDecimal(tbDiscountPurOr.Text);
-                    //gvPurchaseOrder["TotalAmount", row].Value = Convert.ToDecimal(tbTotalAmPurOr.Text);
-                    //gvPurchaseOrder["AmountReceived", row].Value = Convert.ToDecimal(tbAmountRePurOr.Text);
-                    //gvPurchaseOrder["RemainingAmount", row].Value = Convert.ToDecimal(tbRemAmPurOr.Text);
-                    gvPurchaseOrder.Rows.Add(0,cmbSelectCatPurchaseOrder.Text, cmbSelectSubCatPurchaseOrder.Text,  cmbPurOrderUnit.Text, cmbPurOrderPacking.Text, Convert.ToDecimal(tbQuantityPurOr.Text), Convert.ToDecimal(tbUnitRatePurOr.Text), Convert.ToDecimal(tbDiscountPurOr.Text), Convert.ToDecimal(tbTotalAmPurOr.Text), Convert.ToDecimal(tbAmountRePurOr.Text), Convert.ToDecimal(tbRemAmPurOr.Text));
+               
+                    gvPurchaseOrder.Rows.Add(0,cmbSelectCatPurchaseOrder.Text, cmbSelectSubCatPurchaseOrder.Text,  cmbPurOrderUnit.Text, cmbPurOrderPacking.Text, Convert.ToDecimal(tbQuantityPurOr.Text), Convert.ToDecimal(tbUnitRatePurOr.Text), Convert.ToDecimal(tbTotalAmPurOr.Text), Convert.ToDecimal(tbAmountRePurOr.Text), Convert.ToDecimal(tbRemAmPurOr.Text));
                     PurchaseFieldClear();
                 }
                 else
@@ -1413,6 +1424,7 @@ namespace Spane_Laboratory
             catch(Exception ex)
             {
                 MessageBox.Show(""+ex);
+                 
             }
 
         }
@@ -1443,7 +1455,7 @@ namespace Spane_Laboratory
                         if (row.Cells[i].Value != null)
                         {
                             cellValues[i] = row.Cells[i].Value;
-                            if(i==10)
+                            if(i==9)
                             {
                                 dt.Rows.Add(cellValues);
                             }
@@ -1485,7 +1497,12 @@ namespace Spane_Laboratory
             gvPurchaseOrder.Refresh();
             PurchaseFieldClear();
         }
-
+        private void tbUnitRatePurOr_Leave(object sender, EventArgs e)
+        {
+            decimal quantity = Convert.ToDecimal(tbQuantityPurOr.Text);
+            decimal unitRate = Convert.ToDecimal(tbUnitRatePurOr.Text);
+            tbTotalAmPurOr.Text = Convert.ToString(quantity * unitRate);
+        }
 
         //Purchase Order Screen Coding END
 
@@ -1545,27 +1562,13 @@ namespace Spane_Laboratory
 
        
 
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkCategoryIsActive_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+       
         //Purchase Order Fields Clear START
         public void PurchaseFieldClear()
         {
             tbQuantityPurOr.Text = "";
             tbUnitRatePurOr.Text = "";
-            tbDiscountPurOr.Text = "";
+            //tbDiscountPurOr.Text = "";
             tbTotalAmPurOr.Text = "";
             tbAmountRePurOr.Text = "";
             tbRemAmPurOr.Text = "";
@@ -1689,6 +1692,47 @@ namespace Spane_Laboratory
             Crytal_Report cry = new Crytal_Report();
             cry.Show();
         }
+
+        private void cmbAddClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                if (cmbAddClass.SelectedValue != null)
+                {
+                    _oDbHelper.OpenConnection();
+                    Standard Standard;
+                    var id = (int)cmbAddClass.SelectedValue;
+                    Standard = StandardGetById(id);
+                    tbAddClass.Text = Standard.ClassName;
+                    cbIsActive.Checked = Standard.IsActive;
+                    _oDbHelper.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void cmbSelectSubCatSaleOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var subCat = cmbSelectSubCatSaleOrder.Text;
+                SqlParameter[] pram =
+          {
+                _oDbHelper.InParam("SubCatName",SqlDbType.NVarChar,50,subCat)
+            };
+                PopulatePurchaseRate(pram);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(""+ex);
+            }
+        }
+
+
         //
 
         //

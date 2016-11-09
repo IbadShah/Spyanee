@@ -27,7 +27,7 @@ namespace Spane_Laboratory
             {
           //    MessageBox.Show(Application.StartupPath+ @"\CReport.rpt");
                 dbHelper.OpenConnection();
-                rd.Load(@"F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\CReport.rpt");
+                rd.Load(@"C:\Users\Jawad Khan\Documents\GitHub\Spyanee\Spane_Laboratory\Spane_Laboratory\CReport.rpt");
                 SqlDataAdapter sda = new SqlDataAdapter("uspGePurchaseOrder",Connection.ConnectionString);
                 sda.SelectCommand.CommandType = CommandType.StoredProcedure;
                 sda.SelectCommand.Parameters.Add("@code", SqlDbType.NVarChar, 50).Value = null;
@@ -48,7 +48,7 @@ namespace Spane_Laboratory
             try
             {
                 dbHelper.OpenConnection();
-                rd.Load(@"F:\Git\Spyanee\Spane_Laboratory\Spane_Laboratory\CReport.rpt");
+                rd.Load(@"C:\Users\Jawad Khan\Documents\GitHub\Spyanee\Spane_Laboratory\Spane_Laboratory\CReport.rpt");
                 SqlDataAdapter sda = new SqlDataAdapter("uspGePurchaseOrder", Connection.ConnectionString);
                 sda.SelectCommand.CommandType = CommandType.StoredProcedure;
                 sda.SelectCommand.Parameters.Add("@code",SqlDbType.NVarChar,50).Value=textBox1.Text;
