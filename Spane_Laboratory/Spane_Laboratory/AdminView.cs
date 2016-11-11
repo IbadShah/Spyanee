@@ -40,7 +40,7 @@ namespace Spane_Laboratory
         private const string UpdatedBy = "@UpdatedBy";
         private const string purchaseOrderTable = "@purchaseOrderTable";
         private const string ClassId = "@ClassId";
-        private const string ClassName = "ClassName";
+        private const string ClassName = "@ClassName";
         #endregion
 
         //Global Variables

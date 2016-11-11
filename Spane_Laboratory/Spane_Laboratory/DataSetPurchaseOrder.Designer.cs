@@ -295,11 +295,9 @@ namespace Spane_Laboratory {
             
             private global::System.Data.DataColumn columnUnitRate;
             
-            private global::System.Data.DataColumn columnDiscount;
+            private global::System.Data.DataColumn columnPurchaseRate;
             
-            private global::System.Data.DataColumn columnTotalAmount;
-            
-            private global::System.Data.DataColumn columnAmountRecieved;
+            private global::System.Data.DataColumn columnAmountPaid;
             
             private global::System.Data.DataColumn columnRemainingAmount;
             
@@ -404,25 +402,17 @@ namespace Spane_Laboratory {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DiscountColumn {
+            public global::System.Data.DataColumn PurchaseRateColumn {
                 get {
-                    return this.columnDiscount;
+                    return this.columnPurchaseRate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TotalAmountColumn {
+            public global::System.Data.DataColumn AmountPaidColumn {
                 get {
-                    return this.columnTotalAmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AmountRecievedColumn {
-                get {
-                    return this.columnAmountRecieved;
+                    return this.columnAmountPaid;
                 }
             }
             
@@ -479,7 +469,7 @@ namespace Spane_Laboratory {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PurchaseOrderDataRow AddPurchaseOrderDataRow(string VendorName, string PurchaseOrderCode, string CatName, string SubCatName, string UnitName, string PackingName, string Quantity, string UnitRate, string Discount, string TotalAmount, string AmountRecieved, string RemainingAmount, string CreatedDate) {
+            public PurchaseOrderDataRow AddPurchaseOrderDataRow(string VendorName, string PurchaseOrderCode, string CatName, string SubCatName, string UnitName, string PackingName, string Quantity, string UnitRate, string PurchaseRate, string AmountPaid, string RemainingAmount, string CreatedDate) {
                 PurchaseOrderDataRow rowPurchaseOrderDataRow = ((PurchaseOrderDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         VendorName,
@@ -490,9 +480,8 @@ namespace Spane_Laboratory {
                         PackingName,
                         Quantity,
                         UnitRate,
-                        Discount,
-                        TotalAmount,
-                        AmountRecieved,
+                        PurchaseRate,
+                        AmountPaid,
                         RemainingAmount,
                         CreatedDate};
                 rowPurchaseOrderDataRow.ItemArray = columnValuesArray;
@@ -525,9 +514,8 @@ namespace Spane_Laboratory {
                 this.columnPackingName = base.Columns["PackingName"];
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnUnitRate = base.Columns["UnitRate"];
-                this.columnDiscount = base.Columns["Discount"];
-                this.columnTotalAmount = base.Columns["TotalAmount"];
-                this.columnAmountRecieved = base.Columns["AmountRecieved"];
+                this.columnPurchaseRate = base.Columns["PurchaseRate"];
+                this.columnAmountPaid = base.Columns["AmountPaid"];
                 this.columnRemainingAmount = base.Columns["RemainingAmount"];
                 this.columnCreatedDate = base.Columns["CreatedDate"];
             }
@@ -551,12 +539,10 @@ namespace Spane_Laboratory {
                 base.Columns.Add(this.columnQuantity);
                 this.columnUnitRate = new global::System.Data.DataColumn("UnitRate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUnitRate);
-                this.columnDiscount = new global::System.Data.DataColumn("Discount", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDiscount);
-                this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalAmount);
-                this.columnAmountRecieved = new global::System.Data.DataColumn("AmountRecieved", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmountRecieved);
+                this.columnPurchaseRate = new global::System.Data.DataColumn("PurchaseRate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchaseRate);
+                this.columnAmountPaid = new global::System.Data.DataColumn("AmountPaid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmountPaid);
                 this.columnRemainingAmount = new global::System.Data.DataColumn("RemainingAmount", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemainingAmount);
                 this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(string), null, global::System.Data.MappingType.Element);
@@ -831,49 +817,33 @@ namespace Spane_Laboratory {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Discount {
+            public string PurchaseRate {
                 get {
                     try {
-                        return ((string)(this[this.tablePurchaseOrderData.DiscountColumn]));
+                        return ((string)(this[this.tablePurchaseOrderData.PurchaseRateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Discount\' in table \'PurchaseOrderData\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PurchaseRate\' in table \'PurchaseOrderData\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePurchaseOrderData.DiscountColumn] = value;
+                    this[this.tablePurchaseOrderData.PurchaseRateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TotalAmount {
+            public string AmountPaid {
                 get {
                     try {
-                        return ((string)(this[this.tablePurchaseOrderData.TotalAmountColumn]));
+                        return ((string)(this[this.tablePurchaseOrderData.AmountPaidColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmount\' in table \'PurchaseOrderData\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AmountPaid\' in table \'PurchaseOrderData\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePurchaseOrderData.TotalAmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AmountRecieved {
-                get {
-                    try {
-                        return ((string)(this[this.tablePurchaseOrderData.AmountRecievedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AmountRecieved\' in table \'PurchaseOrderData\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePurchaseOrderData.AmountRecievedColumn] = value;
+                    this[this.tablePurchaseOrderData.AmountPaidColumn] = value;
                 }
             }
             
@@ -1007,38 +977,26 @@ namespace Spane_Laboratory {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDiscountNull() {
-                return this.IsNull(this.tablePurchaseOrderData.DiscountColumn);
+            public bool IsPurchaseRateNull() {
+                return this.IsNull(this.tablePurchaseOrderData.PurchaseRateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDiscountNull() {
-                this[this.tablePurchaseOrderData.DiscountColumn] = global::System.Convert.DBNull;
+            public void SetPurchaseRateNull() {
+                this[this.tablePurchaseOrderData.PurchaseRateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTotalAmountNull() {
-                return this.IsNull(this.tablePurchaseOrderData.TotalAmountColumn);
+            public bool IsAmountPaidNull() {
+                return this.IsNull(this.tablePurchaseOrderData.AmountPaidColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTotalAmountNull() {
-                this[this.tablePurchaseOrderData.TotalAmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAmountRecievedNull() {
-                return this.IsNull(this.tablePurchaseOrderData.AmountRecievedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAmountRecievedNull() {
-                this[this.tablePurchaseOrderData.AmountRecievedColumn] = global::System.Convert.DBNull;
+            public void SetAmountPaidNull() {
+                this[this.tablePurchaseOrderData.AmountPaidColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
