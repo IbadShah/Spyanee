@@ -35,12 +35,18 @@ namespace Spane_Laboratory
         private const string VendorContactNumber = "@VendorContactNumber";
         private const string VendorAddress = "@VendorAddress";
         private const string PurchaseOrderCode = "@PurchaseOrderCode";
+        private const string SaleOrderCode = "@SaleOrderCode";
         private const string IsActive = "@IsActive";
         private const string CreatedBy = "@CreatedBy";
         private const string UpdatedBy = "@UpdatedBy";
         private const string purchaseOrderTable = "@purchaseOrderTable";
+        private const string saleOrderTable = "@saleOrderTable";
         private const string ClassId = "@ClassId";
-        private const string ClassName = "ClassName";
+        private const string ClassName = "@ClassName";
+        private const string CustomerId = "@CustomerId";
+        private const string CustomerName = "@CustomerName";
+        private const string CustomerContactNumber = "@CustomerContactNumber";
+        private const string CustomerAddress = "@CustomerAddress";
         #endregion
 
         //Global Variables
@@ -241,6 +247,7 @@ namespace Spane_Laboratory
             SetPurchaseInvoiceCode();
             SetSaleOrderCode();
             PopulateGvPurchaseOrder();
+            PopulateGvSaleOrder();
         }
         public void PopulatePackings()
         {
@@ -383,7 +390,35 @@ namespace Spane_Laboratory
             gvPurchaseOrder.Columns[9].Width =  128;
 
         }
-    
+        public void PopulateGvSaleOrder()
+        {
+
+
+            gvSaleOrder.ColumnCount = 13;
+            gvSaleOrder.Columns[0].Name = "SaleOrderId";
+            gvSaleOrder.Columns[0].Visible = false;
+            gvSaleOrder.Columns[1].Name = "CatName";
+            gvSaleOrder.Columns[2].Name = "SubCatName";
+            gvSaleOrder.Columns[3].Name = "UnitName";
+            gvSaleOrder.Columns[4].Name = "PackingName";
+            gvSaleOrder.Columns[5].Name = "ClassName";
+            gvSaleOrder.Columns[6].Name = "Quantity";
+            gvSaleOrder.Columns[7].Name = "UnitRate";
+            gvSaleOrder.Columns[8].Name = "Discount";
+            gvSaleOrder.Columns[9].Name = "SaleRate";
+            gvSaleOrder.Columns[10].Name = "TotalAmount";
+            gvSaleOrder.Columns[11].Name = "AmountReceived";
+            gvSaleOrder.Columns[12].Name = "RemainingAmount";
+            //gvSaleOrder.Columns[0].Width = 124;
+            //gvSaleOrder.Columns[1].Width = 124;
+            //gvSaleOrder.Columns[2].Width = 124;
+            //gvSaleOrder.Columns[3].Width = 124;
+            //gvSaleOrder.Columns[6].Width = 124;
+            //gvPurchaseOrder.Columns[9].Width = 128;
+
+        }
+
+
         public DataTable GetPurchaseOrderCode()
         {
             SqlParameter[] pram =
@@ -513,6 +548,15 @@ namespace Spane_Laboratory
             return purchaseOrder;
             
         }
+        private SaleOrder InitializerSaleOrder()
+        {
+            var saleOrder = new SaleOrder
+            {
+                SaleOrderCode = tbSaleOrderCode.Text
+            };
+            return saleOrder;
+
+        }
         private Vendor InitializerVendor()
         {
             var vendor = new Vendor
@@ -524,6 +568,19 @@ namespace Spane_Laboratory
                 UpdatedBy = adminId
             };
             return vendor;
+        }
+
+        private Customer InitializerCustomer()
+        {
+            var customer = new Customer
+            {
+                CustomerName = tbSaleOrderCustomerName.Text,
+                CustomerContactNumber = Convert.ToInt32(tbSaleOrderCustomerContactNumber.Text),
+                CustomerAddress = richTbSaleOrder.Text,
+                CreatedBy = adminId,
+                UpdatedBy = adminId
+            };
+            return customer;
         }
         //Model Initializer END
 
@@ -588,6 +645,30 @@ namespace Spane_Laboratory
                     _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
                 };
             var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspPurchseOrderSave", RetVal, param);
+        }
+        public void SaveSaleOrder(Customer model, SaleOrder model1, DataTable dt)
+        {
+
+            SqlParameter[] param =
+            {
+
+                _oDbHelper.InParam(saleOrderTable, SqlDbType.Structured,0,dt),
+
+                    _oDbHelper.InParam(CustomerName, SqlDbType.NVarChar, 50, model.CustomerName),
+
+                    _oDbHelper.InParam(CustomerContactNumber,SqlDbType.BigInt,15,model.CustomerContactNumber),
+
+                    _oDbHelper.InParam(CustomerAddress,SqlDbType.NVarChar,50,model.CustomerAddress),
+
+                   _oDbHelper.InParam(SaleOrderCode,SqlDbType.NVarChar,50,model1.SaleOrderCode),
+
+                    _oDbHelper.InParam(CreatedBy,SqlDbType.Int,4,model.CreatedBy),
+
+                    _oDbHelper.InParam(UpdatedBy,SqlDbType.Int,4,model.UpdatedBy),
+
+                    _oDbHelper.OutParam(RetVal, SqlDbType.Int, 4)
+                };
+            var retVal = (int)_oDbHelper.ExecuteScalarOutPram("uspSaleOrderSave", RetVal, param);
         }
         public void SavePacking(Packing model)
         {
@@ -1732,12 +1813,126 @@ namespace Spane_Laboratory
             }
         }
 
+        //Sale Order Screen Coding START
+        private void tbSaleOrderUnitRate_Leave(object sender, EventArgs e)
+        {
+            decimal quantity=Convert.ToDecimal(tbSaleOrderQuantity.Text);
+            decimal purchaseRate=Convert.ToDecimal(cmbPurchaseRate.Text);
+            decimal amount = quantity * purchaseRate;
+            tbSaleOrderTotalAmount.Text =Convert.ToString(amount);
+            decimal saleRate=(Convert.ToDecimal(tbSaleOrderUnitRate.Text)/100)*amount;
+            tbSaleOrderSaleRate.Text = Convert.ToString(saleRate+amount);
 
-        //
+        }
 
-        //
-        //Purchase Invoice Screen Coding START
-        //Purchase Invoice Screen Coding START
+        private void tbSaleOrderDiscount_Leave(object sender, EventArgs e)
+        {
+            decimal discount=Convert.ToDecimal(tbSaleOrderDiscount.Text);
+            decimal withDiscount = (discount / 100) * Convert.ToDecimal(tbSaleOrderSaleRate.Text);
+            tbSaleOrderSaleRate.Text = Convert.ToString(Convert.ToDecimal(tbSaleOrderSaleRate.Text)-withDiscount);
+        }
+
+        private void tbSaleOrderAmountRe_Leave(object sender, EventArgs e)
+        {
+            decimal amountReceived = Convert.ToDecimal(tbSaleOrderAmountRe.Text);
+            decimal saleRate = Convert.ToDecimal(tbSaleOrderSaleRate.Text);
+            decimal remainingAmount = saleRate - amountReceived;
+            tbSaleOrderRemAmount.Text = Convert.ToString(remainingAmount);
+        }
+
+        private void btnSaleOrderAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+
+
+          gvSaleOrder.Rows.Add(0,
+                                cmbSelectCatSaleOrder.Text,
+                                cmbSelectSubCatSaleOrder.Text,
+                                cmbSaleOrderUnit.Text,
+                                cmbSaleOrderPacking.Text,
+                                cmbSelectClass.Text, 
+                                Convert.ToDecimal(tbSaleOrderQuantity.Text),
+                                Convert.ToDecimal(tbSaleOrderUnitRate.Text),
+                                Convert.ToDecimal(tbSaleOrderDiscount.Text), 
+                                Convert.ToDecimal(tbSaleOrderSaleRate.Text),
+                                Convert.ToDecimal(tbSaleOrderTotalAmount.Text),
+                                Convert.ToDecimal(tbSaleOrderAmountRe.Text),
+                                Convert.ToDecimal(tbSaleOrderRemAmount.Text)
+                                );
+                   // PurchaseFieldClear();
+            
+             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex);
+
+            }
+        }
+
+        private void btnSaveSaleOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                _oDbHelper.OpenConnection();
+
+                var dt = new DataTable();
+                foreach (DataGridViewColumn column in gvSaleOrder.Columns)
+                {
+
+                    dt.Columns.Add();
+
+                }
+
+                object[] cellValues = new object[gvSaleOrder.Columns.Count];
+                foreach (DataGridViewRow row in gvSaleOrder.Rows)
+                {
+                    for (int i = 0; i < row.Cells.Count; i++)
+                    {
+                        if (row.Cells[i].Value != null)
+                        {
+                            cellValues[i] = row.Cells[i].Value;
+                            if (i == 12)
+                            {
+                                dt.Rows.Add(cellValues);
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                }
+
+
+                var customer = InitializerCustomer();
+                var saleOrder = InitializerSaleOrder();
+                SaveSaleOrder(customer, saleOrder, dt);
+                SetSaleOrderCode();
+                _oDbHelper.CloseConnection();
+            
+                MessageBox.Show("Sale Order is Inserted.");
+       
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Insertion Failed." + ex);
+                _oDbHelper.CloseConnection();
+            }
+        }
+
+
+
+
+        //Sale Order Screen Coding START
 
 
 
