@@ -7,3 +7,4 @@ C:\Users\Jawad Khan\Documents\GitHub\Spyanee\Spane_Laboratory\Lab.Models\bin\Deb
 C:\Users\Jawad Khan\Documents\GitHub\Spyanee\Spane_Laboratory\Lab.Models\bin\Debug\Lab.Models.pdb
 C:\Users\Jawad Khan\Documents\GitHub\Spyanee\Spane_Laboratory\Lab.Models\obj\Debug\Lab.Models.dll
 C:\Users\Jawad Khan\Documents\GitHub\Spyanee\Spane_Laboratory\Lab.Models\obj\Debug\Lab.Models.pdb
+C:\Users\Jawad Khan\Documents\GitHub\Spyanee\Spane_Laboratory\Lab.Models\obj\Debug\Lab.Models.csprojResolveAssemblyReference.cache

@@ -882,7 +882,7 @@ namespace Spane_Laboratory
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Item is not Inserted."+ex);
+                MessageBox.Show("Item is not Inserted."+ex);
             }
         }
         public void SaveSubCategories(SubCategories subCategories)
@@ -1767,13 +1767,19 @@ namespace Spane_Laboratory
                 _oDbHelper.CloseConnection();
             }
         }
-
+        // Crystal Report Button Start
         private void btnPrint_Click(object sender, EventArgs e)
         {
             Crytal_Report cry = new Crytal_Report();
             cry.Show();
         }
+        private void btnPrintSale_Click(object sender, EventArgs e)
+        {
+            SaleOrderReport crp = new SaleOrderReport();
+            crp.Show();
 
+        }
+        // Crystal Report Button End
         private void cmbAddClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -1929,6 +1935,7 @@ namespace Spane_Laboratory
             }
         }
 
+        
 
 
 
